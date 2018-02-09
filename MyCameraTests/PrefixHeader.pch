@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  MyCamera
+///Users/shiguang/Desktop/000TestDemo/MyCamera/MyCameraTests/PrefixHeader.pch
+//  Created by shiguang on 2018/1/11.
+//  Copyright © 2018年 shiguang. All rights reserved.
+///Users/shiguang/Desktop/000TestDemo/MyCamera/MyCamera/PrefixHeader.pch
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import <UIKit/UIKit.h>
+
+
+#import "FoundationDefine.h"
+#import "MBProgressHUD+MJ.h"
+#import "Masonry.h"
+#import "UIColor+expanded.h"
+#import "ToolFunction.h"
+#import "UIImage+Rotate.h"
+#import "NSString+Common.h"
+#import "NSDate+Util.h"
+#import "UIImage+Rotate.h"
+#import "UIImage+Common.h"
+#import "UIColor+Category.h"
+#import "UIView+ECategory.h"
+#import "Helper.h"
+
+#define PickerBarH 34
+#define BLUECOLOR @"19c9db"
+#define BGGRAYCOLOR @"f0f0f6"
+#define PURPLECOLOR @"be5ce3"
+#define BGBUTTONOK @"ButtonOK"
+#define BGButtonDisable @"ButtonDisable"
+#define  LL_ScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define  LL_ScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define  LL_iPhoneX (LL_ScreenWidth == 375.f && LL_ScreenHeight == 812.f ? YES : NO)
+#define  LL_StatusBarHeight      (LL_iPhoneX ? 44.f : 20.f)
+#define  LL_NavigationBarHeight  44.f
+#define  LL_TabbarHeight         (LL_iPhoneX ? (49.f+34.f) : 49.f)
+#define  LL_TabbarSafeBottomMargin         (LL_iPhoneX ? 34.f : 0.f)
+#define  LL_StatusBarAndNavigationBarHeight  (LL_iPhoneX ? 88.f : 64.f)
+#define LL_ViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
+
+#define NSEaseLocalizedString(key, comment) [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"EaseUIResource" withExtension:@"bundle"]] localizedStringForKey:(key) value:@"" table:nil]
+
+
+#ifndef LLog
+#define LLogF(format, ...) NSLog(@"%s:%i: %@", __FILE__, __LINE__, [NSString stringWithFormat:format, ##__VA_ARGS__]);
+
+#ifdef DEBUG
+#define LLog(format, ...) LLogF(format, ##__VA_ARGS__);
+#else
+#define LLog(format, ...) while(0){}
+#endif
+#endif
+
+#endif /* PrefixHeader_pch */
