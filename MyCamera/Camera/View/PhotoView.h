@@ -9,18 +9,20 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^PhotoBtnClick)(void);
+typedef void(^ThumbClick)(void);
+typedef void(^MoreBtnClick)(void);
 
 @interface PhotoView : UIView
-@property(nonatomic,retain)UIButton * thumbnailBtn;
-@property(nonatomic,retain)UIImageView * imageV;
 
-@property(nonatomic,retain)UIImageView *thumbnailImgV;
-@property(nonatomic,retain)UIButton * moreBtn;
+@property (nonatomic,retain) UIButton * thumbnailBtn;
+@property (nonatomic,retain) UIImageView * imageV;
 
-@property (nonatomic,copy)PhotoBtnClick photoBtnClick;
+@property (nonatomic,retain) UIImageView *thumbnailImgV;
+@property (nonatomic,retain) UIButton * moreBtn;
+@property (nonatomic,copy) ThumbClick thumClickBlock;
 
+@property (nonatomic,copy) PhotoBtnClick photoBtnClick;
 
--(void)setVideoState:(BOOL)videoState;
-
--(void)setVideoPercent:(CGFloat)percent;
+@property (nonatomic,copy) MoreBtnClick moreClickBlock;
 @end
+

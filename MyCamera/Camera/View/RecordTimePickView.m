@@ -7,15 +7,15 @@
 //
 
 #import "RecordTimePickView.h"
-#import "EButton.h"
+#import "CameraModeSelectBtn.h"
 
 #define ModeBtnWidth 30
 #define ModeBtnMargin 30
 #define btn_Y 5
 @interface RecordTimePickView()
 
-@property (nonatomic,weak) EButton *leftBtn;
-@property (nonatomic,weak) EButton *rightBtn;
+@property (nonatomic,weak) CameraModeSelectBtn *leftBtn;
+@property (nonatomic,weak) CameraModeSelectBtn *rightBtn;
 @property (nonatomic,weak) UIView *pickerBaseView;
 
 @end
@@ -36,7 +36,7 @@
         [self addSubview:pickerBaseV];
         self.pickerBaseView = pickerBaseV;
         
-        EButton *leftBtn = [EButton buttonWithType:UIButtonTypeCustom];
+        CameraModeSelectBtn *leftBtn = [CameraModeSelectBtn buttonWithType:UIButtonTypeCustom];
         leftBtn.frame = CGRectMake(0, btn_Y, ModeBtnWidth, btn_H);
         [leftBtn setTitle:@"15s" forState:UIControlStateNormal];
         leftBtn.titleLabel.font = [UIFont systemFontOfSize:btnFontSize];
@@ -44,17 +44,17 @@
         [leftBtn setTitleColor:[UIColor transformWithHexString:@"#2fb9c3"] forState:UIControlStateSelected];
         [leftBtn setTitleColor:[UIColor transformWithHexString:@"#2fb9c3"] forState:UIControlStateHighlighted];
         leftBtn.selected = YES;
-        [leftBtn addTarget:self action:@selector(photoModeClick) forControlEvents:UIControlEventTouchUpInside];
+        [leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
         self.leftBtn = leftBtn;
         
-        EButton *rightBtn = [EButton buttonWithType:UIButtonTypeCustom];
+        CameraModeSelectBtn *rightBtn = [CameraModeSelectBtn buttonWithType:UIButtonTypeCustom];
         rightBtn.frame = CGRectMake(ModeBtnWidth+ModeBtnMargin, btn_Y, ModeBtnWidth, btn_H);
         [rightBtn setTitle:@"30s" forState:UIControlStateNormal];
         rightBtn.titleLabel.font = [UIFont systemFontOfSize:btnFontSize];
         [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [rightBtn setTitleColor:[UIColor transformWithHexString:@"#2fb9c3"] forState:UIControlStateSelected];
         [rightBtn setTitleColor:[UIColor transformWithHexString:@"#2fb9c3"] forState:UIControlStateHighlighted];
-        [rightBtn addTarget:self action:@selector(videoModeClick) forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
         self.rightBtn = rightBtn;
         
         [pickerBaseV addSubview:leftBtn];
@@ -64,13 +64,14 @@
     }
     return self;
 }
-- (void)videoModeClick{
+#pragma mark - 30s
+- (void)rightBtnClick{
     
     CGFloat scroolV_W = ModeBtnWidth * 2 + ModeBtnMargin;
     CGFloat scroll_x = LL_ScreenWidth/2 - scroolV_W + ModeBtnWidth/2;
     
     if (self.leftBtn.isSelected) {
-        self.recordTimeSetBlock(RecordTime15);
+        self.recordTimeSetBlock(RecordTime30);
         self.rightBtn.selected = YES;
         self.leftBtn.selected = NO;
         
@@ -80,13 +81,14 @@
         
     }
 }
-- (void)photoModeClick{
+#pragma mark - 15s
+- (void)leftBtnClick{
     
     CGFloat scroolV_W = ModeBtnWidth * 2 + ModeBtnMargin;
     CGFloat scroll_x = LL_ScreenWidth/2 - ModeBtnWidth/2;
     
     if (self.rightBtn.isSelected) {
-        self.recordTimeSetBlock(RecordTime30);
+        self.recordTimeSetBlock(RecordTime15);
         self.leftBtn.selected = YES;
         self.rightBtn.selected = NO;
         
@@ -100,5 +102,5 @@
     NSLog(@"%s",__func__);
 }
 
-
 @end
+

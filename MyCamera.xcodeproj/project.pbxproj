@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3197690200CA25800CC0A91 /* ProgressBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = E319768F200CA25800CC0A91 /* ProgressBtnView.m */; };
-		E3197693200CA35200CC0A91 /* TakePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3197692200CA35200CC0A91 /* TakePhotoView.m */; };
-		E3197698200CA37600CC0A91 /* TakePhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3197697200CA37600CC0A91 /* TakePhotoView.xib */; };
+		E33FA61B204145FC007C0A2B /* CameraModeSelectBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA61A204145FC007C0A2B /* CameraModeSelectBtn.m */; };
+		E33FA6202041460E007C0A2B /* ECameraSQL.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA61C2041460D007C0A2B /* ECameraSQL.m */; };
+		E33FA6212041460E007C0A2B /* ECameraMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA61F2041460E007C0A2B /* ECameraMediaModel.m */; };
+		E33FA6312041462E007C0A2B /* EAlertErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E33FA6242041462E007C0A2B /* EAlertErrorView.xib */; };
+		E33FA6322041462E007C0A2B /* EAlertTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA6252041462E007C0A2B /* EAlertTitleView.m */; };
+		E33FA6332041462E007C0A2B /* EAlertTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E33FA6262041462E007C0A2B /* EAlertTitleView.xib */; };
+		E33FA6342041462E007C0A2B /* EAlertViewWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA6272041462E007C0A2B /* EAlertViewWithCheckBox.m */; };
+		E33FA6352041462E007C0A2B /* EAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA6282041462E007C0A2B /* EAlertView.m */; };
+		E33FA6362041462E007C0A2B /* EAlertErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA62A2041462E007C0A2B /* EAlertErrorView.m */; };
+		E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E33FA62B2041462E007C0A2B /* EAlertView.xib */; };
+		E33FA6382041462E007C0A2B /* EAlertViewWithCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = E33FA62E2041462E007C0A2B /* EAlertViewWithCheckBox.xib */; };
+		E33FA6392041462E007C0A2B /* ECustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA62F2041462E007C0A2B /* ECustomAlertView.m */; };
+		E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA63A20414646007C0A2B /* Utils_DeviceInfo.m */; };
+		E33FA6442041468E007C0A2B /* EMediaTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA63E2041468D007C0A2B /* EMediaTool.m */; };
+		E33FA6452041468E007C0A2B /* PHAsset+ECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA6412041468D007C0A2B /* PHAsset+ECamera.m */; };
+		E33FA6462041468E007C0A2B /* ECameraAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA6432041468D007C0A2B /* ECameraAsset.m */; };
 		E36F1AC32007131B00DD5AB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1AC22007131B00DD5AB0 /* AppDelegate.m */; };
 		E36F1AC62007131B00DD5AB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1AC52007131B00DD5AB0 /* ViewController.m */; };
 		E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E36F1AC72007131B00DD5AB0 /* Main.storyboard */; };
@@ -40,13 +53,11 @@
 		E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7633B200DD24500AD2508 /* NSString+Common.m */; };
 		E3B763D1200DD9D500AD2508 /* NSDate+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763D0200DD9D500AD2508 /* NSDate+Util.m */; };
 		E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763D5200DDC2800AD2508 /* UIImage+Common.m */; };
-		E3B763DA200DE8FD00AD2508 /* CustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763D9200DE8FD00AD2508 /* CustomPicker.m */; };
 		E3B763DD200E01B400AD2508 /* RecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763DC200E01B400AD2508 /* RecordView.m */; };
 		E3B763E0200F178800AD2508 /* UIView+ECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763DF200F178800AD2508 /* UIView+ECategory.m */; };
 		E3B763E3200F179800AD2508 /* EButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763E1200F179800AD2508 /* EButton.m */; };
 		E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763E5200F3F0E00AD2508 /* CameraModePickView.m */; };
 		E3B763E920108EED00AD2508 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763E720108EEC00AD2508 /* UIColor+Category.m */; };
-		E3B763EC2011DCED00AD2508 /* RecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763EB2011DCEC00AD2508 /* RecordButton.m */; };
 		E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763FA201592DE00AD2508 /* MBProgressHUD.m */; };
 		E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763FB201592DE00AD2508 /* MBProgressHUD+Add.m */; };
 		E3B76403201592DE00AD2508 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B763FE201592DE00AD2508 /* MBProgressHUD+MJ.m */; };
@@ -60,11 +71,7 @@
 		E3B7641F201592E700AD2508 /* NSObject+LHModelOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76410201592E700AD2508 /* NSObject+LHModelOperation.m */; };
 		E3B76420201592E700AD2508 /* LHDataBaseExecute.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76413201592E700AD2508 /* LHDataBaseExecute.m */; };
 		E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76414201592E700AD2508 /* LHDBQueue.m */; };
-		E3B764242015944100AD2508 /* EasyCameraMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B764222015944100AD2508 /* EasyCameraMedia.m */; };
-		E3B764272015C68300AD2508 /* EasyCameraHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B764262015C68300AD2508 /* EasyCameraHeaderInfo.m */; };
-		E3B7642A2015C69300AD2508 /* EasyCameraSQL.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B764282015C69300AD2508 /* EasyCameraSQL.m */; };
 		E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */; };
-		E3E86528200DA96A00FCE9BC /* EasyCamerPercentCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E86525200DA96900FCE9BC /* EasyCamerPercentCycle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,11 +92,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E319768E200CA25800CC0A91 /* ProgressBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressBtnView.h; sourceTree = "<group>"; };
-		E319768F200CA25800CC0A91 /* ProgressBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressBtnView.m; sourceTree = "<group>"; };
-		E3197691200CA35200CC0A91 /* TakePhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhotoView.h; sourceTree = "<group>"; };
-		E3197692200CA35200CC0A91 /* TakePhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhotoView.m; sourceTree = "<group>"; };
-		E3197697200CA37600CC0A91 /* TakePhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakePhotoView.xib; sourceTree = "<group>"; };
+		E33FA619204145FB007C0A2B /* CameraModeSelectBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModeSelectBtn.h; sourceTree = "<group>"; };
+		E33FA61A204145FC007C0A2B /* CameraModeSelectBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModeSelectBtn.m; sourceTree = "<group>"; };
+		E33FA61C2041460D007C0A2B /* ECameraSQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECameraSQL.m; sourceTree = "<group>"; };
+		E33FA61D2041460D007C0A2B /* ECameraMediaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECameraMediaModel.h; sourceTree = "<group>"; };
+		E33FA61E2041460E007C0A2B /* ECameraSQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECameraSQL.h; sourceTree = "<group>"; };
+		E33FA61F2041460E007C0A2B /* ECameraMediaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECameraMediaModel.m; sourceTree = "<group>"; };
+		E33FA6232041462E007C0A2B /* EAlertErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAlertErrorView.h; sourceTree = "<group>"; };
+		E33FA6242041462E007C0A2B /* EAlertErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAlertErrorView.xib; sourceTree = "<group>"; };
+		E33FA6252041462E007C0A2B /* EAlertTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAlertTitleView.m; sourceTree = "<group>"; };
+		E33FA6262041462E007C0A2B /* EAlertTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAlertTitleView.xib; sourceTree = "<group>"; };
+		E33FA6272041462E007C0A2B /* EAlertViewWithCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAlertViewWithCheckBox.m; sourceTree = "<group>"; };
+		E33FA6282041462E007C0A2B /* EAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAlertView.m; sourceTree = "<group>"; };
+		E33FA6292041462E007C0A2B /* ECustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECustomAlertView.h; sourceTree = "<group>"; };
+		E33FA62A2041462E007C0A2B /* EAlertErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAlertErrorView.m; sourceTree = "<group>"; };
+		E33FA62B2041462E007C0A2B /* EAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAlertView.xib; sourceTree = "<group>"; };
+		E33FA62C2041462E007C0A2B /* EAlertTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAlertTitleView.h; sourceTree = "<group>"; };
+		E33FA62D2041462E007C0A2B /* EAlertViewWithCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAlertViewWithCheckBox.h; sourceTree = "<group>"; };
+		E33FA62E2041462E007C0A2B /* EAlertViewWithCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAlertViewWithCheckBox.xib; sourceTree = "<group>"; };
+		E33FA62F2041462E007C0A2B /* ECustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECustomAlertView.m; sourceTree = "<group>"; };
+		E33FA6302041462E007C0A2B /* EAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAlertView.h; sourceTree = "<group>"; };
+		E33FA63A20414646007C0A2B /* Utils_DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils_DeviceInfo.m; sourceTree = "<group>"; };
+		E33FA63B20414646007C0A2B /* Utils_DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils_DeviceInfo.h; sourceTree = "<group>"; };
+		E33FA63E2041468D007C0A2B /* EMediaTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMediaTool.m; sourceTree = "<group>"; };
+		E33FA63F2041468D007C0A2B /* PHAsset+ECamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHAsset+ECamera.h"; sourceTree = "<group>"; };
+		E33FA6402041468D007C0A2B /* ECameraAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECameraAsset.h; sourceTree = "<group>"; };
+		E33FA6412041468D007C0A2B /* PHAsset+ECamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHAsset+ECamera.m"; sourceTree = "<group>"; };
+		E33FA6422041468D007C0A2B /* EMediaTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMediaTool.h; sourceTree = "<group>"; };
+		E33FA6432041468D007C0A2B /* ECameraAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECameraAsset.m; sourceTree = "<group>"; };
 		E36F1ABE2007131B00DD5AB0 /* MyCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36F1AC12007131B00DD5AB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E36F1AC22007131B00DD5AB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,8 +195,6 @@
 		E3B763D0200DD9D500AD2508 /* NSDate+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Util.m"; sourceTree = "<group>"; };
 		E3B763D5200DDC2800AD2508 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		E3B763D6200DDC2800AD2508 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
-		E3B763D8200DE8FD00AD2508 /* CustomPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPicker.h; sourceTree = "<group>"; };
-		E3B763D9200DE8FD00AD2508 /* CustomPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPicker.m; sourceTree = "<group>"; };
 		E3B763DB200E01B400AD2508 /* RecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordView.h; sourceTree = "<group>"; };
 		E3B763DC200E01B400AD2508 /* RecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordView.m; sourceTree = "<group>"; };
 		E3B763DE200F178800AD2508 /* UIView+ECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ECategory.h"; sourceTree = "<group>"; };
@@ -177,8 +205,6 @@
 		E3B763E5200F3F0E00AD2508 /* CameraModePickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraModePickView.m; sourceTree = "<group>"; };
 		E3B763E720108EEC00AD2508 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		E3B763E820108EEC00AD2508 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
-		E3B763EA2011DCEC00AD2508 /* RecordButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordButton.h; sourceTree = "<group>"; };
-		E3B763EB2011DCEC00AD2508 /* RecordButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordButton.m; sourceTree = "<group>"; };
 		E3B763FA201592DE00AD2508 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E3B763FB201592DE00AD2508 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		E3B763FC201592DE00AD2508 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
@@ -205,16 +231,8 @@
 		E3B76416201592E700AD2508 /* LHPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHPredicate.h; sourceTree = "<group>"; };
 		E3B76417201592E700AD2508 /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
 		E3B76418201592E700AD2508 /* LHDBPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHDBPath.h; sourceTree = "<group>"; };
-		E3B764222015944100AD2508 /* EasyCameraMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyCameraMedia.m; sourceTree = "<group>"; };
-		E3B764232015944100AD2508 /* EasyCameraMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyCameraMedia.h; sourceTree = "<group>"; };
-		E3B764252015C68300AD2508 /* EasyCameraHeaderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyCameraHeaderInfo.h; sourceTree = "<group>"; };
-		E3B764262015C68300AD2508 /* EasyCameraHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyCameraHeaderInfo.m; sourceTree = "<group>"; };
-		E3B764282015C69300AD2508 /* EasyCameraSQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyCameraSQL.m; sourceTree = "<group>"; };
-		E3B764292015C69300AD2508 /* EasyCameraSQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyCameraSQL.h; sourceTree = "<group>"; };
 		E3C9C5A9201F13CF00139D79 /* RecordTimePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTimePickView.h; sourceTree = "<group>"; };
 		E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTimePickView.m; sourceTree = "<group>"; };
-		E3E86525200DA96900FCE9BC /* EasyCamerPercentCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyCamerPercentCycle.m; sourceTree = "<group>"; };
-		E3E86526200DA96900FCE9BC /* EasyCamerPercentCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyCamerPercentCycle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +260,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E33FA6222041462E007C0A2B /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				E33FA6232041462E007C0A2B /* EAlertErrorView.h */,
+				E33FA6242041462E007C0A2B /* EAlertErrorView.xib */,
+				E33FA6252041462E007C0A2B /* EAlertTitleView.m */,
+				E33FA6262041462E007C0A2B /* EAlertTitleView.xib */,
+				E33FA6272041462E007C0A2B /* EAlertViewWithCheckBox.m */,
+				E33FA6282041462E007C0A2B /* EAlertView.m */,
+				E33FA6292041462E007C0A2B /* ECustomAlertView.h */,
+				E33FA62A2041462E007C0A2B /* EAlertErrorView.m */,
+				E33FA62B2041462E007C0A2B /* EAlertView.xib */,
+				E33FA62C2041462E007C0A2B /* EAlertTitleView.h */,
+				E33FA62D2041462E007C0A2B /* EAlertViewWithCheckBox.h */,
+				E33FA62E2041462E007C0A2B /* EAlertViewWithCheckBox.xib */,
+				E33FA62F2041462E007C0A2B /* ECustomAlertView.m */,
+				E33FA6302041462E007C0A2B /* EAlertView.h */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		E33FA63D2041468D007C0A2B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E33FA63E2041468D007C0A2B /* EMediaTool.m */,
+				E33FA63F2041468D007C0A2B /* PHAsset+ECamera.h */,
+				E33FA6402041468D007C0A2B /* ECameraAsset.h */,
+				E33FA6412041468D007C0A2B /* PHAsset+ECamera.m */,
+				E33FA6422041468D007C0A2B /* EMediaTool.h */,
+				E33FA6432041468D007C0A2B /* ECameraAsset.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		E36F1AB52007131B00DD5AB0 = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +356,7 @@
 		E36F1AF32007148C00DD5AB0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E33FA6222041462E007C0A2B /* AlertView */,
 				E3B76330200DD04200AD2508 /* UIImage+categories */,
 				E3B7632D200DCFFD00AD2508 /* ToolFunction.h */,
 				E3B7632E200DCFFD00AD2508 /* ToolFunction.m */,
@@ -320,6 +373,8 @@
 				E3B7632B200DAA2500AD2508 /* UIColor+expanded.h */,
 				E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */,
 				E36F1B0B20074A9F00DD5AB0 /* FoundationDefine.h */,
+				E33FA63B20414646007C0A2B /* Utils_DeviceInfo.h */,
+				E33FA63A20414646007C0A2B /* Utils_DeviceInfo.m */,
 				E36F1AFD200748E300DD5AB0 /* Helper.h */,
 				E36F1AFE200748E300DD5AB0 /* Helper.m */,
 			);
@@ -329,6 +384,7 @@
 		E36F1AF42007148C00DD5AB0 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				E33FA63D2041468D007C0A2B /* Util */,
 				E36F1AF52007148C00DD5AB0 /* Controller */,
 				E36F1AF62007148C00DD5AB0 /* Model */,
 				E36F1AF72007148C00DD5AB0 /* View */,
@@ -349,12 +405,10 @@
 		E36F1AF62007148C00DD5AB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3B764292015C69300AD2508 /* EasyCameraSQL.h */,
-				E3B764282015C69300AD2508 /* EasyCameraSQL.m */,
-				E3B764252015C68300AD2508 /* EasyCameraHeaderInfo.h */,
-				E3B764262015C68300AD2508 /* EasyCameraHeaderInfo.m */,
-				E3B764232015944100AD2508 /* EasyCameraMedia.h */,
-				E3B764222015944100AD2508 /* EasyCameraMedia.m */,
+				E33FA61D2041460D007C0A2B /* ECameraMediaModel.h */,
+				E33FA61F2041460E007C0A2B /* ECameraMediaModel.m */,
+				E33FA61E2041460E007C0A2B /* ECameraSQL.h */,
+				E33FA61C2041460D007C0A2B /* ECameraSQL.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,25 +418,16 @@
 			children = (
 				E3B763E2200F179800AD2508 /* EButton.h */,
 				E3B763E1200F179800AD2508 /* EButton.m */,
-				E3B763EA2011DCEC00AD2508 /* RecordButton.h */,
-				E3B763EB2011DCEC00AD2508 /* RecordButton.m */,
-				E3E86526200DA96900FCE9BC /* EasyCamerPercentCycle.h */,
-				E3E86525200DA96900FCE9BC /* EasyCamerPercentCycle.m */,
-				E319768E200CA25800CC0A91 /* ProgressBtnView.h */,
-				E319768F200CA25800CC0A91 /* ProgressBtnView.m */,
-				E3197691200CA35200CC0A91 /* TakePhotoView.h */,
-				E3197692200CA35200CC0A91 /* TakePhotoView.m */,
-				E3197697200CA37600CC0A91 /* TakePhotoView.xib */,
 				E3B76327200DA9DA00AD2508 /* PhotoView.h */,
 				E3B76328200DA9DA00AD2508 /* PhotoView.m */,
 				E3B763DB200E01B400AD2508 /* RecordView.h */,
 				E3B763DC200E01B400AD2508 /* RecordView.m */,
 				E3B763E4200F3F0E00AD2508 /* CameraModePickView.h */,
 				E3B763E5200F3F0E00AD2508 /* CameraModePickView.m */,
-				E3B763D8200DE8FD00AD2508 /* CustomPicker.h */,
-				E3B763D9200DE8FD00AD2508 /* CustomPicker.m */,
 				E3C9C5A9201F13CF00139D79 /* RecordTimePickView.h */,
 				E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */,
+				E33FA619204145FB007C0A2B /* CameraModeSelectBtn.h */,
+				E33FA61A204145FC007C0A2B /* CameraModeSelectBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -604,12 +649,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E33FA6312041462E007C0A2B /* EAlertErrorView.xib in Resources */,
 				E36F1ACE2007131B00DD5AB0 /* LaunchScreen.storyboard in Resources */,
+				E33FA6332041462E007C0A2B /* EAlertTitleView.xib in Resources */,
 				E36F1ACB2007131B00DD5AB0 /* Assets.xcassets in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
-				E3197698200CA37600CC0A91 /* TakePhotoView.xib in Resources */,
 				E36F1AFC200714B400DD5AB0 /* CameraVC.xib in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
+				E33FA6382041462E007C0A2B /* EAlertViewWithCheckBox.xib in Resources */,
+				E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,33 +683,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
-				E3B764272015C68300AD2508 /* EasyCameraHeaderInfo.m in Sources */,
 				E3B763E0200F178800AD2508 /* UIView+ECategory.m in Sources */,
+				E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */,
 				E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
 				E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */,
-				E3B764242015944100AD2508 /* EasyCameraMedia.m in Sources */,
-				E3197693200CA35200CC0A91 /* TakePhotoView.m in Sources */,
 				E3B7641A201592E700AD2508 /* LHModelStateMent.m in Sources */,
 				E3B763E920108EED00AD2508 /* UIColor+Category.m in Sources */,
+				E33FA6442041468E007C0A2B /* EMediaTool.m in Sources */,
+				E33FA6462041468E007C0A2B /* ECameraAsset.m in Sources */,
 				E3B763D1200DD9D500AD2508 /* NSDate+Util.m in Sources */,
-				E3B7642A2015C69300AD2508 /* EasyCameraSQL.m in Sources */,
 				E36F1C862007580C00DD5AB0 /* MASConstraint.m in Sources */,
 				E36F1C842007580C00DD5AB0 /* NSArray+MASAdditions.m in Sources */,
+				E33FA6322041462E007C0A2B /* EAlertTitleView.m in Sources */,
 				E3B76420201592E700AD2508 /* LHDataBaseExecute.m in Sources */,
 				E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */,
 				E36F1AC62007131B00DD5AB0 /* ViewController.m in Sources */,
+				E33FA6392041462E007C0A2B /* ECustomAlertView.m in Sources */,
 				E3B7641D201592E700AD2508 /* LHDBPath.m in Sources */,
-				E3B763DA200DE8FD00AD2508 /* CustomPicker.m in Sources */,
 				E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */,
-				E3E86528200DA96A00FCE9BC /* EasyCamerPercentCycle.m in Sources */,
 				E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */,
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
 				E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */,
 				E36F1C7F2007580C00DD5AB0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E3B763DD200E01B400AD2508 /* RecordView.m in Sources */,
+				E33FA6452041468E007C0A2B /* PHAsset+ECamera.m in Sources */,
 				E3B76403201592DE00AD2508 /* MBProgressHUD+MJ.m in Sources */,
 				E3B7641B201592E700AD2508 /* PrintObject.m in Sources */,
 				E36F1C882007580C00DD5AB0 /* MASViewAttribute.m in Sources */,
@@ -670,19 +718,23 @@
 				E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */,
 				E3B7641E201592E700AD2508 /* UIView+Shadow.m in Sources */,
 				E36F1AD12007131B00DD5AB0 /* main.m in Sources */,
+				E33FA6362041462E007C0A2B /* EAlertErrorView.m in Sources */,
+				E33FA6352041462E007C0A2B /* EAlertView.m in Sources */,
 				E36F1C822007580C00DD5AB0 /* MASConstraintMaker.m in Sources */,
+				E33FA61B204145FC007C0A2B /* CameraModeSelectBtn.m in Sources */,
 				E36F1C832007580C00DD5AB0 /* MASLayoutConstraint.m in Sources */,
 				E36F1C852007580C00DD5AB0 /* View+MASAdditions.m in Sources */,
 				E36F1C812007580C00DD5AB0 /* MASCompositeConstraint.m in Sources */,
 				E36F1C802007580C00DD5AB0 /* ViewController+MASAdditions.m in Sources */,
+				E33FA6212041460E007C0A2B /* ECameraMediaModel.m in Sources */,
+				E33FA6342041462E007C0A2B /* EAlertViewWithCheckBox.m in Sources */,
 				E36F1AC32007131B00DD5AB0 /* AppDelegate.m in Sources */,
-				E3197690200CA25800CC0A91 /* ProgressBtnView.m in Sources */,
+				E33FA6202041460E007C0A2B /* ECameraSQL.m in Sources */,
 				E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */,
 				E36F1AFB200714B400DD5AB0 /* CameraVC.m in Sources */,
 				E3B7641C201592E700AD2508 /* LHPredicate.m in Sources */,
 				E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */,
 				E36F1AFF200748E300DD5AB0 /* Helper.m in Sources */,
-				E3B763EC2011DCED00AD2508 /* RecordButton.m in Sources */,
 				E3B76338200DD04300AD2508 /* UIImage+Rotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,75 +7,76 @@
 //
 
 #import "RecordView.h"
-#import "EasyCamerPercentCycle.h"
-#import "RecordButton.h"
 #import "RecordTimePickView.h"
 
-@interface RecordView()<UIPickerViewDelegate,UIPickerViewDataSource,UIScrollViewDelegate>
+typedef enum {
+    RecordStateRecording,
+    RecordStateOver
+}RecordState;
+
+@interface RecordView ()
 {
-    UIView *_outerView;
-    UIView *_centerView;
     CAShapeLayer *_progressLayer;
     NSTimer *_timer;
-    CGFloat _progress;
-    
     CGFloat progress;
 }
-@property (nonatomic,strong) UIProgressView *progressV ;
 @property (nonatomic,strong) NSTimer *recordTimer;
-@property (nonatomic,strong) UIScrollView *scrollView;
+@property (nonatomic,weak) UIProgressView *progressV ;
+@property (nonatomic,weak) UIScrollView *scrollView;
+@property (nonatomic,weak) UIButton *moreBtn;
+@property (nonatomic,weak) UIButton *confirmBtn;
 @property (nonatomic,weak) RecordTimePickView *timePickView;
-
+@property (nonatomic,weak) UIButton *remakeBtn;
+@property (nonatomic,weak) UILabel *timeLabel;
+@property (nonatomic,weak) UIView *outView;
+@property (nonatomic,weak) UIImageView *centerView;
+@property (nonatomic,assign) RecordState recordState;
 @end
-@implementation RecordView
 
+@implementation RecordView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
         WEAKSELF
-        
-        CGFloat height = 20;
-        CGFloat width = 100;
-        
-        UIScrollView *scrollView = [[UIScrollView alloc]init];
-        scrollView.backgroundColor = [UIColor whiteColor];
-        scrollView.frame = CGRectMake(LL_ScreenWidth/2-width, LL_ScreenHeight - height - PickerBarH, width, height);
-        scrollView.contentSize = CGSizeMake(LL_ScreenWidth * 2, height);
-        scrollView.showsHorizontalScrollIndicator = NO;
-        scrollView.pagingEnabled = YES;
-        //scrollView.scrollEnabled = NO;
-        scrollView.delegate = self;
-        
-        [self addSubview:scrollView];
-        self.scrollView = scrollView;
-        
-        
-        CGFloat outV_Y = 27;
+        //CGFloat outV_Y = 27;
         CGFloat outV_H = 60;
         CGFloat outVBorder_W = 5;
-        _outerView = [[UIView alloc] init];
-        _outerView.frame = CGRectMake(LL_ScreenWidth/2-30, outV_Y, outV_H, outV_H);
-
-        _outerView.alpha = 0.7;
-        _outerView.layer.cornerRadius = _outerView.width/2;
-        _outerView.layer.borderWidth = outVBorder_W;
-        _outerView.layer.borderColor = [UIColor transformWithHexString:@"#fdcccc"].CGColor;
-        _outerView.clipsToBounds = YES;
-        [self addSubview:_outerView];
+        //最外层圈
+        UIView *outerView = [[UIView alloc] init];
+        outerView.alpha = 0.7;
+        outerView.layer.cornerRadius = outV_H/2;
+        outerView.layer.borderWidth = outVBorder_W;
+        outerView.layer.borderColor = [UIColor transformWithHexString:@"#fdcccc"].CGColor;
+        outerView.clipsToBounds = YES;
+        //_outerView.frame = CGRectMake(LL_ScreenWidth/2-30, outV_Y, outV_H, outV_H);
+        [self addSubview:outerView];
+        self.outView = outerView;
+        [outerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@(outV_H));
+            make.centerX.equalTo(weakSelf);
+            make.centerY.equalTo(weakSelf).offset = 6;
+        }];
         
-        
+        //内层圈
         CGFloat centerImgV_W = outV_H - outVBorder_W*2;
         UIImageView *centerImgV = [[UIImageView alloc]init];
         centerImgV.image = [UIImage imageNamed:@"camera_recordCenterImg"];
-        centerImgV.frame = CGRectMake(LL_ScreenWidth/2-30 + outVBorder_W, outV_Y + outVBorder_W, centerImgV_W, centerImgV_W);
+        //centerImgV.frame = CGRectMake(LL_ScreenWidth/2-30 + outVBorder_W, outV_Y + outVBorder_W, centerImgV_W, centerImgV_W);
         centerImgV.userInteractionEnabled = YES;
         centerImgV.layer.cornerRadius = centerImgV_W/2;
         centerImgV.clipsToBounds = YES;
         [self addSubview:centerImgV];
+        self.centerView = centerImgV;
+        [centerImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@(centerImgV_W));
+            make.centerX.equalTo(outerView);
+            make.centerY.equalTo(outerView);
+        }];
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [centerImgV addGestureRecognizer:longPress];
         
+        //预览图
         UIImageView *photoImgV = [[UIImageView alloc]init];
         photoImgV.image = [UIImage imageNamed:@"PhotoLibDefaultImg"];
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(thumbnailBtnClick)];
@@ -86,8 +87,42 @@
         [photoImgV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@23);
             make.width.height.equalTo(@55);
-            make.bottom.equalTo(weakSelf.mas_bottom).offset(-10);
+            make.centerY.equalTo(centerImgV);
         }];
+        UIButton *remakeBtn = [[UIButton alloc]init];
+        [remakeBtn setImage:[UIImage imageNamed:@"camera_remakeBtnImg"] forState:UIControlStateNormal];
+        [remakeBtn addTarget:self action:@selector(remakeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:remakeBtn];
+        self.remakeBtn = remakeBtn;
+        [self.remakeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@25);
+            make.width.height.equalTo(@35);
+            make.centerY.equalTo(photoImgV);
+        }];
+        remakeBtn.hidden = YES;
+        //更多按钮
+        UIButton *moreBtn = [[UIButton alloc]init];
+        [moreBtn setImage:[UIImage imageNamed:@"cameraMoreBtnPic"] forState:UIControlStateNormal];
+        [moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:moreBtn];
+        self.moreBtn = moreBtn;
+        [self.moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@-23);
+            make.width.height.equalTo(@25);
+            make.centerY.equalTo(centerImgV);
+        }];
+        //保存按钮
+        UIButton *confirmBtn = [[UIButton alloc]init];
+        [confirmBtn setImage:[UIImage imageNamed:@"CompleteBtnImg"] forState:UIControlStateNormal];
+        [confirmBtn addTarget:self action:@selector(confirmBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:confirmBtn];
+        self.confirmBtn = confirmBtn;
+        [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@-23);
+            make.width.height.equalTo(@35);
+            make.centerY.equalTo(centerImgV);
+        }];
+        confirmBtn.hidden = YES;
         
         [self setUpProgressView];
         
@@ -109,21 +144,90 @@
                     break;
             }
         };
+        
+        UILabel *timeLabel = [[UILabel alloc]init];
+        timeLabel.text = @"0:00'";
+        timeLabel.font = [UIFont systemFontOfSize:13];
+        [self addSubview:timeLabel];
+        [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.equalTo(timePickView);
+        }];
+        self.timeLabel = timeLabel;
+        timeLabel.hidden = YES;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+        
+        self.recordState = RecordStateOver;
     }
     return self;
 }
+#pragma mark - 预览图点击
 - (void)thumbnailBtnClick{
     self.thumbClickBlock();
 }
+#pragma mark - 更多按钮点击
+- (void)moreBtnClick{
+    self.moreBtnClickBlock();
+}
+#pragma mark - 完成按钮点击
+- (void)confirmBtnClick{
+    self.recordConfimBlock();
+    self.outView.alpha = 1;
+    self.centerView.alpha = 1;
+    self.outView.userInteractionEnabled = YES;
+    self.centerView.userInteractionEnabled = YES;
+    [self endRecord];
+}
+#pragma mark - 结束录制、取消录制
+- (void)endRecord{
+    [self stopTimer];
+    self.remakeBtn.hidden = YES;
+    self.confirmBtn.hidden = YES;
+    self.moreBtn.hidden = NO;
+    self.timeLabel.hidden = YES;
+    self.timeLabel.text = @"0.00'";
+    self.thumbImgV.hidden = NO;
+    self.timePickView.hidden = NO;
+    self.outView.alpha = 1;
+    self.centerView.alpha = 1;
+    self.outView.userInteractionEnabled = YES;
+    self.centerView.userInteractionEnabled = YES;
+    [self.progressV setProgress:0.0];
+}
+#pragma mark - 完成录制
+- (void)finishRecord{
+    self.timeLabel.hidden = NO;
+    self.remakeBtn.hidden = NO;
+    self.confirmBtn.hidden = NO;
+    self.outView.alpha = 0.4;
+    self.centerView.alpha = 0.4;
+    self.outView.userInteractionEnabled = NO;
+    self.centerView.userInteractionEnabled = NO;
+    self.RecordClick(RecordActionVideoEnd);
+    [self stopTimer];
+}
+#pragma mark - 重新拍摄
+- (void)remakeBtnClick{
+    WEAKSELF
+    [ECustomAlertView confirmWithTitle:@"重新拍摄" message:@" 拍摄视频还未保存，\r确定重新拍摄视频?" leftBtnName:@"取消" rightBtnName:@"确定" ok:^(id sender) {
+        [weakSelf endRecord];
+        weakSelf.remakeBlock();
+    } cancel:^(id sender) {
+    }];
+    
+}
 - (void)longPress:(UIGestureRecognizer *)longPress {
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(smartVideoControl:gestureRecognizer:)]) {
-//        [self.delegate smartVideoControl:self gestureRecognizer:longPress];
-//    }
+    //
     switch (longPress.state) {
         case UIGestureRecognizerStateBegan:{
+            self.timePickView.hidden = YES;
+            self.thumbImgV.hidden = YES;
+            self.moreBtn.hidden = YES;
+            self.timeLabel.hidden = NO;
             [UIView animateWithDuration:0.2 animations:^{
-                _outerView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                self.outView.transform = CGAffineTransformMakeScale(1.3, 1.3);
             }];
+            self.recordState = RecordStateRecording;
             if (self.RecordClick) {
                 self.RecordClick(RecordActionVideoBegin);
             }
@@ -132,21 +236,45 @@
             break;
             
         case UIGestureRecognizerStateCancelled:{
-            [UIView animateWithDuration:0.2 animations:^{
-                _outerView.transform = CGAffineTransformMakeScale(1, 1);
-            }];
-            self.RecordClick(RecordActionVideoCancel);
-            [self stopRecord];
+            
+            if (self.recordState == RecordStateRecording) {
+                self.recordState = RecordStateOver;
+                if (self.progressV.progress*self.duration < 3){
+                    self.RecordClick(RecordActionResignTimeTooShort);
+                }else{
+                    self.RecordClick(RecordActionResignActive);
+                }
+                [self endRecord];
+                
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.outView.transform = CGAffineTransformMakeScale(1, 1);
+                }];
+                
+            }
+            
+            
         }
             break;
             
         case UIGestureRecognizerStateEnded:{
             
-            [UIView animateWithDuration:0.2 animations:^{
-                _outerView.transform = CGAffineTransformMakeScale(1, 1);
-            }];
-            self.RecordClick(RecordActionVideoEnd);
-            [self stopRecord];
+            if (self.recordState == RecordStateRecording) {
+                self.recordState = RecordStateOver;
+                if (self.progressV.progress*self.duration < 3) {
+                    
+                    self.RecordClick(RecordActionTimeTooShort);
+                    
+                    [self endRecord];
+                    
+                }else{
+                    [self finishRecord];
+                }
+                
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.outView.transform = CGAffineTransformMakeScale(1, 1);
+                }];
+            }
+            
         }
             break;
             
@@ -157,37 +285,21 @@
     }
 }
 
-#pragma mark - Progress
 
-- (void)stopRecord{
+- (void)stopTimer{
     if (self.recordTimer) {
         [self.recordTimer invalidate];
         self.recordTimer = nil;
     }
 }
-
+#pragma mark - 进度条
 - (void)setUpProgressView{
-    //实例化一个进度条，有两种样式，一种是UIProgressViewStyleBar一种是UIProgressViewStyleDefault，然并卵-->>几乎无区别
     UIProgressView *progressV=[[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-    //设置的高度对进度条的高度没影响，整个高度=进度条的高度，进度条也是个圆角矩形
     progressV.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 2);
     progressV.transform = CGAffineTransformMakeScale(1.0, 2.0);
-    //设置进度条颜色
     progressV.trackTintColor=[UIColor whiteColor];
-    //设置进度默认值，这个相当于百分比，范围在0~1之间，不可以设置最大最小值
-    //pro.progress=0.7;
-    //设置进度条上进度的颜色
     progressV.progressTintColor=[UIColor transformWithHexString:@"#2fb9c3"];
-    //设置进度条的背景图片
-    // pro.trackImage=[UIImage imageNamed:@"1"];
-    //设置进度条上进度的背景图片 IOS7后好像没有效果了)
-    //  pro.progressImage=[UIImage imageNamed:@"1.png"];
-    //设置进度值并动画显示
-    //  [pro setProgress:0.7 animated:YES];
     
-    //由于pro的高度不变 使用放大的原理让其改变
-    //pro.transform = CGAffineTransformMakeScale(1.0f, 10.0f);
-    //自己设置的一个值 和进度条作比较 其实为了实现动画进度
     progress= 1.0;
     [self addSubview:progressV];
     self.progressV =progressV;
@@ -195,79 +307,58 @@
 }
 - (void)startRecord{
     NSTimer *recordTimer = [NSTimer scheduledTimerWithTimeInterval:0.01
-                                     target:self
-                                   selector:@selector(progressChanged:)
-                                   userInfo:nil
-                                    repeats:YES];
+                                                            target:self
+                                                          selector:@selector(progressChanged:)
+                                                          userInfo:nil
+                                                           repeats:YES];
     self.recordTimer = recordTimer;
 }
 -(void)progressChanged:(NSTimer *)timer
 {
-    self.progressV.progress += 1.0/_duration/100.0;
+    self.progressV.progress += 1.0/self.duration/100.0;
+    self.timeLabel.text = [NSString stringWithFormat:@"%.02f'",self.progressV.progress*self.duration];
     if (self.progressV.progress >= progress) {
-        [timer invalidate];
+        //结束录制
+        [self finishRecord];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.outView.transform = CGAffineTransformMakeScale(1, 1);
+        }];
     }
 }
-
-
-#pragma mark - pickerView  delegate
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
-    return pickerView.frame.size.height*3;
-}
-- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
-    return 50;
-}
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 2;
-}
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return @"666";
-}
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
-    CGAffineTransform rotateItem = CGAffineTransformMakeRotation(M_PI/2);
-    rotateItem = CGAffineTransformScale(rotateItem, 1, 10);
-    
-    CGFloat width = self.frame.size.height;
-    
-    
-    
-    UILabel *labelPhoto = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, width-60, width)];
-    labelPhoto.text = @"拍照";
-//    labelPhoto.backgroundColor = [UIColor redColor];
-    labelPhoto.font = [UIFont systemFontOfSize:13];
-    CGPoint pointPhoto = labelPhoto.center;
-    pointPhoto.y = self.center.y;
-    labelPhoto.center = pointPhoto;
-    
-    UILabel *labelVideo = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, width-60, width)];
-    labelVideo.text = @"录像";
-    labelVideo.font = [UIFont systemFontOfSize:13];
-//    labelVideo.backgroundColor = [UIColor blueColor];
-    CGPoint pointVideo = labelVideo.center;
-    pointVideo.y = self.center.y;
-    labelVideo.center = pointVideo;
-    
-    labelPhoto.transform = rotateItem;
-    labelVideo.transform = rotateItem;
-    
-    CGRect rect = labelPhoto.frame;
-    rect.origin.y = 0;
-    
-    if (row == 0) {
-        return labelPhoto;
-    }else{
-        return labelVideo;
+- (void)applicationWillResignActive:(UIApplication *)application{
+    if (self.recordState == RecordStateRecording) {
+        self.recordState = RecordStateOver;
+        if (self.progressV.progress*self.duration < 3) {
+            
+            self.RecordClick(RecordActionTimeTooShort);
+            
+            [self endRecord];
+            
+        }else{
+            [self finishRecord];
+        }
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            self.outView.transform = CGAffineTransformMakeScale(1, 1);
+        }];
     }
 }
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"==%ld",row);
+#pragma mark - 视频导出失败处理
+- (void)videoExportFailHandle{
+    self.recordState = RecordStateOver;
+    
+    self.RecordClick(RecordActionResignActive);
+    
+    [self endRecord];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.outView.transform = CGAffineTransformMakeScale(1, 1);
+    }];
+    
 }
 - (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%s",__func__);
 }
-
 @end
+
