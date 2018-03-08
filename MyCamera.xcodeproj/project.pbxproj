@@ -284,11 +284,11 @@
 		E33FA63D2041468D007C0A2B /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E33FA6422041468D007C0A2B /* EMediaTool.h */,
 				E33FA63E2041468D007C0A2B /* EMediaTool.m */,
 				E33FA63F2041468D007C0A2B /* PHAsset+ECamera.h */,
-				E33FA6402041468D007C0A2B /* ECameraAsset.h */,
 				E33FA6412041468D007C0A2B /* PHAsset+ECamera.m */,
-				E33FA6422041468D007C0A2B /* EMediaTool.h */,
+				E33FA6402041468D007C0A2B /* ECameraAsset.h */,
 				E33FA6432041468D007C0A2B /* ECameraAsset.m */,
 			);
 			path = Util;

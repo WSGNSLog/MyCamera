@@ -342,7 +342,7 @@ typedef NS_OPTIONS(BOOL, ENUM_NETSTATUS_TYPE) {
               completionBlock:(void (^)(void))completionBlock
                  failureBlock:(void (^)(NSError *error))failureBlock;
 +(void)createAlbumWithName:(NSString *)name;
-+(void)transMovToMP4:(NSString*)strInput Output:(NSString*)path;
++(void)transMovToMP4:(NSString*)strInput Output:(NSString*)path exportStatusHandler:(void (^)(AVAssetExportSessionStatus exportStatus))exportHandlerBlock;
 
 +(NSDictionary *)readDatFileWithPath:(NSString * )path;
 

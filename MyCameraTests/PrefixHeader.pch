@@ -12,7 +12,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+#import <AVFoundation/AVFoundation.h>
 #import "FoundationDefine.h"
 #import "MBProgressHUD+MJ.h"
 #import "Masonry.h"

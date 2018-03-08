@@ -1600,7 +1600,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:listGroupBlock failureBlock:nil];
 }
 
-+(void)transMovToMP4:(NSString*)strInput Output:(NSString*)path{
++(void)transMovToMP4:(NSString*)strInput Output:(NSString*)path exportStatusHandler:(void (^)(AVAssetExportSessionStatus))exportHandlerBlock{
     @try {
         AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:strInput] options:nil];
         NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
@@ -1617,25 +1617,26 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
             
             NSCondition * mainThreadCondition = [[NSCondition alloc] init];
             NSFileManager * fileManager = [NSFileManager defaultManager];
-
+            
             [exportSession exportAsynchronouslyWithCompletionHandler:^{
+                exportHandlerBlock([exportSession status]);
                 switch ([exportSession status]) {
                     case AVAssetExportSessionStatusFailed:
-                        LLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
+                        NSLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
                         break;
                     case AVAssetExportSessionStatusCancelled:
-                        LLog(@"导出视频被终了");
+                        NSLog(@"导出视频被终了");
                         break;
                     case AVAssetExportSessionStatusCompleted:
                         if ([fileManager fileExistsAtPath:path]) {
-                            LLog(@"导出视频成功");
+                            NSLog(@"导出视频成功");
                         }
                         else{
-                            LLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
+                            NSLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
                         }
                         break;
                     default:
-                        LLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
+                        NSLog(@"将视频从mov导出到mp4失败: %@", [[exportSession error] localizedDescription]);
                         break;
                 }
                 [mainThreadCondition signal];
@@ -1646,10 +1647,11 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
         }
     }
     @catch (NSException *exception) {
-//        MsgBoxTool(exception);
+        //        MsgBoxTool(exception);
     }
     
 }
+
 
 
 

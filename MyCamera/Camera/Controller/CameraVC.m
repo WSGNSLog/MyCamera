@@ -776,26 +776,25 @@ typedef enum{
     }
     NSString * filePath =[NSString stringWithFormat:@"%@/%@",diskCachePath,fileName] ;
     NSString * thumbFilePath = [NSString stringWithFormat:@"%@/%@",diskCachePath,thumbFileName];
-    [ToolFunction transMovToMP4:outputFileURL.absoluteString Output:filePath];
-    //    [ToolFunction transMovToMP4:outputFileURL.absoluteString Output:filePath exportStatusHandler:^(AVAssetExportSessionStatus exportStatus) {
-    //        switch (exportStatus) {
-    //            case AVAssetExportSessionStatusFailed:
-    //                [weakSelf.recordView videoExportFailHandle];
-    //                break;
-    //            case AVAssetExportSessionStatusCancelled:
-    //                NSLog(@"导出视频被终了");
-    //                break;
-    //            case AVAssetExportSessionStatusCompleted:
-    //                if ([fileManager fileExistsAtPath:filePath]) {
-    //                    NSLog(@"导出视频成功");
-    //                }else{
-    //                    [weakSelf.recordView videoExportFailHandle];
-    //                }
-    //                break;
-    //            default:
-    //                break;
-    //        }
-    //    }];
+    [ToolFunction transMovToMP4:outputFileURL.absoluteString Output:filePath exportStatusHandler:^(AVAssetExportSessionStatus exportStatus) {
+        switch (exportStatus) {
+            case AVAssetExportSessionStatusFailed:
+                [weakSelf.recordView videoExportFailHandle];
+                break;
+            case AVAssetExportSessionStatusCancelled:
+                NSLog(@"导出视频被终了");
+                break;
+            case AVAssetExportSessionStatusCompleted:
+                if ([fileManager fileExistsAtPath:filePath]) {
+                    NSLog(@"导出视频成功");
+                }else{
+                    [weakSelf.recordView videoExportFailHandle];
+                }
+                break;
+            default:
+                break;
+        }
+    }];
     NSLog(@"transMovToMP4:%f",duration);
     self.filePath = filePath;
     
