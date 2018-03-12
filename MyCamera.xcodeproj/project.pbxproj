@@ -44,6 +44,18 @@
 		E36F1C862007580C00DD5AB0 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7B2007580C00DD5AB0 /* MASConstraint.m */; };
 		E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7D2007580C00DD5AB0 /* MASViewConstraint.m */; };
 		E36F1C882007580C00DD5AB0 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7E2007580C00DD5AB0 /* MASViewAttribute.m */; };
+		E38D565520522F4C003C4C4C /* VideoAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */; };
+		E38D565620522F4C003C4C4C /* AlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564C20522F4B003C4C4C /* AlbumController.m */; };
+		E38D565920522F4C003C4C4C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D565120522F4B003C4C4C /* AlbumCell.xib */; };
+		E38D565A20522F4C003C4C4C /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D565420522F4B003C4C4C /* AlbumCell.m */; };
+		E38D565C20527EF7003C4C4C /* AlbumController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D565B20527EF7003C4C4C /* AlbumController.xib */; };
+		E38D566020561F41003C4C4C /* VideoAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D565E20561F41003C4C4C /* VideoAssetCell.m */; };
+		E38D566120561F41003C4C4C /* VideoAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D565F20561F41003C4C4C /* VideoAssetCell.xib */; };
+		E38D5667205623C7003C4C4C /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D5666205623C7003C4C4C /* QBVideoIndicatorView.m */; };
+		E38D566A205623DB003C4C4C /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D5669205623DB003C4C4C /* QBVideoIconView.m */; };
+		E38D566D205623E5003C4C4C /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D566C205623E5003C4C4C /* QBSlomoIconView.m */; };
+		E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */; };
+		E38D567420565596003C4C4C /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567320565596003C4C4C /* QBCheckmarkView.m */; };
 		E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76328200DA9DA00AD2508 /* PhotoView.m */; };
 		E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */; };
 		E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632E200DCFFD00AD2508 /* ToolFunction.m */; };
@@ -177,6 +189,26 @@
 		E36F1C9020075A4700DD5AB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E36F1C9120075A5100DD5AB0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E36F1C9220075A5800DD5AB0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E38D564A20522F4B003C4C4C /* AlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumController.h; sourceTree = "<group>"; };
+		E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAssetPickerController.m; sourceTree = "<group>"; };
+		E38D564C20522F4B003C4C4C /* AlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumController.m; sourceTree = "<group>"; };
+		E38D564D20522F4B003C4C4C /* VideoAssetPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAssetPickerController.h; sourceTree = "<group>"; };
+		E38D565120522F4B003C4C4C /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		E38D565220522F4B003C4C4C /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		E38D565420522F4B003C4C4C /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
+		E38D565B20527EF7003C4C4C /* AlbumController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumController.xib; sourceTree = "<group>"; };
+		E38D565D20561F41003C4C4C /* VideoAssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoAssetCell.h; sourceTree = "<group>"; };
+		E38D565E20561F41003C4C4C /* VideoAssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoAssetCell.m; sourceTree = "<group>"; };
+		E38D565F20561F41003C4C4C /* VideoAssetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoAssetCell.xib; sourceTree = "<group>"; };
+		E38D5665205623C7003C4C4C /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
+		E38D5666205623C7003C4C4C /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
+		E38D5668205623DB003C4C4C /* QBVideoIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBVideoIconView.h; sourceTree = "<group>"; };
+		E38D5669205623DB003C4C4C /* QBVideoIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
+		E38D566B205623E5003C4C4C /* QBSlomoIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBSlomoIconView.h; sourceTree = "<group>"; };
+		E38D566C205623E5003C4C4C /* QBSlomoIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QBSlomoIconView.m; sourceTree = "<group>"; };
+		E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoAssetPickerController.xib; sourceTree = "<group>"; };
+		E38D567220565596003C4C4C /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
+		E38D567320565596003C4C4C /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
 		E3B76327200DA9DA00AD2508 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		E3B76328200DA9DA00AD2508 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
@@ -319,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				E36F1AF42007148C00DD5AB0 /* Camera */,
+				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
 				E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */,
 				E36F1AF32007148C00DD5AB0 /* Utils */,
 				E36F1AC12007131B00DD5AB0 /* AppDelegate.h */,
@@ -490,6 +523,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E38D564820522F4B003C4C4C /* VideoAssetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E38D564920522F4B003C4C4C /* Controller */,
+				E38D564E20522F4B003C4C4C /* View */,
+			);
+			path = VideoAssetPicker;
+			sourceTree = "<group>";
+		};
+		E38D564920522F4B003C4C4C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E38D564A20522F4B003C4C4C /* AlbumController.h */,
+				E38D564C20522F4B003C4C4C /* AlbumController.m */,
+				E38D565B20527EF7003C4C4C /* AlbumController.xib */,
+				E38D564D20522F4B003C4C4C /* VideoAssetPickerController.h */,
+				E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */,
+				E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E38D564E20522F4B003C4C4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E38D565220522F4B003C4C4C /* AlbumCell.h */,
+				E38D565420522F4B003C4C4C /* AlbumCell.m */,
+				E38D565120522F4B003C4C4C /* AlbumCell.xib */,
+				E38D565D20561F41003C4C4C /* VideoAssetCell.h */,
+				E38D565E20561F41003C4C4C /* VideoAssetCell.m */,
+				E38D565F20561F41003C4C4C /* VideoAssetCell.xib */,
+				E38D5665205623C7003C4C4C /* QBVideoIndicatorView.h */,
+				E38D5666205623C7003C4C4C /* QBVideoIndicatorView.m */,
+				E38D5668205623DB003C4C4C /* QBVideoIconView.h */,
+				E38D5669205623DB003C4C4C /* QBVideoIconView.m */,
+				E38D566B205623E5003C4C4C /* QBSlomoIconView.h */,
+				E38D566C205623E5003C4C4C /* QBSlomoIconView.m */,
+				E38D567220565596003C4C4C /* QBCheckmarkView.h */,
+				E38D567320565596003C4C4C /* QBCheckmarkView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E3B76330200DD04200AD2508 /* UIImage+categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,14 +725,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38D565920522F4C003C4C4C /* AlbumCell.xib in Resources */,
 				E33FA6312041462E007C0A2B /* EAlertErrorView.xib in Resources */,
 				E36F1ACE2007131B00DD5AB0 /* LaunchScreen.storyboard in Resources */,
 				E33FA6332041462E007C0A2B /* EAlertTitleView.xib in Resources */,
 				E36F1ACB2007131B00DD5AB0 /* Assets.xcassets in Resources */,
+				E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
 				E36F1AFC200714B400DD5AB0 /* CameraVC.xib in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
+				E38D565C20527EF7003C4C4C /* AlbumController.xib in Resources */,
 				E33FA6382041462E007C0A2B /* EAlertViewWithCheckBox.xib in Resources */,
+				E38D566120561F41003C4C4C /* VideoAssetCell.xib in Resources */,
 				E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,6 +764,8 @@
 			files = (
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
 				E3B763E0200F178800AD2508 /* UIView+ECategory.m in Sources */,
+				E38D566A205623DB003C4C4C /* QBVideoIconView.m in Sources */,
+				E38D5667205623C7003C4C4C /* QBVideoIndicatorView.m in Sources */,
 				E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */,
 				E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
@@ -693,6 +775,7 @@
 				E3B7641A201592E700AD2508 /* LHModelStateMent.m in Sources */,
 				E3B763E920108EED00AD2508 /* UIColor+Category.m in Sources */,
 				E33FA6442041468E007C0A2B /* EMediaTool.m in Sources */,
+				E38D567420565596003C4C4C /* QBCheckmarkView.m in Sources */,
 				E33FA6462041468E007C0A2B /* ECameraAsset.m in Sources */,
 				E3B763D1200DD9D500AD2508 /* NSDate+Util.m in Sources */,
 				E36F1C862007580C00DD5AB0 /* MASConstraint.m in Sources */,
@@ -716,6 +799,7 @@
 				E3B7641F201592E700AD2508 /* NSObject+LHModelOperation.m in Sources */,
 				E3B763E3200F179800AD2508 /* EButton.m in Sources */,
 				E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */,
+				E38D566020561F41003C4C4C /* VideoAssetCell.m in Sources */,
 				E3B7641E201592E700AD2508 /* UIView+Shadow.m in Sources */,
 				E36F1AD12007131B00DD5AB0 /* main.m in Sources */,
 				E33FA6362041462E007C0A2B /* EAlertErrorView.m in Sources */,
@@ -723,9 +807,12 @@
 				E36F1C822007580C00DD5AB0 /* MASConstraintMaker.m in Sources */,
 				E33FA61B204145FC007C0A2B /* CameraModeSelectBtn.m in Sources */,
 				E36F1C832007580C00DD5AB0 /* MASLayoutConstraint.m in Sources */,
+				E38D565620522F4C003C4C4C /* AlbumController.m in Sources */,
 				E36F1C852007580C00DD5AB0 /* View+MASAdditions.m in Sources */,
 				E36F1C812007580C00DD5AB0 /* MASCompositeConstraint.m in Sources */,
 				E36F1C802007580C00DD5AB0 /* ViewController+MASAdditions.m in Sources */,
+				E38D566D205623E5003C4C4C /* QBSlomoIconView.m in Sources */,
+				E38D565520522F4C003C4C4C /* VideoAssetPickerController.m in Sources */,
 				E33FA6212041460E007C0A2B /* ECameraMediaModel.m in Sources */,
 				E33FA6342041462E007C0A2B /* EAlertViewWithCheckBox.m in Sources */,
 				E36F1AC32007131B00DD5AB0 /* AppDelegate.m in Sources */,
@@ -736,6 +823,7 @@
 				E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */,
 				E36F1AFF200748E300DD5AB0 /* Helper.m in Sources */,
 				E3B76338200DD04300AD2508 /* UIImage+Rotate.m in Sources */,
+				E38D565A20522F4C003C4C4C /* AlbumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,13 +987,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MBF9B5ZRL;
+				DEVELOPMENT_TEAM = G32WQ32RAR;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyCameraTests/PrefixHeader.pch";
 				INFOPLIST_FILE = MyCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.CustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = testw.CustomCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -916,13 +1004,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MBF9B5ZRL;
+				DEVELOPMENT_TEAM = G32WQ32RAR;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyCameraTests/PrefixHeader.pch";
 				INFOPLIST_FILE = MyCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.CustomCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = testw.CustomCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

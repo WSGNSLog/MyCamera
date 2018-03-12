@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "CameraVC.h"
+#import "AlbumController.h"
+
 @interface ViewController ()
 
 @end
@@ -17,25 +19,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *openCamBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    openCamBtn.frame = CGRectMake(150, 200, 50, 50);
+    openCamBtn.frame = CGRectMake(150, 200, 80, 50);
     [openCamBtn setTitle:@"openCam" forState:UIControlStateNormal];
     [openCamBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openCamBtn addTarget:self action:@selector(openCamBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openCamBtn];
+    UIButton *openAlbumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    openAlbumBtn.frame = CGRectMake(150, 300, 80, 50);
+    [openAlbumBtn setTitle:@"打开相册" forState:UIControlStateNormal];
+    [openAlbumBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [openAlbumBtn addTarget:self action:@selector(openAlbumBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:openAlbumBtn];
     
 }
 - (void)openCamBtnClick{
 //    [Helper checkCameraAuthorizationStatus];
     CameraVC *camVC = [[CameraVC alloc]init];
     
-    [self presentViewController:camVC animated:YES completion:nil];
+//    [self presentViewController:camVC animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)openAlbumBtnClick{
+    AlbumController *albumVC = [[AlbumController alloc]init];
+    [self.navigationController pushViewController:albumVC animated:YES];
 }
 
 - (void)openGeneralSetting{
