@@ -58,6 +58,15 @@
 		E38D567420565596003C4C4C /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567320565596003C4C4C /* QBCheckmarkView.m */; };
 		E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567820566D15003C4C4C /* MyNavigationController.m */; };
 		E38D567C20566D9E003C4C4C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567B20566D9E003C4C4C /* MainTabBarController.m */; };
+		E38D5692205671BA003C4C4C /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567E205671BA003C4C4C /* VTContentView.m */; };
+		E38D5693205671BA003C4C4C /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D5684205671BA003C4C4C /* VTMagicController.m */; };
+		E38D5694205671BA003C4C4C /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D5686205671BA003C4C4C /* VTMenuBar.m */; };
+		E38D5695205671BA003C4C4C /* UIButton+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D5689205671BA003C4C4C /* UIButton+VTMagic.m */; };
+		E38D5696205671BA003C4C4C /* UIScrollView+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568A205671BA003C4C4C /* UIScrollView+VTMagic.m */; };
+		E38D5697205671BA003C4C4C /* UIColor+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568B205671BA003C4C4C /* UIColor+VTMagic.m */; };
+		E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568C205671BA003C4C4C /* VTMagicView.m */; };
+		E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568D205671BA003C4C4C /* UIViewController+VTMagic.m */; };
+		E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D569A2056755B003C4C4C /* MenuInfo.m */; };
 		E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76328200DA9DA00AD2508 /* PhotoView.m */; };
 		E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */; };
 		E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632E200DCFFD00AD2508 /* ToolFunction.m */; };
@@ -215,6 +224,28 @@
 		E38D567820566D15003C4C4C /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		E38D567A20566D9E003C4C4C /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		E38D567B20566D9E003C4C4C /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		E38D567E205671BA003C4C4C /* VTContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTContentView.m; sourceTree = "<group>"; };
+		E38D567F205671BA003C4C4C /* UIColor+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTMagic.h"; sourceTree = "<group>"; };
+		E38D5680205671BA003C4C4C /* UIScrollView+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VTMagic.h"; sourceTree = "<group>"; };
+		E38D5681205671BA003C4C4C /* UIButton+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+VTMagic.h"; sourceTree = "<group>"; };
+		E38D5682205671BA003C4C4C /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VTMagic.h"; sourceTree = "<group>"; };
+		E38D5683205671BA003C4C4C /* VTMagicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicView.h; sourceTree = "<group>"; };
+		E38D5684205671BA003C4C4C /* VTMagicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicController.m; sourceTree = "<group>"; };
+		E38D5685205671BA003C4C4C /* VTMagicProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicProtocol.h; sourceTree = "<group>"; };
+		E38D5686205671BA003C4C4C /* VTMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMenuBar.m; sourceTree = "<group>"; };
+		E38D5687205671BA003C4C4C /* VTContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTContentView.h; sourceTree = "<group>"; };
+		E38D5688205671BA003C4C4C /* VTEnumType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEnumType.h; sourceTree = "<group>"; };
+		E38D5689205671BA003C4C4C /* UIButton+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+VTMagic.m"; sourceTree = "<group>"; };
+		E38D568A205671BA003C4C4C /* UIScrollView+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VTMagic.m"; sourceTree = "<group>"; };
+		E38D568B205671BA003C4C4C /* UIColor+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VTMagic.m"; sourceTree = "<group>"; };
+		E38D568C205671BA003C4C4C /* VTMagicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicView.m; sourceTree = "<group>"; };
+		E38D568D205671BA003C4C4C /* UIViewController+VTMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VTMagic.m"; sourceTree = "<group>"; };
+		E38D568E205671BA003C4C4C /* VTMagicMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicMacros.h; sourceTree = "<group>"; };
+		E38D568F205671BA003C4C4C /* VTMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMenuBar.h; sourceTree = "<group>"; };
+		E38D5690205671BA003C4C4C /* VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagic.h; sourceTree = "<group>"; };
+		E38D5691205671BA003C4C4C /* VTMagicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicController.h; sourceTree = "<group>"; };
+		E38D569A2056755B003C4C4C /* MenuInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuInfo.m; sourceTree = "<group>"; };
+		E38D569B2056755B003C4C4C /* MenuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuInfo.h; sourceTree = "<group>"; };
 		E3B76327200DA9DA00AD2508 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		E3B76328200DA9DA00AD2508 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
@@ -475,6 +506,7 @@
 		E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				E38D567D205671BA003C4C4C /* VTMagic */,
 				E3B76405201592E700AD2508 /* LHDB */,
 				E3B763F9201592DE00AD2508 /* MBProgressHUD */,
 				E36F1C652007580C00DD5AB0 /* Masonry */,
@@ -584,12 +616,41 @@
 		E38D567620566CDE003C4C4C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E38D569B2056755B003C4C4C /* MenuInfo.h */,
+				E38D569A2056755B003C4C4C /* MenuInfo.m */,
 				E38D567720566D15003C4C4C /* MyNavigationController.h */,
 				E38D567820566D15003C4C4C /* MyNavigationController.m */,
 				E38D567A20566D9E003C4C4C /* MainTabBarController.h */,
 				E38D567B20566D9E003C4C4C /* MainTabBarController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E38D567D205671BA003C4C4C /* VTMagic */ = {
+			isa = PBXGroup;
+			children = (
+				E38D5690205671BA003C4C4C /* VTMagic.h */,
+				E38D5688205671BA003C4C4C /* VTEnumType.h */,
+				E38D568E205671BA003C4C4C /* VTMagicMacros.h */,
+				E38D5685205671BA003C4C4C /* VTMagicProtocol.h */,
+				E38D5691205671BA003C4C4C /* VTMagicController.h */,
+				E38D5684205671BA003C4C4C /* VTMagicController.m */,
+				E38D5687205671BA003C4C4C /* VTContentView.h */,
+				E38D567E205671BA003C4C4C /* VTContentView.m */,
+				E38D5683205671BA003C4C4C /* VTMagicView.h */,
+				E38D568C205671BA003C4C4C /* VTMagicView.m */,
+				E38D568F205671BA003C4C4C /* VTMenuBar.h */,
+				E38D5686205671BA003C4C4C /* VTMenuBar.m */,
+				E38D5682205671BA003C4C4C /* UIViewController+VTMagic.h */,
+				E38D568D205671BA003C4C4C /* UIViewController+VTMagic.m */,
+				E38D5681205671BA003C4C4C /* UIButton+VTMagic.h */,
+				E38D5689205671BA003C4C4C /* UIButton+VTMagic.m */,
+				E38D5680205671BA003C4C4C /* UIScrollView+VTMagic.h */,
+				E38D568A205671BA003C4C4C /* UIScrollView+VTMagic.m */,
+				E38D567F205671BA003C4C4C /* UIColor+VTMagic.h */,
+				E38D568B205671BA003C4C4C /* UIColor+VTMagic.m */,
+			);
+			path = VTMagic;
 			sourceTree = "<group>";
 		};
 		E3B76330200DD04200AD2508 /* UIImage+categories */ = {
@@ -795,6 +856,7 @@
 				E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */,
 				E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */,
 				E38D567C20566D9E003C4C4C /* MainTabBarController.m in Sources */,
+				E38D5696205671BA003C4C4C /* UIScrollView+VTMagic.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
@@ -816,10 +878,13 @@
 				E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */,
 				E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */,
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
+				E38D5697205671BA003C4C4C /* UIColor+VTMagic.m in Sources */,
 				E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */,
 				E36F1C7F2007580C00DD5AB0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E3B763DD200E01B400AD2508 /* RecordView.m in Sources */,
+				E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */,
 				E33FA6452041468E007C0A2B /* PHAsset+ECamera.m in Sources */,
+				E38D5692205671BA003C4C4C /* VTContentView.m in Sources */,
 				E3B76403201592DE00AD2508 /* MBProgressHUD+MJ.m in Sources */,
 				E3B7641B201592E700AD2508 /* PrintObject.m in Sources */,
 				E36F1C882007580C00DD5AB0 /* MASViewAttribute.m in Sources */,
@@ -832,7 +897,9 @@
 				E33FA6362041462E007C0A2B /* EAlertErrorView.m in Sources */,
 				E33FA6352041462E007C0A2B /* EAlertView.m in Sources */,
 				E36F1C822007580C00DD5AB0 /* MASConstraintMaker.m in Sources */,
+				E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */,
 				E33FA61B204145FC007C0A2B /* CameraModeSelectBtn.m in Sources */,
+				E38D5694205671BA003C4C4C /* VTMenuBar.m in Sources */,
 				E36F1C832007580C00DD5AB0 /* MASLayoutConstraint.m in Sources */,
 				E38D565620522F4C003C4C4C /* AlbumController.m in Sources */,
 				E36F1C852007580C00DD5AB0 /* View+MASAdditions.m in Sources */,
@@ -844,8 +911,11 @@
 				E33FA6342041462E007C0A2B /* EAlertViewWithCheckBox.m in Sources */,
 				E36F1AC32007131B00DD5AB0 /* AppDelegate.m in Sources */,
 				E33FA6202041460E007C0A2B /* ECameraSQL.m in Sources */,
+				E38D5693205671BA003C4C4C /* VTMagicController.m in Sources */,
 				E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */,
 				E36F1AFB200714B400DD5AB0 /* CameraVC.m in Sources */,
+				E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */,
+				E38D5695205671BA003C4C4C /* UIButton+VTMagic.m in Sources */,
 				E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */,
 				E3B7641C201592E700AD2508 /* LHPredicate.m in Sources */,
 				E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */,

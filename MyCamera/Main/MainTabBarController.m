@@ -59,6 +59,7 @@
     childVc.tabBarItem.selectedImage = selectedImage;
     // 添加为tabbar控制器的子控制器
     MyNavigationController *nav = [[MyNavigationController alloc] initWithRootViewController:childVc];
+    nav.navigationBar.hidden = YES;
     [self addChildViewController:nav];
 }
 

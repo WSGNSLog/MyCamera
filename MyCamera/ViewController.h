@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTMagic.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : VTMagicController
 
 
 @end
