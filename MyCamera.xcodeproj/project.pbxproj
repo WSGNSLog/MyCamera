@@ -56,6 +56,8 @@
 		E38D566D205623E5003C4C4C /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D566C205623E5003C4C4C /* QBSlomoIconView.m */; };
 		E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */; };
 		E38D567420565596003C4C4C /* QBCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567320565596003C4C4C /* QBCheckmarkView.m */; };
+		E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567820566D15003C4C4C /* MyNavigationController.m */; };
+		E38D567C20566D9E003C4C4C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D567B20566D9E003C4C4C /* MainTabBarController.m */; };
 		E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76328200DA9DA00AD2508 /* PhotoView.m */; };
 		E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */; };
 		E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632E200DCFFD00AD2508 /* ToolFunction.m */; };
@@ -209,6 +211,10 @@
 		E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoAssetPickerController.xib; sourceTree = "<group>"; };
 		E38D567220565596003C4C4C /* QBCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBCheckmarkView.h; sourceTree = "<group>"; };
 		E38D567320565596003C4C4C /* QBCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBCheckmarkView.m; sourceTree = "<group>"; };
+		E38D567720566D15003C4C4C /* MyNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		E38D567820566D15003C4C4C /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		E38D567A20566D9E003C4C4C /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		E38D567B20566D9E003C4C4C /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		E3B76327200DA9DA00AD2508 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		E3B76328200DA9DA00AD2508 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
 				E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */,
 				E36F1AF32007148C00DD5AB0 /* Utils */,
+				E38D567620566CDE003C4C4C /* Main */,
 				E36F1AC12007131B00DD5AB0 /* AppDelegate.h */,
 				E36F1AC22007131B00DD5AB0 /* AppDelegate.m */,
 				E36F1AC42007131B00DD5AB0 /* ViewController.h */,
@@ -526,6 +533,7 @@
 		E38D564820522F4B003C4C4C /* VideoAssetPicker */ = {
 			isa = PBXGroup;
 			children = (
+				E38D56752056677A003C4C4C /* Model */,
 				E38D564920522F4B003C4C4C /* Controller */,
 				E38D564E20522F4B003C4C4C /* View */,
 			);
@@ -564,6 +572,24 @@
 				E38D567320565596003C4C4C /* QBCheckmarkView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E38D56752056677A003C4C4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E38D567620566CDE003C4C4C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E38D567720566D15003C4C4C /* MyNavigationController.h */,
+				E38D567820566D15003C4C4C /* MyNavigationController.m */,
+				E38D567A20566D9E003C4C4C /* MainTabBarController.h */,
+				E38D567B20566D9E003C4C4C /* MainTabBarController.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E3B76330200DD04200AD2508 /* UIImage+categories */ = {
@@ -768,6 +794,7 @@
 				E38D5667205623C7003C4C4C /* QBVideoIndicatorView.m in Sources */,
 				E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */,
 				E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */,
+				E38D567C20566D9E003C4C4C /* MainTabBarController.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
@@ -819,6 +846,7 @@
 				E33FA6202041460E007C0A2B /* ECameraSQL.m in Sources */,
 				E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */,
 				E36F1AFB200714B400DD5AB0 /* CameraVC.m in Sources */,
+				E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */,
 				E3B7641C201592E700AD2508 /* LHPredicate.m in Sources */,
 				E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */,
 				E36F1AFF200748E300DD5AB0 /* Helper.m in Sources */,

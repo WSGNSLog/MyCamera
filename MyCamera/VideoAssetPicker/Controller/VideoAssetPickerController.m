@@ -17,10 +17,10 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 #define WWidth [UIScreen mainScreen].bounds.size.width
 
-@interface VideoAssetPickerController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface VideoAssetPickerController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) PHFetchResult *fetchResult;
-
+@property (nonatomic, strong) NSMutableArray *fetchArray;
 @property (nonatomic, strong) PHCachingImageManager *imageManager;
 @property (nonatomic, assign) CGRect previousPreheatRect;
 
@@ -177,6 +177,7 @@ static NSString *const FooterID = @"FooterView";
         }
 #pragma mark - 获取系统相册视频资源
         PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:self.assetCollection options:options];
+        /*
         NSMutableArray *assetArray = @[].mutableCopy;
         //将资源添加到可变数组
         for (PHAsset *asset in fetchResult) {
@@ -187,6 +188,9 @@ static NSString *const FooterID = @"FooterView";
         //获取排序后的资源集合
         PHAssetCollection *collection = [PHAssetCollection transientAssetCollectionWithAssets:assetArray title:nil];
         self.fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:options];
+        self.fetchArray = assetArray;
+         */
+        self.fetchResult = fetchResult;
         if ([self isAutoDeselectEnabled] && self.selectedAssets.count > 0) {
             // Get index of previous selected asset
             PHAsset *asset = [self.selectedAssets firstObject];
