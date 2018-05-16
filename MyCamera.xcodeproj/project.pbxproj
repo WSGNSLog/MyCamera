@@ -67,6 +67,10 @@
 		E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568C205671BA003C4C4C /* VTMagicView.m */; };
 		E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568D205671BA003C4C4C /* UIViewController+VTMagic.m */; };
 		E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D569A2056755B003C4C4C /* MenuInfo.m */; };
+		E39B99D820AA73630041253C /* PhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99D620AA73630041253C /* PhotoPreviewController.m */; };
+		E39B99D920AA73630041253C /* PhotoPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39B99D720AA73630041253C /* PhotoPreviewController.xib */; };
+		E39B99DC20AA7C870041253C /* NSDictionary+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99DB20AA7C870041253C /* NSDictionary+CLLocation.m */; };
+		E39B99DF20AA7CBB0041253C /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99DE20AA7CBB0041253C /* WGS84TOGCJ02.m */; };
 		E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B76328200DA9DA00AD2508 /* PhotoView.m */; };
 		E3B7632C200DAA2500AD2508 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */; };
 		E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B7632E200DCFFD00AD2508 /* ToolFunction.m */; };
@@ -246,6 +250,13 @@
 		E38D5691205671BA003C4C4C /* VTMagicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicController.h; sourceTree = "<group>"; };
 		E38D569A2056755B003C4C4C /* MenuInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuInfo.m; sourceTree = "<group>"; };
 		E38D569B2056755B003C4C4C /* MenuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuInfo.h; sourceTree = "<group>"; };
+		E39B99D520AA73630041253C /* PhotoPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPreviewController.h; sourceTree = "<group>"; };
+		E39B99D620AA73630041253C /* PhotoPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPreviewController.m; sourceTree = "<group>"; };
+		E39B99D720AA73630041253C /* PhotoPreviewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPreviewController.xib; sourceTree = "<group>"; };
+		E39B99DA20AA7C870041253C /* NSDictionary+CLLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CLLocation.h"; sourceTree = "<group>"; };
+		E39B99DB20AA7C870041253C /* NSDictionary+CLLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CLLocation.m"; sourceTree = "<group>"; };
+		E39B99DD20AA7CBB0041253C /* WGS84TOGCJ02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGS84TOGCJ02.h; sourceTree = "<group>"; };
+		E39B99DE20AA7CBB0041253C /* WGS84TOGCJ02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGS84TOGCJ02.m; sourceTree = "<group>"; };
 		E3B76327200DA9DA00AD2508 /* PhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		E3B76328200DA9DA00AD2508 /* PhotoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 		E3B7632A200DAA2500AD2508 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
@@ -353,6 +364,10 @@
 		E33FA63D2041468D007C0A2B /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E39B99DD20AA7CBB0041253C /* WGS84TOGCJ02.h */,
+				E39B99DE20AA7CBB0041253C /* WGS84TOGCJ02.m */,
+				E39B99DA20AA7C870041253C /* NSDictionary+CLLocation.h */,
+				E39B99DB20AA7C870041253C /* NSDictionary+CLLocation.m */,
 				E33FA6422041468D007C0A2B /* EMediaTool.h */,
 				E33FA63E2041468D007C0A2B /* EMediaTool.m */,
 				E33FA63F2041468D007C0A2B /* PHAsset+ECamera.h */,
@@ -581,6 +596,9 @@
 				E38D564D20522F4B003C4C4C /* VideoAssetPickerController.h */,
 				E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */,
 				E38D566E205628C2003C4C4C /* VideoAssetPickerController.xib */,
+				E39B99D520AA73630041253C /* PhotoPreviewController.h */,
+				E39B99D620AA73630041253C /* PhotoPreviewController.m */,
+				E39B99D720AA73630041253C /* PhotoPreviewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -819,6 +837,7 @@
 				E36F1ACB2007131B00DD5AB0 /* Assets.xcassets in Resources */,
 				E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
+				E39B99D920AA73630041253C /* PhotoPreviewController.xib in Resources */,
 				E36F1AFC200714B400DD5AB0 /* CameraVC.xib in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
 				E38D565C20527EF7003C4C4C /* AlbumController.xib in Resources */,
@@ -860,7 +879,9 @@
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
+				E39B99DF20AA7CBB0041253C /* WGS84TOGCJ02.m in Sources */,
 				E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */,
+				E39B99DC20AA7C870041253C /* NSDictionary+CLLocation.m in Sources */,
 				E3B7641A201592E700AD2508 /* LHModelStateMent.m in Sources */,
 				E3B763E920108EED00AD2508 /* UIColor+Category.m in Sources */,
 				E33FA6442041468E007C0A2B /* EMediaTool.m in Sources */,
@@ -880,6 +901,7 @@
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
 				E38D5697205671BA003C4C4C /* UIColor+VTMagic.m in Sources */,
 				E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */,
+				E39B99D820AA73630041253C /* PhotoPreviewController.m in Sources */,
 				E36F1C7F2007580C00DD5AB0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E3B763DD200E01B400AD2508 /* RecordView.m in Sources */,
 				E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */,

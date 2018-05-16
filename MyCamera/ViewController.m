@@ -10,7 +10,7 @@
 #import "CameraVC.h"
 #import "AlbumController.h"
 #import "MenuInfo.h"
-
+#import "PhotoPreviewController.h"
 @interface ViewController ()
 
 @property (nonatomic, strong)  NSArray *menuList;
@@ -39,26 +39,42 @@
     [openCamBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openCamBtn addTarget:self action:@selector(openCamBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openCamBtn];
+    
     UIButton *openAlbumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     openAlbumBtn.frame = CGRectMake(150, 300, 80, 50);
-    [openAlbumBtn setTitle:@"打开相册" forState:UIControlStateNormal];
+    [openAlbumBtn setTitle:@"打开相册视频" forState:UIControlStateNormal];
     [openAlbumBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openAlbumBtn addTarget:self action:@selector(openAlbumBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openAlbumBtn];
     
-    self.magicView.itemScale = 1.2;
-    self.magicView.headerHeight = 40;
-    self.magicView.navigationHeight = 44;
-    self.magicView.againstStatusBar = YES;
-    self.magicView.headerView.backgroundColor = RGBCOLOR(243, 40, 47);
-    self.magicView.navigationColor = [UIColor whiteColor];
-    self.magicView.layoutStyle = VTLayoutStyleDefault;
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    UIButton *openAlbumPhotoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    openAlbumPhotoBtn.frame = CGRectMake(150, 400, 80, 50);
+    [openAlbumPhotoBtn setTitle:@"打开相册" forState:UIControlStateNormal];
+    [openAlbumPhotoBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [openAlbumPhotoBtn addTarget:self action:@selector(openAlbumPhotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:openAlbumPhotoBtn];
     
-    [self integrateComponents];
-    [self configSeparatorView];
-    [self generateTestData];
-    [self.magicView reloadData];
+    
+    
+    
+//    self.magicView.itemScale = 1.2;
+//    self.magicView.headerHeight = 40;
+//    self.magicView.navigationHeight = 44;
+//    self.magicView.againstStatusBar = YES;
+//    self.magicView.headerView.backgroundColor = RGBCOLOR(243, 40, 47);
+//    self.magicView.navigationColor = [UIColor whiteColor];
+//    self.magicView.layoutStyle = VTLayoutStyleDefault;
+//    self.edgesForExtendedLayout = UIRectEdgeAll;
+//
+//    [self integrateComponents];
+//    [self configSeparatorView];
+//    [self generateTestData];
+//    [self.magicView reloadData];
+}
+
+- (void)openAlbumPhotoBtnClick{
+    PhotoPreviewController *albumVC = [[PhotoPreviewController alloc]init];
+    [self.navigationController pushViewController:albumVC animated:YES];
 }
 #pragma mark - actions
 - (void)subscribeAction {
