@@ -1,0 +1,26 @@
+//
+//  VideoTextFiled.h
+// 
+
+#import <UIKit/UIKit.h>
+@class VideoPasterView;
+
+
+@protocol VideoPasterViewDelegate <NSObject>
+- (void)onPasterViewTap;
+- (void)onRemovePasterView:(VideoPasterView*)pasterView;
+@end
+
+@interface VideoPasterView : UIView
+
+@property (nonatomic, weak) id<VideoPasterViewDelegate> delegate;
+@property (nonatomic, strong)    UIImageView *pasterImageView;
+@property (nonatomic, assign)    CGFloat   rotateAngle;
+@property (nonatomic, assign)    UIImage*  staticImage;
+
+- (void)setImageList:(NSArray *)imageList imageDuration:(float)duration;
+
+- (CGRect)pasterFrameOnView:(UIView*)view;
+
+@end
+

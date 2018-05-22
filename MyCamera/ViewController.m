@@ -11,6 +11,7 @@
 #import "AlbumController.h"
 #import "MenuInfo.h"
 #import "PhotoPreviewController.h"
+#import "LocalAlbumController.h"
 @interface ViewController ()
 
 @property (nonatomic, strong)  NSArray *menuList;
@@ -47,14 +48,19 @@
     [openAlbumBtn addTarget:self action:@selector(openAlbumBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openAlbumBtn];
     
+    UIButton *photoInfoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    photoInfoBtn.frame = CGRectMake(150, 400, 80, 50);
+    [photoInfoBtn setTitle:@"查看照片信息" forState:UIControlStateNormal];
+    [photoInfoBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [photoInfoBtn addTarget:self action:@selector(photoInfoBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:photoInfoBtn];
+    
     UIButton *openAlbumPhotoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    openAlbumPhotoBtn.frame = CGRectMake(150, 400, 80, 50);
+    openAlbumPhotoBtn.frame = CGRectMake(150, 500, 80, 50);
     [openAlbumPhotoBtn setTitle:@"打开相册" forState:UIControlStateNormal];
     [openAlbumPhotoBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openAlbumPhotoBtn addTarget:self action:@selector(openAlbumPhotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openAlbumPhotoBtn];
-    
-    
     
     
 //    self.magicView.itemScale = 1.2;
@@ -72,8 +78,12 @@
 //    [self.magicView reloadData];
 }
 
-- (void)openAlbumPhotoBtnClick{
+- (void)photoInfoBtnClick{
     PhotoPreviewController *albumVC = [[PhotoPreviewController alloc]init];
+    [self.navigationController pushViewController:albumVC animated:YES];
+}
+- (void)openAlbumPhotoBtnClick{
+    LocalAlbumController *albumVC = [[LocalAlbumController alloc]init];
     [self.navigationController pushViewController:albumVC animated:YES];
 }
 #pragma mark - actions

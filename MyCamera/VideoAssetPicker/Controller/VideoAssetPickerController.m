@@ -393,7 +393,7 @@ static NSString *const FooterID = @"FooterView";
     PHAsset *asset = self.fetchResult[indexPath.item];
     CGSize itemSize = [(UICollectionViewFlowLayout *)collectionView.collectionViewLayout itemSize];
     CGSize targetSize = CGSizeScale(itemSize, [[UIScreen mainScreen] scale]);
-    NSLog(@"**:%@",asset.creationDate);
+    //NSLog(@"**:%@",asset.creationDate);
     [self.imageManager requestImageForAsset:asset
                                  targetSize:targetSize
                                 contentMode:PHImageContentModeAspectFill

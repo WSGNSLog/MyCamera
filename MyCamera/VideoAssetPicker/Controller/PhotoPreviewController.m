@@ -14,6 +14,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "NSDictionary+CLLocation.h"
 #import "WGS84TOGCJ02.h"
+#import "PhotoEditController.h"
+#import "PhotoCutController.h"
 
 @interface PhotoPreviewController ()<CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageV;
@@ -139,6 +141,12 @@
     } failureBlock:^(NSError *error) {
         
     }];
+}
+- (IBAction)photoCutClick:(UIButton *)sender {
+    
+    PhotoCutController *cutVC = [[PhotoCutController alloc]init];
+    [self.navigationController pushViewController:cutVC animated:YES];
+    
 }
 #pragma mark 拍照定位
 
