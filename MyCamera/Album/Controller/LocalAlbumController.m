@@ -58,11 +58,12 @@ static NSString *const AlbumIHeaderID = @"AlbumIHeaderID";
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    self.tabBarController.tabBar.hidden = YES;
     [self setNavBottomLineHidenWithOption:NO];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO;
     [self setNavBottomLineHidenWithOption:YES];
 }
 - (void)setNavBottomLineHidenWithOption:(BOOL)yesOrNo{

@@ -27,7 +27,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
-        
+        //中上
         self.topBar = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"trip_h_bar"]];
         self.topBar.contentMode = UIViewContentModeTop;
         self.topBar.frame = CGRectMake((frame.size.width-40)/2 , 0, 40, 19);
@@ -35,7 +35,7 @@
         UIPanGestureRecognizer * barPan1 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(barPanGesture:)];
         [self.topBar addGestureRecognizer:barPan1];
         [self addSubview:self.topBar];
-        
+        //中下
         self.bottomBar = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"trip_h_bar"]];
         self.bottomBar.contentMode = UIViewContentModeBottom;
         self.bottomBar.frame = CGRectMake((frame.size.width-40)/2 , frame.size.height -19, 40, 19);
@@ -43,7 +43,7 @@
         UIPanGestureRecognizer * barPan2 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(barPanGesture:)];
         [self.bottomBar addGestureRecognizer:barPan2];
         [self addSubview:self.bottomBar];
-        
+        //左中
         self.leftBar = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"trip_v_bar"]];
         self.leftBar.frame = CGRectMake(0 , (frame.size.height - 40)/2, 19, 40);
         self.leftBar.contentMode = UIViewContentModeLeft;
@@ -51,7 +51,7 @@
         UIPanGestureRecognizer * barPan3 = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(barPanGesture:)];
         [self.leftBar addGestureRecognizer:barPan3];
         [self addSubview:self.leftBar];
-        
+        //右中
         self.rightBar = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"trip_v_bar"]];
         self.rightBar.contentMode = UIViewContentModeRight;
         self.rightBar.frame = CGRectMake(frame.size.width - 19 , (frame.size.height - 40)/2, 19, 40);
@@ -91,7 +91,7 @@
         
         UIPanGestureRecognizer * viewPan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(viewPanGesture:)];
         [self addGestureRecognizer:viewPan];
-        
+          
     }
     return self;
 }

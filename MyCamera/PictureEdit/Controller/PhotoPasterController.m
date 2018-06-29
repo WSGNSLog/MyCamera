@@ -27,6 +27,7 @@
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *imageArr;
 @property (strong,nonatomic) NSMutableArray *dataSource;
+
 @end
 
 @implementation PhotoPasterController
@@ -43,6 +44,7 @@
     self.imageArr = [NSArray arrayWithObjects:@"paster_wow",@"paster_housailei",@"paster_goodmode", nil];
     self.dataSource = [NSMutableArray arrayWithObjects:@"camera_edit_trip_free",@"camera_edit_trip_11",@"camera_edit_trip_34",nil];
     self.imageView.image = self.image;
+    
     [self initNav];
     [self initBottomView];
     
@@ -57,8 +59,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)rightBarClick{
+    UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, 0);
+    [self.imageView drawViewHierarchyInRect:CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.height) afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     if (_block) {
-        _block(_imageView.image);
+        _block(image);
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

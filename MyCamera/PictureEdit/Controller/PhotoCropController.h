@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoEditController.h"
 
 @interface PhotoCropController : UIViewController
 @property (nonatomic,strong) PHAsset *asset;
 @property (nonatomic,strong) UIImage *image;
+
+-(void)addFinishBlock:(ImageBlock)block;
+
 @end

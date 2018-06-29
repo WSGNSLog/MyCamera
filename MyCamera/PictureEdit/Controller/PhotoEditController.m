@@ -12,13 +12,19 @@
 #import "PhotoRotateController.h"
 #import "PhotoPasterController.h"
 #import "PhotoTextController.h"
+#import "PhotoWaterMarkController.h"
+#import "PhotoFilterController.h"
+#import "PhotoCIFilterController.h"
+#import "PhotoCustomRotateVC.h"
+#import "PicEditOptionView.h"
+
 
 #define BottomViewHeight 120
 #define CellMargin 5
 #define CollectionHeight 60
 #define ItemWidth 45
 #define ItemHeight 60
-@interface PhotoEditController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface PhotoEditController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,PicEditOptionDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) UIView *editView;
 @property (weak, nonatomic) UICollectionView *collectionView;
@@ -56,8 +62,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"调节",@"边框",@"贴纸",@"文字",@"标记",@"涂鸦",@"滤镜",@"水印", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"camera_edit_edit",@"camera_edit_text",@"camera_edit_sticker",@"camera_edit_border",@"camera_edit_draw",@"camera_edit_mask",@"camera_edit_filter",@"camera_edit_mask",@"camera_edit_filter", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"camera_edit_edit",@"camera_edit_text",@"camera_edit_sticker",@"camera_edit_border",@"camera_edit_border",@"camera_edit_draw",@"camera_edit_filter",@"photoBeauty_filter",@"photoBeauty_watermark",@"photoBeauty_adjust", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -72,6 +78,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 - (void)initBottomView{
+    WEAKSELF
+
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.minimumLineSpacing = 5;
     flowLayout.minimumInteritemSpacing = 5;
@@ -85,35 +93,46 @@
     self.collectionView = collectionView;
     [self.bottomView addSubview:collectionView];
     
-    UIView *editView = [[UIView alloc]init];
-    editView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:editView];
-    self.editView = editView;
-    WEAKSELF
-    [editView mas_makeConstraints:^(MASConstraintMaker *make) {
+//    UIView *editView = [[UIView alloc]init];
+//    editView.backgroundColor = [UIColor lightGrayColor];
+//    [self.view addSubview:editView];
+//    self.editView = editView;
+//    [editView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(weakSelf.bottomView).offset = CellMargin;
+//        make.width.equalTo(@(ItemWidth));
+//        make.height.equalTo(@80);
+//        make.bottom.equalTo(collectionView.mas_top).offset = -10;
+//    }];
+//    UIButton *cropBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ItemWidth, 40)];
+//    [cropBtn setTitle:@"crop" forState:UIControlStateNormal];
+//    [cropBtn addTarget:self action:@selector(cropBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [cropBtn setBackgroundColor:[UIColor cyanColor]];
+//    UIButton *rotateBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 41, ItemWidth, 40)];
+//    rotateBtn.titleLabel.numberOfLines = 0;
+//    rotateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [rotateBtn setTitle:@"旋转&\n镜像" forState:UIControlStateNormal];
+//    [rotateBtn addTarget:self action:@selector(rotateBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [rotateBtn setBackgroundColor:[UIColor cyanColor]];
+//    [editView addSubview:cropBtn];
+//    [editView addSubview:rotateBtn];
+    PicEditOptionView *optionView = [[NSBundle mainBundle] loadNibNamed:@"PicEditOptionView" owner:self options:nil].lastObject;
+    optionView.delegate = self;
+    [self.view addSubview:optionView];
+    [optionView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.bottomView).offset = CellMargin;
-        make.width.equalTo(@(ItemWidth));
-        make.height.equalTo(@80);
         make.bottom.equalTo(collectionView.mas_top).offset = -10;
     }];
-    UIButton *cropBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, ItemWidth, 40)];
-    [cropBtn setTitle:@"crop" forState:UIControlStateNormal];
-    [cropBtn addTarget:self action:@selector(cropBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [cropBtn setBackgroundColor:[UIColor cyanColor]];
-    UIButton *rotateBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 41, ItemWidth, 40)];
-    rotateBtn.titleLabel.numberOfLines = 0;
-    rotateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [rotateBtn setTitle:@"旋转&\n镜像" forState:UIControlStateNormal];
-    [rotateBtn addTarget:self action:@selector(rotateBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [rotateBtn setBackgroundColor:[UIColor cyanColor]];
-    [editView addSubview:cropBtn];
-    [editView addSubview:rotateBtn];
+    self.editView = optionView;
     self.editView.hidden = YES;
 }
 - (void)cropBtnClick{
+    WEAKSELF
     PhotoCropController *crop = [[PhotoCropController alloc]init];
     crop.asset = self.asset;
     crop.image = self.image;
+    [crop addFinishBlock:^(UIImage *image) {
+        weakSelf.imageView.image = image;
+    }];
     [self.navigationController pushViewController:crop animated:YES];
     self.editView.hidden = YES;
 }
@@ -179,27 +198,75 @@
             self.editView.hidden = YES;
         }
             break;
-        case 3:
+        case 3://画框
             self.editView.hidden = YES;
             break;
-        case 4:
+        case 4://标记
             self.editView.hidden = YES;
             break;
-        case 5:
+        case 5://涂鸦
             self.editView.hidden = YES;
             break;
-        case 6:
+        case 6://滤镜
+        {
+            PhotoFilterController *filterVC = [[PhotoFilterController alloc]init];
+            filterVC.image = self.image;
+            filterVC.asset = self.asset;
+            [self.navigationController pushViewController:filterVC animated:YES];
             self.editView.hidden = YES;
+        }
             break;
-        case 7:
+        case 7://CI滤镜
+        {
+            PhotoCIFilterController *waterMark = [[PhotoCIFilterController alloc]init];
+            waterMark.image = self.image;
+            [self.navigationController pushViewController:waterMark animated:YES];
             self.editView.hidden = YES;
+        }
             break;
-        case 8:
+        case 8://水印
+        {
+            PhotoWaterMarkController *waterMark = [[PhotoWaterMarkController alloc]init];
+            waterMark.image = self.image;
+            waterMark.asset = self.asset;
+            [self.navigationController pushViewController:waterMark animated:YES];
             self.editView.hidden = YES;
+        }
+            break;
+        case 9://调节
+        {
+            PhotoCustomRotateVC *rotateVC = [[PhotoCustomRotateVC alloc]init];
+            rotateVC.image = self.image;
+            rotateVC.asset = self.asset;
+            [self.navigationController pushViewController:rotateVC animated:YES];
+            self.editView.hidden = YES;
+        }
             break;
         default:
             break;
     }
+}
+- (void)picEditOptionCropClick{
+    WEAKSELF
+    PhotoCropController *crop = [[PhotoCropController alloc]init];
+    crop.asset = self.asset;
+    crop.image = self.image;
+    [crop addFinishBlock:^(UIImage *image) {
+        weakSelf.imageView.image = image;
+    }];
+    [self.navigationController pushViewController:crop animated:YES];
+    self.editView.hidden = YES;
+}
+- (void)picEditOptionRotateAndMirrorClick{
+    self.editView.hidden = YES;
+    PhotoRotateController *rotate = [[PhotoRotateController alloc]init];
+    rotate.asset = self.asset;
+    rotate.image = self.image;
+    WEAKSELF
+    [rotate addFinishBlock:^(UIImage *image) {
+        weakSelf.imageView.image = image;
+    }];
+    [self.navigationController pushViewController:rotate animated:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.editView.hidden = YES;

@@ -249,5 +249,60 @@ static CGRect swapWidthAndHeight(CGRect rect)
     
     return rect;
 }
-
+/** 将图片旋转 */
+- (UIImage *)imageRotatedByTransform:(CGAffineTransform)transform Radians:(CGFloat)radians
+{
+    // calculate the size of the rotated view's containing box for our drawing space
+    UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
+    
+    rotatedViewBox.transform = transform;
+    CGSize rotatedSize = rotatedViewBox.frame.size;
+    
+    // Create the bitmap context
+    UIGraphicsBeginImageContext(rotatedSize);
+    CGContextRef bitmap = UIGraphicsGetCurrentContext();
+    
+    // Move the origin to the middle of the image so we will rotate and scale around the center.
+    CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+    
+    //   // Rotate the image context
+    CGFloat rotateAngle = acosf(transform.a);
+    CGContextRotateCTM(bitmap, radians);
+    // Now, draw the rotated/scaled image into the context
+    CGContextScaleCTM(bitmap, 1.0, -1.0);
+    CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), [self CGImage]);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+-(UIImage *)rotateImage:(UIImage *)image withAngle:(float)angle{
+    
+    
+    //    if (angle - 360*(int)(angle / 360.0) == 0 ){
+    //        return image;
+    //    }
+    //
+    //    CGRect imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+    //
+    //    CGFloat radian = angle / 180.0 * M_PI;
+    //    CGAffineTransform rotatedTransform = CGAffineTransformMakeRotation(radian);
+    //
+    //    CGRect rotatedRect = imageRect.applying(rotatedTransform);
+    //    rotatedRect.origin.x = 0
+    //    rotatedRect.origin.y = 0
+    //
+    //    UIGraphicsBeginImageContext(rotatedRect.size)
+    //    CGContextRef context = UIGraphicsGetCurrentContext();
+    ////    context.translateBy(x: rotatedRect.width / 2, y: rotatedRect.height / 2)
+    ////    context.rotate(by: radian)
+    ////    context.translateBy(x: -image.size.width / 2, y: -image.size.height / 2)
+    ////    image.draw(at: .zero)
+    //    UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
+    //    UIGraphicsEndImageContext();
+    //    return rotatedImage;
+    
+    return nil;
+}
 @end

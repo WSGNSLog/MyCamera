@@ -708,7 +708,7 @@ typedef enum{
             } failureBlock:^(NSError *error) {
                 [MBProgressHUD showError:@"保存失败"];
             }];
-            
+            //缩略图动画
             weakSelf.photoView.thumbnailImgV.image = image;
             weakSelf.recordView.thumbImgV.image = image;
             CGFloat kAnimationDuration = 0.3f;

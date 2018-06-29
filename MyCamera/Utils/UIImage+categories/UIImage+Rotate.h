@@ -28,4 +28,6 @@
 /** 将图片旋转radians弧度 */
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians;
 
+//TODO:待调整方法
+- (UIImage *)imageRotatedByTransform:(CGAffineTransform)transform Radians:(CGFloat)radians;
 @end

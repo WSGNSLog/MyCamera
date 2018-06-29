@@ -17,6 +17,9 @@
 #define ItemWidth 50
 #define ItemHeight 60
 @interface PhotoCropController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    ImageBlock _block;
+}
 @property (nonatomic,assign) TripType selectedCripType;
 @property (nonatomic,retain) TripView * tripView;
 @property (weak, nonatomic) UICollectionView *collectionView;
@@ -57,7 +60,7 @@
         self.editOriginalImage = self.imageView.image;
         self.editResetImage = self.imageView.image;
         //???
-        [self setImageViewFrame:YES];
+        [self setupOriginalImageView];
         [self tripBtnClick];
     }];
     self.imageArr = [NSArray arrayWithObjects:@"camera_edit_trip_free",@"camera_edit_trip_11",@"camera_edit_trip_34",@"camera_edit_trip_43",@"camera_edit_trip_916",@"camera_edit_trip_169", nil];
@@ -80,6 +83,11 @@
 }
 - (void)rightBarClick{
     [self tripConfirmClick];
+    
+    if (_block) {
+        _block(_imageView.image);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)tripBtnClick{
     [self removeTripView];
@@ -99,22 +107,23 @@
 }
 
 -(void)tripConfirmClick{
-//    self.tripResetBtn.enabled = YES;
+
     double scale =  self.imageView.image.size.width/self.imageView.frame.size.width;
     CGRect tripRect = [self.tripView tripRect];
     CGRect imageRect = CGRectMake(tripRect.origin.x * scale, tripRect.origin.y * scale, tripRect.size.width * scale, tripRect.size.height * scale);
     UIImage * image = [self.imageView.image subImageWithRect: imageRect];
     self.imageView.image = image;
-    [self setImageViewFrame:YES];
+    //[self setImageViewFrame:YES];
+    [self setUpTripImageView];
     
     [self removeTripView];
     
     self.tripView = [[TripView alloc]initWithFrame:self.imageView.bounds];
-    self.tripView.type = self.selectedCripType;
+    self.tripView.type = TripTypeFree;
     [self.imageView addSubview:self.tripView];
     //处理文字缩放与位置
-    double  newScale = self.imageView.image.size.width /self.imageView.frame.size.width;
-    [self tripTextWithFrame:tripRect Scale:scale/newScale];
+    //double  newScale = self.imageView.image.size.width /self.imageView.frame.size.width;
+    //[self tripTextWithFrame:tripRect Scale:scale/newScale];
     
 }
 -(void)saveEditBtnClick{
@@ -166,26 +175,68 @@
 }
 
 - (void)setImageViewFrame:(BOOL)edit{
+    self.imageView.image = self.image;
+    
+    
     CGSize imageSize = self.imageView.image.size;
     double imageViewHeight;
     double imageViewWidth;
     double imageBgHeigt = self.imageBg.bounds.size.height;
     double imageBgWidth = self.imageBg.bounds.size.width;
-    double sp = 0;
-    if (edit) {
-        imageBgHeigt -= 40;
-        imageBgWidth -= 40;
-        sp = 20;
-    }
-    if (imageSize.width/ imageSize.height >imageBgWidth/imageBgHeigt) {
+    if (imageSize.width/imageSize.height > imageBgWidth/imageBgHeigt) {
         imageViewWidth = imageBgWidth;
         imageViewHeight = imageSize.height/imageSize.width * imageViewWidth;
-        self.imageView.frame = CGRectMake(sp, (imageBgHeigt - imageViewHeight)/2.0 + sp, imageViewWidth, imageViewHeight);
+        self.imageView.frame = CGRectMake(0, (imageBgHeigt - imageViewHeight)/2.0, imageViewWidth, imageViewHeight);
     }else{
         imageViewHeight = imageBgHeigt;
         imageViewWidth = imageSize.width/imageSize.height * imageViewHeight;
-        self.imageView.frame = CGRectMake((imageBgWidth - imageViewWidth)/2.0 + sp,sp, imageViewWidth, imageViewHeight);
+        
+        self.imageView.frame = CGRectMake((imageBgWidth - imageViewWidth)/2.0,0, imageViewWidth, imageViewHeight);
     }
+    
+}
+- (void)setUpTripImageView{
+    
+    CGSize imageSize = self.imageView.image.size;
+    double imageViewHeight;
+    double imageViewWidth;
+    double imageBgHeigt = self.imageBg.bounds.size.height;
+    double imageBgWidth = self.imageBg.bounds.size.width;
+    if (imageSize.width/imageSize.height > imageBgWidth/imageBgHeigt) {
+        imageViewWidth = imageBgWidth;
+        imageViewHeight = imageSize.height/imageSize.width * imageViewWidth;
+        self.imageView.frame = CGRectMake(0, (imageBgHeigt - imageViewHeight)/2.0, imageViewWidth, imageViewHeight);
+    }else{
+        imageViewHeight = imageBgHeigt;
+        imageViewWidth = imageSize.width/imageSize.height * imageViewHeight;
+        
+        self.imageView.frame = CGRectMake((imageBgWidth - imageViewWidth)/2.0,0, imageViewWidth, imageViewHeight);
+    }
+    
+}
+-(void)setupOriginalImageView{
+    
+   
+    self.imageView.image = self.image;
+    
+    
+    CGSize imageSize = self.imageView.image.size;
+    double imageViewHeight;
+    double imageViewWidth;
+    double imageBgHeigt = self.imageBg.bounds.size.height;
+    double imageBgWidth = self.imageBg.bounds.size.width;
+    if (imageSize.width/imageSize.height > imageBgWidth/imageBgHeigt) {
+        imageViewWidth = imageBgWidth;
+        imageViewHeight = imageSize.height/imageSize.width * imageViewWidth;
+        self.imageView.frame = CGRectMake(0, (imageBgHeigt - imageViewHeight)/2.0, imageViewWidth, imageViewHeight);
+    }else{
+        imageViewHeight = imageBgHeigt;
+        imageViewWidth = imageSize.width/imageSize.height * imageViewHeight;
+        
+        self.imageView.frame = CGRectMake((imageBgWidth - imageViewWidth)/2.0,0, imageViewWidth, imageViewHeight);
+    }
+
+    
     
 }
 - (void)removeTripView{
@@ -239,6 +290,11 @@
     self.selectedCripType = indexPath.item;
     [collectionView reloadData];
 }
+-(void)addFinishBlock:(ImageBlock)block
+{
+    _block = block;
+}
+
 - (void)dealloc{
     NSLog(@"%s",__func__);
 }

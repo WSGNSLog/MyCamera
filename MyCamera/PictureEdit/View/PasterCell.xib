@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2320" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PasterCell">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="133"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="163" height="133"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Up-XB-Iv8">
+                        <rect key="frame" x="0.0" y="0.0" width="163" height="133"/>
+                        <color key="backgroundColor" red="0.54485852069999996" green="1" blue="0.64260750529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7Up-XB-Iv8" secondAttribute="bottom" id="DNJ-Nc-QBK"/>
+                <constraint firstAttribute="trailing" secondItem="7Up-XB-Iv8" secondAttribute="trailing" id="Ver-wE-gJZ"/>
+                <constraint firstItem="7Up-XB-Iv8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="adL-UZ-LGx"/>
+                <constraint firstItem="7Up-XB-Iv8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cu3-Bt-rqz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="163" height="133"/>
+            <connections>
+                <outlet property="pasterImgView" destination="7Up-XB-Iv8" id="KVx-HJ-7e5"/>
+            </connections>
+            <point key="canvasLocation" x="-26.5" y="58.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

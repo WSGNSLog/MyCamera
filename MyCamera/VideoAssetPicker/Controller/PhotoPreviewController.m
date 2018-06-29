@@ -21,14 +21,21 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageV;
 @property (strong, nonatomic) NSURL *imgUrl;
 @property (nonatomic, strong) CLLocationManager *locationManager;//拍照定位
-
+@property (nonatomic, copy)NSString *cachePicPath;
 @end
 
 @implementation PhotoPreviewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSString *dir = [NSString stringWithFormat:@"%@/Documents/PicInfoChange",NSHomeDirectory()];
+    BOOL isDir;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL exist = [manager fileExistsAtPath:dir isDirectory:&isDir];
+    if (!(exist && isDir)) {
+        [manager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    self.cachePicPath = [NSString stringWithFormat:@"%@/infoPic.png",dir];
 }
 - (IBAction)openAlbum:(UIButton *)sender {
     
@@ -42,6 +49,10 @@
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
         self.photoImageV.image = image;
+        
+        NSData* imageData = UIImagePNGRepresentation(image);
+        BOOL result = [imageData writeToFile:self.cachePicPath atomically:YES];
+        NSLog(@"=====%d",result);;
         [picker dismissViewControllerAnimated:YES completion:nil];
         self.imgUrl = [info objectForKey:UIImagePickerControllerReferenceURL];
     }
@@ -72,8 +83,7 @@
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
         
         __block NSMutableDictionary *imageMetadata_GPS = nil;
-        
-        __weak typeof(self)weakSelf = self;
+  
         
         [library assetForURL:assetURL resultBlock:^(ALAsset *asset) {
             
@@ -115,6 +125,7 @@
                 }];
                 
             }else{
+                NSLog(@"此照片没有GPS信息");
                 //weakSelf.weidu.text = @"此照片没有GPS信息";
                 //weakSelf.jingdu.text = @"此照片没有GPS信息";
                 //weakSelf.location.text = @"此照片没有拍摄位置";
@@ -141,6 +152,69 @@
     } failureBlock:^(NSError *error) {
         
     }];
+}
+- (IBAction)changePicInfo:(UIButton *)sender {
+    //2.创建CGImageSourceRef
+    NSURL *fileUrl = [NSURL URLWithString:self.cachePicPath];
+    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)fileUrl, NULL);
+    UIImage *img = [UIImage imageWithContentsOfFile:self.cachePicPath];
+//    //3.利用imageSource获取全部ExifData
+//
+//    CFDictionaryRef imageInfo = CGImageSourceCopyPropertiesAtIndex(imageSource, 0,NULL);
+//    //4.从全部ExifData中取出EXIF文件
+//
+//    NSDictionary *exifDic = (__bridge NSDictionary *)CFDictionaryGetValue(imageInfo, kCGImagePropertyExifDictionary) ;
+//    //5.打印全部Exif信息及EXIF文件信息
+//
+//
+//    NSLog(@"All Exif Info:%@",imageInfo);
+//    NSLog(@"EXIF:%@",exifDic);
+
+
+//    写入Exif信息
+
+    //1. 获取图片中的EXIF文件和GPS文件
+
+    NSData *imageData = UIImageJPEGRepresentation(self.photoImageV.image, 1);
+
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
+
+    NSDictionary *imageInfo = (__bridge NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, 0, NULL);
+    NSDictionary *imageInfo1 = (__bridge NSDictionary*)CGImageSourceCopyProperties(source, NULL);
+    NSDictionary *metaInfo = (__bridge NSDictionary *)CGImageSourceCopyMetadataAtIndex(source, 0, NULL);
+    NSLog(@"===:%@",imageInfo);
+    NSMutableDictionary *metaDataDic = [imageInfo mutableCopy];
+    NSMutableDictionary *exifDic =[[metaDataDic objectForKey:(NSString*)kCGImagePropertyExifDictionary]mutableCopy];
+    NSMutableDictionary *GPSDic =[[metaDataDic objectForKey:(NSString*)kCGImagePropertyGPSDictionary]mutableCopy];
+    
+    
+    //2. 修改EXIF文件和GPS文件中的部分信息
+
+    [exifDic setObject:[NSNumber numberWithFloat:1234.3] forKey:(NSString *)kCGImagePropertyExifExposureTime];
+    [exifDic setObject:@"SenseTime" forKey:(NSString *)kCGImagePropertyExifLensModel];
+
+    [GPSDic setObject:@"N" forKey:(NSString*)kCGImagePropertyGPSLatitudeRef];
+    [GPSDic setObject:[NSNumber numberWithFloat:116.29353] forKey:(NSString*)kCGImagePropertyGPSLatitude];
+
+    [metaDataDic setObject:exifDic forKey:(NSString*)kCGImagePropertyExifDictionary];
+//    [metaDataDic setObject:GPSDic forKey:(NSString*)kCGImagePropertyGPSDictionary];
+
+    //3. 将修改后的文件写入至图片中
+
+    CFStringRef UTI = CGImageSourceGetType(source);
+    NSMutableData *newImageData = [NSMutableData data];
+    CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)newImageData, UTI, 1,NULL);
+
+    //add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
+    CGImageDestinationAddImageFromSource(destination, source, 0, (__bridge CFDictionaryRef)metaDataDic);
+    CGImageDestinationFinalize(destination);
+
+    //4. 保存图片
+
+    UIImage *newImg = [UIImage imageWithData:newImageData];
+    NSString *directoryDocuments =  NSTemporaryDirectory();
+    [newImageData writeToFile: directoryDocuments atomically:YES];
+    UIImageWriteToSavedPhotosAlbum(newImg, self, NULL, NULL);
 }
 - (IBAction)photoCutClick:(UIButton *)sender {
     
@@ -195,7 +269,7 @@
     
     CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    __weak typeof(self)weakSelf = self;
+    //__weak typeof(self)weakSelf = self;
     
     //反向地理编码的请求 -> 根据经纬度 获取 位置
     [clGeoCoder reverseGeocodeLocation:newLocation completionHandler: ^(NSArray *placemarks,NSError *error) {

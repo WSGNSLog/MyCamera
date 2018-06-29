@@ -24,16 +24,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uie-tV-cBb">
                     <rect key="frame" x="0.0" y="547" width="375" height="120"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-xo-OwW">
-                            <rect key="frame" x="22" y="43" width="89" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="imageRotate1"/>
-                            <connections>
-                                <action selector="leftRotate:" destination="-1" eventType="touchUpInside" id="g4N-nH-sbl"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzX-4Q-Tnf">
-                            <rect key="frame" x="101" y="43" width="89" height="35"/>
+                            <rect key="frame" x="159" y="43" width="55" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="imageRotate2"/>
                             <connections>
@@ -41,7 +33,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaX-Ph-4Xd">
-                            <rect key="frame" x="188" y="48" width="79" height="25"/>
+                            <rect key="frame" x="240" y="48" width="54" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="imageRotate3"/>
                             <connections>
@@ -49,11 +41,27 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3o-7O-bRQ">
-                            <rect key="frame" x="269" y="48" width="79" height="25"/>
+                            <rect key="frame" x="311" y="48" width="56" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="imageRotate4"/>
                             <connections>
                                 <action selector="hRotate:" destination="-1" eventType="touchUpInside" id="YYY-u1-h5d"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXW-yp-HVw">
+                            <rect key="frame" x="26" y="43" width="35" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="reset"/>
+                            <connections>
+                                <action selector="resetClick:" destination="-1" eventType="touchUpInside" id="7oV-YC-NZU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-xo-OwW">
+                            <rect key="frame" x="74" y="43" width="67" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="imageRotate1"/>
+                            <connections>
+                                <action selector="leftRotate:" destination="-1" eventType="touchUpInside" id="g4N-nH-sbl"/>
                             </connections>
                         </button>
                     </subviews>
@@ -89,6 +97,7 @@
                 <constraint firstItem="uie-tV-cBb" firstAttribute="top" secondItem="CTl-2g-ZeI" secondAttribute="bottom" id="pEs-z3-2z7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
     <resources>

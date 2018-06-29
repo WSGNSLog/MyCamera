@@ -164,7 +164,7 @@
 //    [Helper checkCameraAuthorizationStatus];
     CameraVC *camVC = [[CameraVC alloc]init];
     
-//    [self presentViewController:camVC animated:YES completion:nil];
+    [self presentViewController:camVC animated:YES completion:nil];
 }
 
 - (void)openAlbumBtnClick{

@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollBottom;
 
+@property (nonatomic,retain) UIImage *originImg;
 /** 是否有图片数据 */
 @property (nonatomic,assign) BOOL hasImage;
 /** 单击 */
@@ -57,12 +58,14 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden = YES;
+    
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     self.tabBarController.tabBar.hidden = NO;
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
 }
 - (BOOL)prefersStatusBarHidden
 {
@@ -114,18 +117,21 @@
     
     [self.imageManager requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         
-        self.photoImageView.image = result;
+        self.originImg = result;
+        
+        //FIXME:内存问题待优化
+        self.photoImageView.image = self.originImg;
         
         //写入文件
         NSDate * now = [NSDate date];
         NSString * fileName = [NSString stringWithFormat:@"%zd.jpg",[now timeIntervalSince1970] * 1000];
         NSFileManager * fileManager = [NSFileManager defaultManager];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString * diskCachePath = [paths[0] stringByAppendingPathComponent:@"ecamera"];
+        NSString * diskCachePath = [paths[0] stringByAppendingPathComponent:@"MyCamera"];
         if (![fileManager fileExistsAtPath:diskCachePath]) {
             [fileManager createDirectoryAtPath:diskCachePath withIntermediateDirectories:YES attributes:nil error:NULL];
         }
-        
+
         _imgUrl = [NSString stringWithFormat:@"%@/%@",diskCachePath,fileName] ;
         [UIImageJPEGRepresentation(result, 1.0) writeToFile:_imgUrl atomically:YES];
 

@@ -49,6 +49,14 @@
                         <action selector="photoCutClick:" destination="-1" eventType="touchUpInside" id="ADY-br-E41"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUP-zl-hrh">
+                    <rect key="frame" x="18" y="428" width="92" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="修改照片信息"/>
+                    <connections>
+                        <action selector="changePicInfo:" destination="-1" eventType="touchUpInside" id="ghX-Bc-vKa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

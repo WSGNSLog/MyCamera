@@ -29,7 +29,14 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 @implementation AlbumController
 
 static NSString *const AlbumCellID = @"AlbumCellID";
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
