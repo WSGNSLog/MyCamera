@@ -22,10 +22,48 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjJ-l6-rrQ">
-                    <rect key="frame" x="0.0" y="557" width="375" height="110"/>
+                    <rect key="frame" x="0.0" y="507" width="375" height="160"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-QP-Wyr">
+                            <rect key="frame" x="0.0" y="110" width="375" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jp-uO-fdL">
+                                    <rect key="frame" x="30" y="5" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="BxF-dO-XK0"/>
+                                        <constraint firstAttribute="width" constant="40" id="El8-51-TtM"/>
+                                    </constraints>
+                                    <state key="normal" image="CloseIcon"/>
+                                    <connections>
+                                        <action selector="cancelClick:" destination="-1" eventType="touchUpInside" id="rBh-yk-lUl"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBO-6n-0et">
+                                    <rect key="frame" x="305" y="5" width="40" height="40"/>
+                                    <state key="normal" image="CompleteBtnImg"/>
+                                    <connections>
+                                        <action selector="saveClick:" destination="-1" eventType="touchUpInside" id="7TN-ey-8ez"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="7Rf-IF-a0Q"/>
+                                <constraint firstItem="HBO-6n-0et" firstAttribute="height" secondItem="9Jp-uO-fdL" secondAttribute="height" id="I1C-eM-fCt"/>
+                                <constraint firstItem="9Jp-uO-fdL" firstAttribute="centerY" secondItem="tL3-QP-Wyr" secondAttribute="centerY" id="nDl-Zk-2QG"/>
+                                <constraint firstItem="HBO-6n-0et" firstAttribute="width" secondItem="9Jp-uO-fdL" secondAttribute="width" id="oYb-Vg-3tj"/>
+                                <constraint firstAttribute="trailing" secondItem="HBO-6n-0et" secondAttribute="trailing" constant="30" id="pDT-cf-6Ou"/>
+                                <constraint firstItem="9Jp-uO-fdL" firstAttribute="leading" secondItem="tL3-QP-Wyr" secondAttribute="leading" constant="30" id="rpe-jp-scn"/>
+                                <constraint firstItem="HBO-6n-0et" firstAttribute="centerY" secondItem="9Jp-uO-fdL" secondAttribute="centerY" id="t1R-01-lXG"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="110" id="aYO-nU-79P"/>
+                        <constraint firstAttribute="bottom" secondItem="tL3-QP-Wyr" secondAttribute="bottom" id="RaP-Ks-K5N"/>
+                        <constraint firstAttribute="trailing" secondItem="tL3-QP-Wyr" secondAttribute="trailing" id="VGk-1h-ECa"/>
+                        <constraint firstAttribute="height" constant="160" id="aYO-nU-79P"/>
+                        <constraint firstItem="tL3-QP-Wyr" firstAttribute="leading" secondItem="fjJ-l6-rrQ" secondAttribute="leading" id="hQ3-8c-Bgx"/>
                     </constraints>
                 </view>
             </subviews>
@@ -36,6 +74,11 @@
                 <constraint firstItem="fjJ-l6-rrQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="zja-eS-2O4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="CloseIcon" width="28" height="28"/>
+        <image name="CompleteBtnImg" width="28" height="28"/>
+    </resources>
 </document>

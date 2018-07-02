@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoCropController.h"
 
 @interface PhotoSecondCropController : UIViewController
+@property (nonatomic,strong) UIImage *image;
+
+-(void)addFinishBlock:(ImageBlock)block;
 
 @end

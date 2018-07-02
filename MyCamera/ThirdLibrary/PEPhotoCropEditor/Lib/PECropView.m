@@ -516,5 +516,16 @@ static const CGFloat MarginRight = MarginLeft;
     CGPoint contentOffset = scrollView.contentOffset;
     *targetContentOffset = contentOffset;
 }
-
+//修正拖动图片后裁剪框未正常重新覆盖到图片上的bug
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
+    
+    CGRect cropRect = [self cappedCropRectInImageRectWithCropRectView:self.cropRectView];
+    
+    [self layoutCropRectViewWithCropRect:cropRect];
+    
+    [self automaticZoomIfEdgeTouched:cropRect];
+    
+    self.resizing = NO;
+    [self zoomToCropRect:self.cropRectView.frame];
+}
 @end

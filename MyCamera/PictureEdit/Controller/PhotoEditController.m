@@ -17,7 +17,7 @@
 #import "PhotoCIFilterController.h"
 #import "PhotoCustomRotateVC.h"
 #import "PicEditOptionView.h"
-
+#import "PhotoSecondCropController.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -62,8 +62,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"camera_edit_edit",@"camera_edit_text",@"camera_edit_sticker",@"camera_edit_border",@"camera_edit_border",@"camera_edit_draw",@"camera_edit_filter",@"photoBeauty_filter",@"photoBeauty_watermark",@"photoBeauty_adjust", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"camera_edit_edit",@"camera_edit_text",@"camera_edit_sticker",@"camera_edit_border",@"camera_edit_border",@"camera_edit_draw",@"camera_edit_filter",@"photoBeauty_filter",@"photoBeauty_watermark",@"photoBeauty_adjust",@"photoBeauty_clip", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -239,6 +239,17 @@
             rotateVC.image = self.image;
             rotateVC.asset = self.asset;
             [self.navigationController pushViewController:rotateVC animated:YES];
+            self.editView.hidden = YES;
+        }
+            break;
+        case 10://裁剪第二种
+        {
+            PhotoSecondCropController  *cropVC = [[PhotoSecondCropController alloc]init];
+            cropVC.image = self.image;
+            [cropVC addFinishBlock:^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            }];
+            [self presentViewController:cropVC animated:YES completion:nil];
             self.editView.hidden = YES;
         }
             break;
