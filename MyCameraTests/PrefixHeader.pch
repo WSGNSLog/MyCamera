@@ -28,6 +28,7 @@
 #import "UIView+ECategory.h"
 #import "Helper.h"
 #import "ECustomAlertView.h"
+#import "UIFont+CustomFont.h"
 
 #define PickerBarH 34
 #define BLUECOLOR @"19c9db"

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="NearbyLocCell">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma7-Gb-AEG">
+                        <rect key="frame" x="20" y="15" width="69.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="faL-BY-c3E"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.18039215689999999" green="0.74509803919999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watermark_locationicon" translatesAutoresizingMaskIntoConstraints="NO" id="LGU-Yn-zQ5">
+                        <rect key="frame" x="20" y="50" width="15" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="LGU-Yn-zQ5" secondAttribute="height" multiplier="3:4" id="ACs-KC-tn0"/>
+                            <constraint firstAttribute="width" constant="15" id="rNQ-Kt-oE6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="四方科技大厦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx6-QC-8OT">
+                        <rect key="frame" x="45" y="40.5" width="104" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="KLn-LY-7yA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天津市南开区金平路4号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKE-oL-cFr">
+                        <rect key="frame" x="45" y="60.5" width="130.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="HLn-1F-9Vj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZKE-oL-cFr" firstAttribute="leading" secondItem="Nx6-QC-8OT" secondAttribute="leading" id="FfO-L4-Nad"/>
+                    <constraint firstItem="LGU-Yn-zQ5" firstAttribute="leading" secondItem="Ma7-Gb-AEG" secondAttribute="leading" id="Gnc-RK-J8H"/>
+                    <constraint firstItem="LGU-Yn-zQ5" firstAttribute="top" secondItem="Ma7-Gb-AEG" secondAttribute="bottom" constant="15" id="a5t-Q2-gdW"/>
+                    <constraint firstItem="Nx6-QC-8OT" firstAttribute="centerY" secondItem="LGU-Yn-zQ5" secondAttribute="centerY" constant="-12" id="aba-V7-a8R"/>
+                    <constraint firstItem="Ma7-Gb-AEG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="fp0-mf-Fsq"/>
+                    <constraint firstItem="Nx6-QC-8OT" firstAttribute="leading" secondItem="LGU-Yn-zQ5" secondAttribute="trailing" constant="10" id="nEs-Yj-4lM"/>
+                    <constraint firstItem="ZKE-oL-cFr" firstAttribute="top" secondItem="Nx6-QC-8OT" secondAttribute="bottom" constant="5" id="sdP-rB-hek"/>
+                    <constraint firstItem="Ma7-Gb-AEG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="vMU-Tn-XlH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="addressLabel" destination="ZKE-oL-cFr" id="AS5-K4-rxq"/>
+                <outlet property="nameLabel" destination="Nx6-QC-8OT" id="w0B-qD-cZR"/>
+            </connections>
+            <point key="canvasLocation" x="84.5" y="81.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="watermark_locationicon" width="12" height="16"/>
+    </resources>
+</document>
