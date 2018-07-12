@@ -10,7 +10,7 @@
 #import "CameraVC.h"
 #import "AlbumController.h"
 #import "MenuInfo.h"
-#import "PhotoPreviewController.h"
+#import "PhotoExifInfoVC.h"
 #import "LocalAlbumController.h"
 @interface ViewController ()
 
@@ -79,8 +79,8 @@
 }
 
 - (void)photoInfoBtnClick{
-    PhotoPreviewController *albumVC = [[PhotoPreviewController alloc]init];
-    [self.navigationController pushViewController:albumVC animated:YES];
+    PhotoExifInfoVC *ExifInfoVC = [[PhotoExifInfoVC alloc]init];
+    [self.navigationController pushViewController:ExifInfoVC animated:YES];
 }
 - (void)openAlbumPhotoBtnClick{
     LocalAlbumController *albumVC = [[LocalAlbumController alloc]init];

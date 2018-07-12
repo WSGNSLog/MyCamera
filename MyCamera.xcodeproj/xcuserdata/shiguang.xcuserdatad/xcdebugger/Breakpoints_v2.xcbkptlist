@@ -19,29 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyCamera/VideoAssetPicker/Controller/PhotoPreviewController.m"
-            timestampString = "551770243.711041"
+            filePath = "MyCamera/PictureEdit/WarterMark/Controller/PhotoWaterMarkController.m"
+            timestampString = "552972325.2324539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-changePicInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyCamera/PictureEdit/WarterMark/Controller/PhotoLocationController.m"
-            timestampString = "552816005.190263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "-didStopLocatingUser"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

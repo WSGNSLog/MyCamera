@@ -153,11 +153,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    [_locService startUserLocationService];
+    
     
     _geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    _geocodesearch.delegate = self;
     CLLocation *assetLocation = self.asset.location;
     CLLocationCoordinate2D originCoor = (CLLocationCoordinate2D){0, 0};//原始坐标
     if (assetLocation.coordinate.latitude && assetLocation.coordinate.longitude) {
@@ -201,7 +200,14 @@
             self.originLocStr = [location_Arr firstObject];
             NSLog(@"位置: %@",[location_Arr firstObject]);
         }
+        if (error) {
+            NSLog(@"位置error:%@",error);
+        }
     }];
+    
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    [_locService startUserLocationService];
 }
 - (IBAction)locationBtnClick:(UIButton *)sender {
     
@@ -422,6 +428,27 @@
         NSLog(@"反geo检索发送失败");
     }
     
+}
+/**
+ *在将要启动定位时，会调用此函数
+ */
+- (void)willStartLocatingUser{
+    NSLog(@"%s",__func__);
+}
+
+/**
+ *在停止定位后，会调用此函数
+ */
+- (void)didStopLocatingUser{
+    NSLog(@"%s",__func__);
+}
+
+/**
+ *用户方向更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation{
+    NSLog(@"didUpdateUserHeading lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 }
 
 #pragma mark - 反向地理编码

@@ -260,7 +260,7 @@ static NSString *const FilterCellID = @"FilterCell";
         default:
             break;
     }
-//    self.imageView.image = filterImg;
+    self.imageView.image = filterImg;
 }
 - (void)dealloc{
     NSLog(@"%s",__func__);

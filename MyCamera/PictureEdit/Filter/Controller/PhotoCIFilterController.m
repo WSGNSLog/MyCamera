@@ -12,7 +12,7 @@
 
 #define BottomViewHeight 120
 #define CellMargin 5
-#define CollectionHeight 90
+#define CollectionHeight 108
 #define ItemWidth 60
 #define ItemHeight 90
 @interface PhotoCIFilterController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIImage *originCellImg;
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (strong,nonatomic) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSArray *filterNameArr;
 @end
 
 static NSString *const FilterCellID = @"FilterCell";
@@ -86,6 +87,7 @@ static NSString *const FilterCellID = @"FilterCell";
                        
                        nil
                        ];
+    self.filterNameArr = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
     self.imageView.image = self.image;
     
     [self initBottomView];

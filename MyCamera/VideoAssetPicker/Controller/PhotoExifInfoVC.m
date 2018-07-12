@@ -1,12 +1,12 @@
 //
-//  PhotoPreviewController.m
+//  PhotoExifInfoVC.m
 //  MyCamera
 //
 //  Created by shiguang on 2018/5/15.
 //  Copyright © 2018年 shiguang. All rights reserved.
 //
 
-#import "PhotoPreviewController.h"
+#import "PhotoExifInfoVC.h"
 #import <ImageIO/ImageIO.h>
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -17,15 +17,19 @@
 #import "PhotoEditController.h"
 #import "PhotoCutController.h"
 
-@interface PhotoPreviewController ()<CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageV;
+@interface PhotoExifInfoVC ()<CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (strong, nonatomic) NSURL *imgUrl;
 @property (nonatomic, strong) CLLocationManager *locationManager;//拍照定位
 @property (nonatomic, copy)NSString *cachePicPath;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageV;
+
+
 @end
 
-@implementation PhotoPreviewController
-
+@implementation PhotoExifInfoVC
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *dir = [NSString stringWithFormat:@"%@/Documents/PicInfoChange",NSHomeDirectory()];
@@ -211,11 +215,23 @@
 
     //4. 保存图片
 
-    UIImage *newImg = [UIImage imageWithData:newImageData];
-    NSString *directoryDocuments =  NSTemporaryDirectory();
-    [newImageData writeToFile: directoryDocuments atomically:YES];
-    UIImageWriteToSavedPhotosAlbum(newImg, self, NULL, NULL);
+//    UIImage *newImg = [UIImage imageWithData:newImageData];
+//    NSString *directoryDocuments =  NSTemporaryDirectory();
+//    [newImageData writeToFile: directoryDocuments atomically:YES];
+//    UIImageWriteToSavedPhotosAlbum(newImg, self, NULL, NULL);
+    //存到手机相册
+    ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc]init];
+    [assetsLibrary writeImageDataToSavedPhotosAlbum:newImageData metadata:metaDataDic completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (error) {
+            NSLog(@"***error:%@",error);
+        }
+    }];
 }
+- (IBAction)saveClick:(UIButton *)sender {
+}
+- (IBAction)cancelClick:(UIButton *)sender {
+}
+
 - (IBAction)photoCutClick:(UIButton *)sender {
     
     PhotoCutController *cutVC = [[PhotoCutController alloc]init];
