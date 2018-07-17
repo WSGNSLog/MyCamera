@@ -125,6 +125,10 @@
 		E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568C205671BA003C4C4C /* VTMagicView.m */; };
 		E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D568D205671BA003C4C4C /* UIViewController+VTMagic.m */; };
 		E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D569A2056755B003C4C4C /* MenuInfo.m */; };
+		E39A570120FDCED70018D5B5 /* PhotoEditOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39A56FE20FDCED70018D5B5 /* PhotoEditOptionCell.xib */; };
+		E39A570220FDCED70018D5B5 /* PhotoEditOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E39A570020FDCED70018D5B5 /* PhotoEditOptionCell.m */; };
+		E39A570620FDCF3B0018D5B5 /* CropRatioOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E39A570420FDCF3B0018D5B5 /* CropRatioOptionCell.m */; };
+		E39A570720FDCF3B0018D5B5 /* CropRatioOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39A570520FDCF3B0018D5B5 /* CropRatioOptionCell.xib */; };
 		E39B99D820AA73630041253C /* PhotoExifInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99D620AA73630041253C /* PhotoExifInfoVC.m */; };
 		E39B99DC20AA7C870041253C /* NSDictionary+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99DB20AA7C870041253C /* NSDictionary+CLLocation.m */; };
 		E39B99DF20AA7CBB0041253C /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = E39B99DE20AA7CBB0041253C /* WGS84TOGCJ02.m */; };
@@ -196,8 +200,6 @@
 		E3C5ED0F20F3307100287C68 /* FingerDrawLineInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECAC20F3307000287C68 /* FingerDrawLineInfo.m */; };
 		E3C5ED1020F3307100287C68 /* PhotoEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECAD20F3307000287C68 /* PhotoEditView.m */; };
 		E3C5ED1120F3307100287C68 /* FingerDrawLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECB120F3307000287C68 /* FingerDrawLine.m */; };
-		E3C5ED1420F3307100287C68 /* PhotoEditOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECB420F3307000287C68 /* PhotoEditOptionCell.m */; };
-		E3C5ED1520F3307100287C68 /* PhotoEditOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C5ECB520F3307000287C68 /* PhotoEditOptionCell.xib */; };
 		E3C5ED1620F3307100287C68 /* TripView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECB720F3307000287C68 /* TripView.m */; };
 		E3C5ED1720F3307100287C68 /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECB820F3307000287C68 /* TKImageView.m */; };
 		E3C5ED1820F3307100287C68 /* PhotoCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ECB920F3307000287C68 /* PhotoCutView.m */; };
@@ -467,6 +469,12 @@
 		E38D5691205671BA003C4C4C /* VTMagicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicController.h; sourceTree = "<group>"; };
 		E38D569A2056755B003C4C4C /* MenuInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuInfo.m; sourceTree = "<group>"; };
 		E38D569B2056755B003C4C4C /* MenuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuInfo.h; sourceTree = "<group>"; };
+		E39A56FE20FDCED70018D5B5 /* PhotoEditOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEditOptionCell.xib; sourceTree = "<group>"; };
+		E39A56FF20FDCED70018D5B5 /* PhotoEditOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditOptionCell.h; sourceTree = "<group>"; };
+		E39A570020FDCED70018D5B5 /* PhotoEditOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditOptionCell.m; sourceTree = "<group>"; };
+		E39A570320FDCF3B0018D5B5 /* CropRatioOptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropRatioOptionCell.h; sourceTree = "<group>"; };
+		E39A570420FDCF3B0018D5B5 /* CropRatioOptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CropRatioOptionCell.m; sourceTree = "<group>"; };
+		E39A570520FDCF3B0018D5B5 /* CropRatioOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CropRatioOptionCell.xib; sourceTree = "<group>"; };
 		E39B99D520AA73630041253C /* PhotoExifInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoExifInfoVC.h; sourceTree = "<group>"; };
 		E39B99D620AA73630041253C /* PhotoExifInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoExifInfoVC.m; sourceTree = "<group>"; };
 		E39B99DA20AA7C870041253C /* NSDictionary+CLLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CLLocation.h"; sourceTree = "<group>"; };
@@ -590,15 +598,12 @@
 		E3C5ECA520F3307000287C68 /* PhotoCropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropController.m; sourceTree = "<group>"; };
 		E3C5ECA620F3307000287C68 /* PhotoCutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCutController.m; sourceTree = "<group>"; };
 		E3C5ECA720F3307000287C68 /* PhotoSecondCropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSecondCropController.h; sourceTree = "<group>"; };
-		E3C5ECAA20F3307000287C68 /* PhotoEditOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditOptionCell.h; sourceTree = "<group>"; };
 		E3C5ECAC20F3307000287C68 /* FingerDrawLineInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerDrawLineInfo.m; sourceTree = "<group>"; };
 		E3C5ECAD20F3307000287C68 /* PhotoEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditView.m; sourceTree = "<group>"; };
 		E3C5ECAE20F3307000287C68 /* PhotoCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCutView.h; sourceTree = "<group>"; };
 		E3C5ECAF20F3307000287C68 /* TKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageView.h; sourceTree = "<group>"; };
 		E3C5ECB020F3307000287C68 /* TripView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripView.h; sourceTree = "<group>"; };
 		E3C5ECB120F3307000287C68 /* FingerDrawLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerDrawLine.m; sourceTree = "<group>"; };
-		E3C5ECB420F3307000287C68 /* PhotoEditOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditOptionCell.m; sourceTree = "<group>"; };
-		E3C5ECB520F3307000287C68 /* PhotoEditOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEditOptionCell.xib; sourceTree = "<group>"; };
 		E3C5ECB620F3307000287C68 /* FingerDrawLineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerDrawLineInfo.h; sourceTree = "<group>"; };
 		E3C5ECB720F3307000287C68 /* TripView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripView.m; sourceTree = "<group>"; };
 		E3C5ECB820F3307000287C68 /* TKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageView.m; sourceTree = "<group>"; };
@@ -802,19 +807,19 @@
 			children = (
 				E34F64EE20DA050700F4E4FD /* PECropRectView.h */,
 				E34F64F320DA050700F4E4FD /* PECropRectView.m */,
-				E34F64F420DA050700F4E4FD /* UIImage+PECrop.h */,
-				E34F64EF20DA050700F4E4FD /* UIImage+PECrop.m */,
-				E34F64F520DA050700F4E4FD /* PEResizeControl.h */,
-				E34F64F020DA050700F4E4FD /* PEResizeControl.m */,
 				E34F64F620DA050700F4E4FD /* PECropView.h */,
 				E34F64F220DA050700F4E4FD /* PECropView.m */,
+				E34F64F520DA050700F4E4FD /* PEResizeControl.h */,
+				E34F64F020DA050700F4E4FD /* PEResizeControl.m */,
 				E34F64F720DA050700F4E4FD /* PECropViewController.h */,
 				E34F64F120DA050700F4E4FD /* PECropViewController.m */,
+				E34F64F420DA050700F4E4FD /* UIImage+PECrop.h */,
+				E34F64EF20DA050700F4E4FD /* UIImage+PECrop.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		E357D67D20AEBADE006F31C4 /* Album */ = {
+		E357D67D20AEBADE006F31C4 /* Album-相册 */ = {
 			isa = PBXGroup;
 			children = (
 				E357D6A420AEBC85006F31C4 /* Category */,
@@ -822,7 +827,7 @@
 				E357D68820AEBADE006F31C4 /* Model */,
 				E357D68F20AEBADE006F31C4 /* View */,
 			);
-			path = Album;
+			path = "Album-相册";
 			sourceTree = "<group>";
 		};
 		E357D67E20AEBADE006F31C4 /* Controller */ = {
@@ -899,10 +904,10 @@
 		E36F1AC02007131B00DD5AB0 /* MyCamera */ = {
 			isa = PBXGroup;
 			children = (
-				E36F1AF42007148C00DD5AB0 /* Camera */,
+				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
 				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
-				E357D67D20AEBADE006F31C4 /* Album */,
-				E39B9A1620AD283F0041253C /* PictureEdit */,
+				E357D67D20AEBADE006F31C4 /* Album-相册 */,
+				E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */,
 				E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */,
 				E36F1AF32007148C00DD5AB0 /* Utils */,
 				E38D567620566CDE003C4C4C /* Main */,
@@ -976,7 +981,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		E36F1AF42007148C00DD5AB0 /* Camera */ = {
+		E36F1AF42007148C00DD5AB0 /* Camera-相机 */ = {
 			isa = PBXGroup;
 			children = (
 				E33FA63D2041468D007C0A2B /* Util */,
@@ -984,7 +989,7 @@
 				E36F1AF62007148C00DD5AB0 /* Model */,
 				E36F1AF72007148C00DD5AB0 /* View */,
 			);
-			path = Camera;
+			path = "Camera-相机";
 			sourceTree = "<group>";
 		};
 		E36F1AF52007148C00DD5AB0 /* Controller */ = {
@@ -1231,22 +1236,22 @@
 			path = VTMagic;
 			sourceTree = "<group>";
 		};
-		E39B9A1620AD283F0041253C /* PictureEdit */ = {
+		E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */ = {
 			isa = PBXGroup;
 			children = (
-				E3C5ED2320F3314000287C68 /* EditHome */,
+				E3C5ED2320F3314000287C68 /* EditHome-编辑首页 */,
 				E3C5EC4D20F3306F00287C68 /* Adjust */,
-				E3C5EC9D20F3307000287C68 /* Crop */,
-				E3C5EC6020F3306F00287C68 /* Filter */,
-				E3C5EC9C20F3307000287C68 /* Frame */,
-				E3C5ECBC20F3307000287C68 /* Paster */,
-				E3C5ECC820F3307000287C68 /* RotateAndMirror */,
-				E3C5EC6D20F3306F00287C68 /* Text */,
-				E3C5EC3920F3306F00287C68 /* Tuya */,
-				E3C5EC8320F3307000287C68 /* WarterMark */,
+				E3C5EC9D20F3307000287C68 /* Crop-裁剪 */,
+				E3C5EC6020F3306F00287C68 /* Filter-滤镜 */,
+				E3C5EC9C20F3307000287C68 /* Frame-边框 */,
+				E3C5ECBC20F3307000287C68 /* Paster-贴纸 */,
+				E3C5ECC820F3307000287C68 /* RotateAndMirror-旋转镜像 */,
+				E3C5EC6D20F3306F00287C68 /* Text-文字 */,
+				E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */,
+				E3C5EC8320F3307000287C68 /* WarterMark-水印 */,
 				E323BD0320AD2D6500F01C49 /* Resources */,
 			);
-			path = PictureEdit;
+			path = "PictureEdit-图片编辑";
 			sourceTree = "<group>";
 		};
 		E3B76330200DD04200AD2508 /* UIImage+categories */ = {
@@ -1335,14 +1340,14 @@
 			path = ActionSheetPicker;
 			sourceTree = "<group>";
 		};
-		E3C5EC3920F3306F00287C68 /* Tuya */ = {
+		E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5EC3A20F3306F00287C68 /* Controller */,
 				E3C5EC3B20F3306F00287C68 /* Model */,
 				E3C5EC3C20F3306F00287C68 /* View */,
 			);
-			path = Tuya;
+			path = "Tuya-涂鸦";
 			sourceTree = "<group>";
 		};
 		E3C5EC3A20F3306F00287C68 /* Controller */ = {
@@ -1397,14 +1402,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5EC6020F3306F00287C68 /* Filter */ = {
+		E3C5EC6020F3306F00287C68 /* Filter-滤镜 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5EC6120F3306F00287C68 /* Controller */,
 				E3C5EC6820F3306F00287C68 /* Model */,
 				E3C5EC6920F3306F00287C68 /* View */,
 			);
-			path = Filter;
+			path = "Filter-滤镜";
 			sourceTree = "<group>";
 		};
 		E3C5EC6120F3306F00287C68 /* Controller */ = {
@@ -1437,14 +1442,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5EC6D20F3306F00287C68 /* Text */ = {
+		E3C5EC6D20F3306F00287C68 /* Text-文字 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5EC6E20F3306F00287C68 /* Controller */,
 				E3C5EC7220F3307000287C68 /* Model */,
 				E3C5EC7320F3307000287C68 /* View */,
 			);
-			path = Text;
+			path = "Text-文字";
 			sourceTree = "<group>";
 		};
 		E3C5EC6E20F3306F00287C68 /* Controller */ = {
@@ -1471,14 +1476,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5EC8320F3307000287C68 /* WarterMark */ = {
+		E3C5EC8320F3307000287C68 /* WarterMark-水印 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5EC8420F3307000287C68 /* Controller */,
 				E3C5EC8B20F3307000287C68 /* Model */,
 				E3C5EC8C20F3307000287C68 /* View */,
 			);
-			path = WarterMark;
+			path = "WarterMark-水印";
 			sourceTree = "<group>";
 		};
 		E3C5EC8420F3307000287C68 /* Controller */ = {
@@ -1523,21 +1528,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5EC9C20F3307000287C68 /* Frame */ = {
+		E3C5EC9C20F3307000287C68 /* Frame-边框 */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Frame;
+			path = "Frame-边框";
 			sourceTree = "<group>";
 		};
-		E3C5EC9D20F3307000287C68 /* Crop */ = {
+		E3C5EC9D20F3307000287C68 /* Crop-裁剪 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5EC9E20F3307000287C68 /* Controller */,
 				E3C5ECA820F3307000287C68 /* Model */,
 				E3C5ECA920F3307000287C68 /* View */,
 			);
-			path = Crop;
+			path = "Crop-裁剪";
 			sourceTree = "<group>";
 		};
 		E3C5EC9E20F3307000287C68 /* Controller */ = {
@@ -1566,6 +1571,9 @@
 		E3C5ECA920F3307000287C68 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E39A570320FDCF3B0018D5B5 /* CropRatioOptionCell.h */,
+				E39A570420FDCF3B0018D5B5 /* CropRatioOptionCell.m */,
+				E39A570520FDCF3B0018D5B5 /* CropRatioOptionCell.xib */,
 				E3C5ECB620F3307000287C68 /* FingerDrawLineInfo.h */,
 				E3C5ECAC20F3307000287C68 /* FingerDrawLineInfo.m */,
 				E3C5ECBB20F3307000287C68 /* FingerDrawLine.h */,
@@ -1574,9 +1582,6 @@
 				E3C5ECAD20F3307000287C68 /* PhotoEditView.m */,
 				E3C5ECAF20F3307000287C68 /* TKImageView.h */,
 				E3C5ECB820F3307000287C68 /* TKImageView.m */,
-				E3C5ECAA20F3307000287C68 /* PhotoEditOptionCell.h */,
-				E3C5ECB420F3307000287C68 /* PhotoEditOptionCell.m */,
-				E3C5ECB520F3307000287C68 /* PhotoEditOptionCell.xib */,
 				E3C5ECB020F3307000287C68 /* TripView.h */,
 				E3C5ECB720F3307000287C68 /* TripView.m */,
 				E3C5ECAE20F3307000287C68 /* PhotoCutView.h */,
@@ -1585,14 +1590,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5ECBC20F3307000287C68 /* Paster */ = {
+		E3C5ECBC20F3307000287C68 /* Paster-贴纸 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5ECBD20F3307000287C68 /* Controller */,
 				E3C5ECC120F3307000287C68 /* Model */,
 				E3C5ECC220F3307000287C68 /* View */,
 			);
-			path = Paster;
+			path = "Paster-贴纸";
 			sourceTree = "<group>";
 		};
 		E3C5ECBD20F3307000287C68 /* Controller */ = {
@@ -1624,14 +1629,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5ECC820F3307000287C68 /* RotateAndMirror */ = {
+		E3C5ECC820F3307000287C68 /* RotateAndMirror-旋转镜像 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5ECC920F3307000287C68 /* Controller */,
 				E3C5ECD020F3307000287C68 /* Model */,
 				E3C5ECD120F3307000287C68 /* View */,
 			);
-			path = RotateAndMirror;
+			path = "RotateAndMirror-旋转镜像";
 			sourceTree = "<group>";
 		};
 		E3C5ECC920F3307000287C68 /* Controller */ = {
@@ -1661,14 +1666,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5ED2320F3314000287C68 /* EditHome */ = {
+		E3C5ED2320F3314000287C68 /* EditHome-编辑首页 */ = {
 			isa = PBXGroup;
 			children = (
 				E3C5ED2420F3314000287C68 /* Controller */,
 				E3C5ED2820F3314000287C68 /* Model */,
 				E3C5ED2920F3314000287C68 /* View */,
 			);
-			path = EditHome;
+			path = "EditHome-编辑首页";
 			sourceTree = "<group>";
 		};
 		E3C5ED2420F3314000287C68 /* Controller */ = {
@@ -1691,6 +1696,9 @@
 		E3C5ED2920F3314000287C68 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E39A56FF20FDCED70018D5B5 /* PhotoEditOptionCell.h */,
+				E39A570020FDCED70018D5B5 /* PhotoEditOptionCell.m */,
+				E39A56FE20FDCED70018D5B5 /* PhotoEditOptionCell.xib */,
 				E3C5ED2A20F3314000287C68 /* PicEditOptionView.h */,
 				E3C5ED2C20F3314000287C68 /* PicEditOptionView.m */,
 				E3C5ED2B20F3314000287C68 /* PicEditOptionView.xib */,
@@ -1851,13 +1859,13 @@
 				E357D69820AEBADE006F31C4 /* AlbumVideoPreviewVC.xib in Resources */,
 				E36F1ACB2007131B00DD5AB0 /* Assets.xcassets in Resources */,
 				E34F64FA20DA050700F4E4FD /* README.md in Resources */,
+				E39A570720FDCF3B0018D5B5 /* CropRatioOptionCell.xib in Resources */,
 				E323BD2320AD2D6500F01C49 /* fontSelected@3x.png in Resources */,
 				E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */,
 				E3C5ED2E20F3314000287C68 /* PhotoEditController.xib in Resources */,
 				E3C5EDA920F4AD0F00287C68 /* PhotoExifInfoVC.xib in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
 				E37B6F6720B3E4DF00315C0A /* StickerInfo.xml in Resources */,
-				E3C5ED1520F3307100287C68 /* PhotoEditOptionCell.xib in Resources */,
 				E3C5ECFC20F3307100287C68 /* PhotoLocationController.xib in Resources */,
 				E3C5ED0720F3307100287C68 /* OriginLocCell.xib in Resources */,
 				E323BD2020AD2D6500F01C49 /* fontSelect@3x.png in Resources */,
@@ -1894,6 +1902,7 @@
 				E37B6F6820B3E4DF00315C0A /* paster_wow.png in Resources */,
 				E323BD1D20AD2D6500F01C49 /* colorsSelected@2x.png in Resources */,
 				E3C5ED1A20F3307100287C68 /* PhotoPasterController.xib in Resources */,
+				E39A570120FDCED70018D5B5 /* PhotoEditOptionCell.xib in Resources */,
 				E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1939,6 +1948,7 @@
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
 				E39B99DF20AA7CBB0041253C /* WGS84TOGCJ02.m in Sources */,
+				E39A570620FDCF3B0018D5B5 /* CropRatioOptionCell.m in Sources */,
 				E3C5ECED20F3307100287C68 /* FilterCell.m in Sources */,
 				E3114C4C20D38A0A00D48461 /* UIImage+Cut.m in Sources */,
 				E3C5ED3020F3314000287C68 /* PicEditOptionView.m in Sources */,
@@ -1972,6 +1982,7 @@
 				E3B7641D201592E700AD2508 /* LHDBPath.m in Sources */,
 				E3C5ECEA20F3307100287C68 /* PhotoFilterController.m in Sources */,
 				E3C5ED1620F3307100287C68 /* TripView.m in Sources */,
+				E39A570220FDCED70018D5B5 /* PhotoEditOptionCell.m in Sources */,
 				E3C5EDAD20F4B1BD00287C68 /* BaseViewController.m in Sources */,
 				E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */,
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
@@ -2018,7 +2029,6 @@
 				E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */,
 				E3C5ED1B20F3307100287C68 /* VideoPasterView.m in Sources */,
 				E33FA61B204145FC007C0A2B /* CameraModeSelectBtn.m in Sources */,
-				E3C5ED1420F3307100287C68 /* PhotoEditOptionCell.m in Sources */,
 				E38D5694205671BA003C4C4C /* VTMenuBar.m in Sources */,
 				E36F1C832007580C00DD5AB0 /* MASLayoutConstraint.m in Sources */,
 				E357D6A720AEBC85006F31C4 /* UIView+PBExtend.m in Sources */,

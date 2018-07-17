@@ -32,31 +32,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isRequestAlertFirstTimeShow"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"isRequestAlertFirstTimeShow"];
+        //第一次进来请求权限
+        [self requestAuthorization];
+    }else{
+        if([Helper checkCameraAuthorizationStatus]){
+            
+        }else{
+            [self showSettingAlertStr:@"请在手机设置中打开乐鱼相机、照片及麦克风的访问权限"];
+        }
+    }
     
     UIButton *openCamBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    openCamBtn.frame = CGRectMake(150, 200, 80, 50);
-    [openCamBtn setTitle:@"openCam" forState:UIControlStateNormal];
+    openCamBtn.frame = CGRectMake(120, 200, 150, 50);
+    [openCamBtn setTitle:@"相机" forState:UIControlStateNormal];
     [openCamBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openCamBtn addTarget:self action:@selector(openCamBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openCamBtn];
     
     UIButton *openAlbumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    openAlbumBtn.frame = CGRectMake(150, 300, 80, 50);
-    [openAlbumBtn setTitle:@"打开相册视频" forState:UIControlStateNormal];
+    openAlbumBtn.frame = CGRectMake(120, 300, 150, 50);
+    [openAlbumBtn setTitle:@"相册视频" forState:UIControlStateNormal];
     [openAlbumBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openAlbumBtn addTarget:self action:@selector(openAlbumBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openAlbumBtn];
     
     UIButton *photoInfoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    photoInfoBtn.frame = CGRectMake(150, 400, 80, 50);
+    photoInfoBtn.frame = CGRectMake(120, 400, 150, 50);
     [photoInfoBtn setTitle:@"查看照片信息" forState:UIControlStateNormal];
     [photoInfoBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [photoInfoBtn addTarget:self action:@selector(photoInfoBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:photoInfoBtn];
     
     UIButton *openAlbumPhotoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    openAlbumPhotoBtn.frame = CGRectMake(150, 500, 80, 50);
+    openAlbumPhotoBtn.frame = CGRectMake(120, 500, 150, 50);
     [openAlbumPhotoBtn setTitle:@"打开相册" forState:UIControlStateNormal];
     [openAlbumPhotoBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [openAlbumPhotoBtn addTarget:self action:@selector(openAlbumPhotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -225,5 +237,69 @@
     NSString *method = [NSString stringWithFormat:@"%@%@%@%@",keyone,@":",keytwo,@":"];
     return method;
 }
-
+- (void)requestAuthorization{
+    
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            if (!granted) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                return ;
+            } else {
+                NSLog(@"摄像头权限 ok");
+                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+                    dispatch_async(dispatch_get_main_queue(), ^(){
+                        if (!granted) {
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                            return;
+                        } else {
+                            NSLog(@"麦克风权限 ok");
+                            
+                            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    
+                                    if (status == PHAuthorizationStatusAuthorized) {
+                                        NSLog(@"相册权限 ok");
+                                        
+                                    }else{
+                                        [self dismissViewControllerAnimated:YES completion:nil];
+                                        return;
+                                    }
+                                });
+                                
+                            }];
+                        }
+                        
+                    });
+                }];
+                
+            }
+            
+        });
+    }];
+    
+}
+- (void)showSettingAlertStr:(NSString *)tipStr{
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+        UIAlertController *alertContr = [UIAlertController alertControllerWithTitle:@"无访问权限" message:tipStr preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertContr addAction:cancleAction];
+        UIAlertAction *setAction = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            UIApplication *app = [UIApplication sharedApplication];
+            NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([app canOpenURL:settingsURL]) {
+                [app openURL:settingsURL];
+            }
+            
+        }];
+        [alertContr addAction:setAction];
+        [self presentViewController:alertContr animated:YES completion:nil];
+        
+    }else{
+        kTipAlert(@"%@", tipStr);
+    }
+}
 @end

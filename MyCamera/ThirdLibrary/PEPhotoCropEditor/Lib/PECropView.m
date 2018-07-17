@@ -11,10 +11,10 @@
 #import "UIImage+PECrop.h"
 
 static const CGFloat MarginTop = 37.0f;
-static const CGFloat MarginBottom = MarginTop;
+//static const CGFloat MarginBottom = MarginTop;
 static const CGFloat MarginLeft = 20.0f;
-static const CGFloat MarginRight = MarginLeft;
-
+//static const CGFloat MarginRight = MarginLeft;
+//PECropView 裁剪视图
 @interface PECropView () <UIScrollViewDelegate, UIGestureRecognizerDelegate, PECropRectViewDelegate>
 
 @property (nonatomic) UIScrollView *scrollView;
@@ -22,6 +22,7 @@ static const CGFloat MarginRight = MarginLeft;
 @property (nonatomic) UIImageView *imageView;
 
 @property (nonatomic) PECropRectView *cropRectView;
+//四周的填充视图
 @property (nonatomic) UIView *topOverlayView;
 @property (nonatomic) UIView *leftOverlayView;
 @property (nonatomic) UIView *rightOverlayView;
@@ -100,19 +101,38 @@ static const CGFloat MarginRight = MarginLeft;
 }
 
 #pragma mark -
+//此方法返回的View是本次点击事件需要的最佳View
+//https://blog.csdn.net/mushaofeng1990/article/details/62434349
+/*
+- (nullableUIView *)hitTest:(CGPoint)point withEvent:(nullableUIEvent *)event；称为方法A
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(nullableUIEvent *)event；称为方法B
+
+对view进行重写这两个方法后，就会发现，点击屏幕后，首先响应的是方法A；
+
+如果方法A中，我们没有调用父类的这个方法，那就根据这个方法A的返回view，作为响应事件的view。（当然返回nil，就是这个view不响应）
+
+如果方法A中，我们调用了父类的这个方法，也就是[super hitTest:point withEvent:event];那这个时候系统就要调用方法B；通过这个方法的返回值，来判断当前这个view能不能响应消息。
+
+如果方法B返回的是no，那就不用再去遍历它的子视图。方法A返回的view就是可以响应事件的view。
+
+如果方法B返回的是YES，那就去遍历它的子视图。（找到合适的view返回，如果找不到，那就由方法A返回的view去响应这个事件。）
+ */
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
+    //判断当前控件能否接收事件
     if (!self.userInteractionEnabled) {
         return nil;
     }
-    
+    //[self convertPoint:point toView:self.cropRectView] ：把当前控件上的坐标系转换成子控件上的坐标系
     UIView *hitView = [self.cropRectView hitTest:[self convertPoint:point toView:self.cropRectView] withEvent:event];
+    //寻找到最合适的view
     if (hitView) {
         return hitView;
     }
     CGPoint locationInImageView = [self convertPoint:point toView:self.zoomingView];
     CGPoint zoomedPoint = CGPointMake(locationInImageView.x * self.scrollView.zoomScale, locationInImageView.y * self.scrollView.zoomScale);
+    //CGRectContainsPoint：传入一个rect和point 看这个point是否在这个rect中
     if (CGRectContainsPoint(self.zoomingView.frame, zoomedPoint)) {
         return self.scrollView;
     }
@@ -137,6 +157,7 @@ static const CGFloat MarginRight = MarginLeft;
     
     if (!self.imageView) {
         if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+            //初始裁剪区域
             self.insetRect = CGRectInset(self.bounds, MarginLeft, MarginTop);
         } else {
             self.insetRect = CGRectInset(self.bounds, MarginLeft, MarginLeft);
@@ -146,6 +167,7 @@ static const CGFloat MarginRight = MarginLeft;
     }
     
     if (!self.isResizing) {
+        //scrollView.frame
         [self layoutCropRectViewWithCropRect:self.scrollView.frame];
         
         if (self.interfaceOrientation != interfaceOrientation) {
@@ -164,6 +186,8 @@ static const CGFloat MarginRight = MarginLeft;
 
 - (void)layoutOverlayViewsWithCropRect:(CGRect)cropRect
 {
+    //上下填充视图与当前的裁剪视图等宽
+    //左右填充视图与scrollView等高
     self.topOverlayView.frame = CGRectMake(0.0f,
                                            0.0f,
                                            CGRectGetWidth(self.bounds),
@@ -184,6 +208,8 @@ static const CGFloat MarginRight = MarginLeft;
 
 - (void)setupImageView
 {
+    //通过这个函数，可以计算一个图片放在另一个 view 按照一定的比例居中显示，可以说它可以直接得到一个image 以任何的比例显示显示在 imageview 中居中所处的位置
+    //image在裁剪区域中的位置
     CGRect cropRect = AVMakeRectWithAspectRatioInsideRect(self.image.size, self.insetRect);
     
     self.scrollView.frame = cropRect;
