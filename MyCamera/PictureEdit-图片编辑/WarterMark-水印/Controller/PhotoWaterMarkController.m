@@ -91,6 +91,32 @@
         make.bottom.equalTo(@(-((weakSelf.picBgView.size.height-weakSelf.imageRect.size.height)/2+10)));
     }];
 }
+- (void)addLogoLabe2{
+    WEAKSELF
+    
+    //通过NSTextAttachment将水印图片添加到富文本中，再将富文本显示到label上
+    NSTextAttachment *attachment = [[NSTextAttachment alloc]init];
+    attachment.image = [UIImage imageNamed:@"FaceCamera"];
+    attachment.bounds = CGRectMake(0, -3, 30, 18);
+    NSDictionary *attributeDic =@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" by%@",@"shiguang"] attributes:attributeDic];
+    [attributedString insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
+    
+    self.logoLabel = [[UILabel alloc]init];
+    //    self.logoLabel.font = [UIFont systemFontOfSize:13];
+    //    self.logoLabel.textColor = [UIColor whiteColor];
+    CGFloat logoW = 150;
+    CGFloat logoH = 20;
+    self.logoLabel.frame = CGRectMake((weakSelf.picBgView.size.width-(weakSelf.picBgView.size.width-weakSelf.imageRect.size.width)/2-10-logoW), (weakSelf.picBgView.size.height-(weakSelf.picBgView.size.height-weakSelf.imageRect.size.height)/2-10-logoH), logoW, logoH);
+    self.logoLabel.textAlignment = NSTextAlignmentRight;
+    self.logoLabel.attributedText = attributedString;
+    [self.imageView addSubview:self.logoLabel];
+    
+    //    [self.logoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.right.equalTo(weakSelf.imageView).offset(-((weakSelf.picBgView.size.width-weakSelf.imageRect.size.width)/2+10));
+    //        make.bottom.equalTo(@(-((weakSelf.picBgView.size.height-weakSelf.imageRect.size.height)/2+10)));
+    //    }];
+}
 - (void)addDateLabel{
     WEAKSELF
     self.dateLabel = [[UILabel alloc]init];
@@ -286,8 +312,10 @@
     //以showImg的图大小为画布创建上下文
     //UIGraphicsBeginImageContext(CGSizeMake(w, h));
     UIGraphicsBeginImageContextWithOptions(self.showImg.size, NO, 0);
-    [self.imageView.image drawInRect:CGRectMake(0, 0, w, h)];//先把1.png 画到上下文中
-    //[self.locationLabel drawInRect:CGRectMake(100, 100, 100, 50)];//再把小图放在上下文中
+    //先把大图 绘制到上下文中
+    [self.imageView.image drawInRect:CGRectMake(0, 0, w, h)];
+    //再把小图放到上下文中
+    //[self.locationLabel drawInRect:CGRectMake(100, 100, 100, 50)];
     
     CGFloat scaleW = self.showImg.size.width/self.imageRect.size.width;
     CGFloat scaleH = self.showImg.size.height/self.imageRect.size.height;

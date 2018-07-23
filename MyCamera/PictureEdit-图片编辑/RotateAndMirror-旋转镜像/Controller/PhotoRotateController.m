@@ -78,6 +78,7 @@
 }
 - (void)rotate:(UIRotationGestureRecognizer *)recognizer{
     
+    //开始旋转时记录初始的向量，根据本次向量和上一次向量之间的夹角计算出旋转的角度，计算出旋转的角度与90度之间的差，在动画过度中完成剩余角度的旋转
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         //        _rotateAngle = self.originAngle;
         self.rotateAngle = 0;

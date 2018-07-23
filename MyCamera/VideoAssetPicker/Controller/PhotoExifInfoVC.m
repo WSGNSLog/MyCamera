@@ -88,7 +88,6 @@
         
         __block NSMutableDictionary *imageMetadata_GPS = nil;
   
-        
         [library assetForURL:assetURL resultBlock:^(ALAsset *asset) {
             
             //获取时间

@@ -101,6 +101,8 @@
 /** 按给定的方向旋转图片 */
 - (UIImage*)rotate:(UIImageOrientation)orient
 {
+    //imageOrientation的属性，主要作用是控制image的绘制方向，共有8中方向
+    //orientaion可以指定新的图像的绘制方向
     CGRect bnds = CGRectZero;
     UIImage* copy = nil;
     CGContextRef ctxt = nil;
@@ -112,7 +114,7 @@
     rect.size.height = CGImageGetHeight(imag);
     
     bnds = rect;
-    
+    //新的图像绘制方向
     switch (orient)
     {
         case UIImageOrientationUp:
@@ -163,7 +165,7 @@
         default:
             return self;
     }
-    
+    //创建一个基于位图的上下文(context)，并将其设置为当前上下文。函数功能与UIGraphicsBeginImageContextWithOptions相同，相当于该方法的opaque参数为NO，scale因子为1.0。而UIGraphicsEndImageContext()方法是移除栈顶的基于当前位图的图形上下文。
     UIGraphicsBeginImageContext(bnds.size);
     ctxt = UIGraphicsGetCurrentContext();
     
