@@ -244,6 +244,10 @@
 		E3DEBE8821081C9E00CE1E8E /* ReplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE8621081C9E00CE1E8E /* ReplayController.m */; };
 		E3DEBE8921081C9E00CE1E8E /* ReplayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE8721081C9E00CE1E8E /* ReplayController.xib */; };
 		E3DEBE8C21081E1600CE1E8E /* Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE8B21081E1600CE1E8E /* Recorder.m */; };
+		E3DEBE91210849F600CE1E8E /* CameraFaceDetectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE8F210849F600CE1E8E /* CameraFaceDetectVC.m */; };
+		E3DEBE92210849F600CE1E8E /* CameraFaceDetectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE90210849F600CE1E8E /* CameraFaceDetectVC.xib */; };
+		E3DEBE9621084A1400CE1E8E /* ImageFaceDetectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */; };
+		E3DEBE9721084A1400CE1E8E /* ImageFaceDetectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -673,6 +677,12 @@
 		E3DEBE8721081C9E00CE1E8E /* ReplayController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplayController.xib; sourceTree = "<group>"; };
 		E3DEBE8A21081E1600CE1E8E /* Recorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
 		E3DEBE8B21081E1600CE1E8E /* Recorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
+		E3DEBE8E210849F600CE1E8E /* CameraFaceDetectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraFaceDetectVC.h; sourceTree = "<group>"; };
+		E3DEBE8F210849F600CE1E8E /* CameraFaceDetectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraFaceDetectVC.m; sourceTree = "<group>"; };
+		E3DEBE90210849F600CE1E8E /* CameraFaceDetectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraFaceDetectVC.xib; sourceTree = "<group>"; };
+		E3DEBE9321084A1400CE1E8E /* ImageFaceDetectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageFaceDetectVC.h; sourceTree = "<group>"; };
+		E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageFaceDetectVC.m; sourceTree = "<group>"; };
+		E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageFaceDetectVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -932,6 +942,7 @@
 			children = (
 				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
 				E3DEBE1D2106F96E00CE1E8E /* ReplayKit */,
+				E3DEBE8D2108498600CE1E8E /* FaceDetector */,
 				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
 				E357D67D20AEBADE006F31C4 /* Album-相册 */,
 				E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */,
@@ -1803,6 +1814,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E3DEBE8D2108498600CE1E8E /* FaceDetector */ = {
+			isa = PBXGroup;
+			children = (
+				E3DEBE8E210849F600CE1E8E /* CameraFaceDetectVC.h */,
+				E3DEBE8F210849F600CE1E8E /* CameraFaceDetectVC.m */,
+				E3DEBE90210849F600CE1E8E /* CameraFaceDetectVC.xib */,
+				E3DEBE9321084A1400CE1E8E /* ImageFaceDetectVC.h */,
+				E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */,
+				E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */,
+			);
+			path = FaceDetector;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1939,9 +1963,11 @@
 				E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */,
 				E3C5ED2E20F3314000287C68 /* PhotoEditController.xib in Resources */,
 				E3C5EDA920F4AD0F00287C68 /* PhotoExifInfoVC.xib in Resources */,
+				E3DEBE9721084A1400CE1E8E /* ImageFaceDetectVC.xib in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
 				E37B6F6720B3E4DF00315C0A /* StickerInfo.xml in Resources */,
 				E3C5ECFC20F3307100287C68 /* PhotoLocationController.xib in Resources */,
+				E3DEBE92210849F600CE1E8E /* CameraFaceDetectVC.xib in Resources */,
 				E3C5ED0720F3307100287C68 /* OriginLocCell.xib in Resources */,
 				E323BD2020AD2D6500F01C49 /* fontSelect@3x.png in Resources */,
 				E3C5ECFB20F3307100287C68 /* PhotoWaterMarkController.xib in Resources */,
@@ -2092,6 +2118,7 @@
 				E3B763E3200F179800AD2508 /* EButton.m in Sources */,
 				E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */,
 				E3C5ED1120F3307100287C68 /* FingerDrawLine.m in Sources */,
+				E3DEBE9621084A1400CE1E8E /* ImageFaceDetectVC.m in Sources */,
 				E38D566020561F41003C4C4C /* VideoAssetCell.m in Sources */,
 				E3C5ECE920F3307100287C68 /* PhotoCIFilterController.m in Sources */,
 				E3B7641E201592E700AD2508 /* UIView+Shadow.m in Sources */,
@@ -2104,6 +2131,7 @@
 				E3114C4F20D38A0A00D48461 /* UIImage+Resize.m in Sources */,
 				E36F1C822007580C00DD5AB0 /* MASConstraintMaker.m in Sources */,
 				E3C5EC3720F3106200287C68 /* DistancePickerView.m in Sources */,
+				E3DEBE91210849F600CE1E8E /* CameraFaceDetectVC.m in Sources */,
 				E3C5ECFD20F3307100287C68 /* PhotoWaterMarkController.m in Sources */,
 				E3C5ED0D20F3307100287C68 /* PhotoCropController.m in Sources */,
 				E3DEBE182106CD0700CE1E8E /* PhotoPasterVC2.m in Sources */,

@@ -13,6 +13,8 @@
 #import "LocalAlbumController.h"
 #import "ReplayKitDemoVC.h"
 #import "ReplayController.h"
+#import "CameraFaceDetectVC.h"
+#import "ImageFaceDetectVC.h"
 
 @interface ViewController ()
 
@@ -72,6 +74,14 @@
     [self.navigationController pushViewController:albumVC animated:YES];
 }
 
+- (IBAction)cameraFaceDetect:(UIButton *)sender {
+    CameraFaceDetectVC *faceVC = [[CameraFaceDetectVC alloc]init];
+    [self presentViewController:faceVC animated:YES completion:nil];
+}
+- (IBAction)imageFaceDetect:(UIButton *)sender {
+    ImageFaceDetectVC *faceVC = [[ImageFaceDetectVC alloc]init];
+    [self presentViewController:faceVC animated:YES completion:nil];
+}
 
 
 

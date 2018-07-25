@@ -60,6 +60,22 @@
                         <action selector="photoInfoBtnClick:" destination="-1" eventType="touchUpInside" id="85j-SZ-cgM"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVy-aB-lpL">
+                    <rect key="frame" x="29" y="376" width="92" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="相机人脸识别"/>
+                    <connections>
+                        <action selector="cameraFaceDetect:" destination="-1" eventType="touchUpInside" id="e3O-nG-9Gn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-BG-8Is">
+                    <rect key="frame" x="29" y="420" width="92" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="图片人脸识别"/>
+                    <connections>
+                        <action selector="imageFaceDetect:" destination="-1" eventType="touchUpInside" id="O47-1U-hNT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
