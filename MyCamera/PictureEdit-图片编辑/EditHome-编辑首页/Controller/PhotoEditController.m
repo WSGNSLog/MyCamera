@@ -18,6 +18,7 @@
 #import "PhotoCustomRotateVC.h"
 #import "PicEditOptionView.h"
 #import "PhotoSecondCropController.h"
+#import "PhotoPasterVC2.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -62,8 +63,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"camera_edit_edit",@"camera_edit_text",@"camera_edit_sticker",@"camera_edit_border",@"photoBeauty_mark",@"camera_edit_draw",@"camera_edit_filter",@"photoBeauty_filter",@"photoBeauty_watermark",@"photoBeauty_adjust",@"photoBeauty_clip", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -140,17 +141,23 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     PhotoEditOptionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.iconView.image = [UIImage imageNamed:self.imageArr[indexPath.item]];
+    cell.iconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"photoBeauty_%@",self.imageArr[indexPath.item]]];
     cell.nameLabel.text = self.dataSource[indexPath.row];
     cell.backgroundColor = [UIColor lightGrayColor];
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.row == 0) {
+        self.editView.hidden = self.editView.isHidden;
+    }else{
+        self.editView.hidden = YES;
+    }
+    
     WEAKSELF
     switch (indexPath.row) {
         case 0:
-            self.editView.hidden = NO;
+            
             break;
         case 1:
         {
@@ -161,11 +168,11 @@
                 weakSelf.imageView.image = image;
             }];
             [self.navigationController pushViewController:text animated:YES];
-            self.editView.hidden = YES;
+            
         }
             
             break;
-        case 2:
+        case 2://贴纸
         {
             PhotoPasterController *paster = [[PhotoPasterController alloc] init];
             paster.image = self.image;
@@ -174,17 +181,17 @@
                 weakSelf.imageView.image = image;
             }];
             [self.navigationController pushViewController:paster animated:YES];
-            self.editView.hidden = YES;
+            
         }
             break;
         case 3://画框
-            self.editView.hidden = YES;
+            
             break;
         case 4://标记
-            self.editView.hidden = YES;
+            
             break;
         case 5://涂鸦
-            self.editView.hidden = YES;
+            
             break;
         case 6://滤镜
         {
@@ -192,7 +199,7 @@
             filterVC.image = self.image;
             filterVC.asset = self.asset;
             [self.navigationController pushViewController:filterVC animated:YES];
-            self.editView.hidden = YES;
+            
         }
             break;
         case 7://CI滤镜
@@ -200,7 +207,7 @@
             PhotoCIFilterController *waterMark = [[PhotoCIFilterController alloc]init];
             waterMark.image = self.image;
             [self.navigationController pushViewController:waterMark animated:YES];
-            self.editView.hidden = YES;
+            
         }
             break;
         case 8://水印
@@ -214,7 +221,7 @@
                 weakSelf.image = image;
             };
             [self presentViewController:nav animated:YES completion:nil];
-            self.editView.hidden = YES;
+            
         }
             break;
         case 9://调节
@@ -223,7 +230,7 @@
             rotateVC.image = self.image;
             rotateVC.asset = self.asset;
             [self.navigationController pushViewController:rotateVC animated:YES];
-            self.editView.hidden = YES;
+            
         }
             break;
         case 10://裁剪第二种
@@ -234,9 +241,21 @@
                 weakSelf.imageView.image = image;
             }];
             [self presentViewController:cropVC animated:YES completion:nil];
-            self.editView.hidden = YES;
+            
         }
             break;
+        case 11://贴纸第二种
+        {
+            PhotoPasterVC2  *paster = [[PhotoPasterVC2 alloc]init];
+            paster.image = self.image;
+            [paster addFinishBlock:^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            }];
+            [self.navigationController pushViewController:paster animated:YES];
+            
+        }
+            break;
+            
         default:
             break;
     }

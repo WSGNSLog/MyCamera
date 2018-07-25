@@ -16,7 +16,7 @@
 #import "SearchedLocCell.h"
 #import "SearrchLocResultCell.h"
 
-@interface PhotoLocationController ()<BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITableViewDelegate,UITableViewDataSource> {
+@interface PhotoLocationController ()<BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate> {
     BMKPoiSearch* _searcher;
     BMKLocationService* _locService;
     BMKGeoCodeSearch* _geocodesearch;
@@ -64,6 +64,7 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
     self.cancelBtnWidthConstraint.constant = 0;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesture)];
+    tap.delegate = self;
     [self.view addGestureRecognizer:tap];
     
     WEAKSELF
@@ -90,7 +91,7 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
     [_locService startUserLocationService];
 }
 - (IBAction)cancelBtnClick:(UIButton *)sender {
-    
+    [self.searchBar resignFirstResponder];
 }
 - (void)tapGesture{
     [self.searchBar resignFirstResponder];
@@ -347,6 +348,14 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
         }
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+//解决手势与tableview点击事件冲突：
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;
+    }
+    return  YES;
 }
 - (void)dealloc{
     if (_geocodesearch != nil) {

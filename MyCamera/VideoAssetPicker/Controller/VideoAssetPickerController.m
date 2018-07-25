@@ -478,7 +478,7 @@ static NSString *const FooterID = @"FooterView";
                 
             case PickerMediaTypeVideo:
             {
-                NSString *key = (numberOfVideos == 1) ? @"assets.footer.video" : @"assets.footer.videos";
+                //NSString *key = (numberOfVideos == 1) ? @"assets.footer.video" : @"assets.footer.videos";
                 //NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
                 NSString *format = @"";
                 label.text = [NSString stringWithFormat:format, numberOfVideos];

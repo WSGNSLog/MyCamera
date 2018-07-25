@@ -25,10 +25,10 @@ typedef NS_OPTIONS(BOOL, ENUM_NETSTATUS_TYPE) {
 +(NSString *)getChineseDateStr:(NSDate*)date;
 
 /**
- *判断是否适App Store版本
+ *判断是否是App Store版本
  *
  *
- *  @return
+ *  @return 是否适App Store版本
  */
 
 +(BOOL)isAppStore;
@@ -117,19 +117,19 @@ typedef NS_OPTIONS(BOOL, ENUM_NETSTATUS_TYPE) {
 /**
  *  改变图片尺寸
  *
- *  @return
+ *  @return size
  */
 +(UIImage*)ScaleImage:(UIImage *)image Size:(CGSize)size;
 /**
  *  处理特殊格式的手机号为标准格式
  *
- *  @return
+ *  @return strPhone
  */
 +(NSString*)dealWithPhone:(NSString*)strPhone;
 /**
  *  判断手机号格式是否正确
  *
- *  @return
+ *  @return mobileNum
  */
 +(BOOL)checkPhoneNumInput:(NSString*)mobileNum;
 
@@ -137,49 +137,43 @@ typedef NS_OPTIONS(BOOL, ENUM_NETSTATUS_TYPE) {
  *  计算一个view相对于屏幕(去除顶部statusbar的20像素)的坐标
  *  iOS7下UIViewController.view是默认全屏的，要把这20像素考虑进去
  *
- *  @return
+ *  @return 坐标
  */
 + (CGRect)relativeFrameForScreenWithView:(UIView *)v;
 /**
  *  获取顶层UIViewController
  *
  *
- *  @return
+ *  @return 顶层UIViewController
  */
 + (UIViewController *)appRootViewController;
 /**
  *  复制字符串到剪贴板
  *
- *
- *  @return
  */
 +(void)CopyTextToPasteboard:(NSString*)copyed;
 /**
  *  取得非nil对象
  *
  *
- *  @return
+ *  @return object
  */
 +(instancetype)GetObjectNotNil:(id)object class:(NSString*)name;
 /**
  *  使用safari打开页面
  *
- *
- *  @return
  */
 +(void)OpenUrlWithSafari:(NSString*)stringURL;
 /**
  *  删除所有子视图
  *
- *
- *  @return
  */
 +(void)clearSubViews:(UIView*)supView;
 /**
  *  取得沙盒路径
  *
  *
- *  @return
+ *  @return 沙盒路径
  */
 +(NSString*)getAppLocalPath;
 /******************************************************************************

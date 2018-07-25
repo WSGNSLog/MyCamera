@@ -1094,9 +1094,9 @@ v3.1.0
  3.新增接口：设定地理范围在屏幕中的显示区域
  BMKMapView新增：
  ///根据当前mapView的窗口大小，预留insets指定的边界区域后，将mapRect指定的地理范围显示在剩余的区域内，并尽量充满
- ///@param mapRect 要显示的地图范围，用直角坐标系表示
- ///@param insets 屏幕四周预留的最小边界（mapRect的内容不会显示在该边界范围内）
- ///@param animate 是否采用动画效果
+ /// mapRect 要显示的地图范围，用直角坐标系表示
+ /// insets 屏幕四周预留的最小边界（mapRect的内容不会显示在该边界范围内）
+ /// animate 是否采用动画效果
 - (void)fitVisibleMapRect:(BMKMapRect)mapRect edgePadding:(UIEdgeInsets)insets withAnimated:(BOOL)animate;
 
 【 优 化 】

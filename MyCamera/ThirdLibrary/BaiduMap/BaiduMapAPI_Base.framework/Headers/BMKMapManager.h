@@ -50,7 +50,7 @@ typedef enum {
 /**
 *启动引擎
 *@param key 申请的有效key
-*@param delegate 
+*@param delegate delegate
 */
 -(BOOL)start:(NSString*)key generalDelegate:(id<BMKGeneralDelegate>)delegate;
 

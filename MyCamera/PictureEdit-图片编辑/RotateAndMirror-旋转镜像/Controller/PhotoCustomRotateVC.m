@@ -35,7 +35,7 @@
     
     [self initNav];
     
-    UIPanGestureRecognizer* panGensture = [[UIPanGestureRecognizer alloc] initWithTarget:self action: @selector (handlePanGesture:)];
+//    UIPanGestureRecognizer* panGensture = [[UIPanGestureRecognizer alloc] initWithTarget:self action: @selector (handlePanGesture:)];
 //    panGensture.delegate = self;
 //    [self.imageView addGestureRecognizer:panGensture];
     [self addRotateGesture];

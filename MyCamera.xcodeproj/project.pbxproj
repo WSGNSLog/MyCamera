@@ -234,6 +234,16 @@
 		E3C5EDA920F4AD0F00287C68 /* PhotoExifInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C5EDA820F4AD0F00287C68 /* PhotoExifInfoVC.xib */; };
 		E3C5EDAD20F4B1BD00287C68 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5EDAC20F4B1BD00287C68 /* BaseViewController.m */; };
 		E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */; };
+		E3DEBE182106CD0700CE1E8E /* PhotoPasterVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE162106CD0700CE1E8E /* PhotoPasterVC2.m */; };
+		E3DEBE192106CD0700CE1E8E /* PhotoPasterVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE172106CD0700CE1E8E /* PhotoPasterVC2.xib */; };
+		E3DEBE1C2106D06F00CE1E8E /* PhotoPasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE1A2106D06F00CE1E8E /* PhotoPasterView.m */; };
+		E3DEBE242106FA0C00CE1E8E /* ReplayKitDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE222106FA0C00CE1E8E /* ReplayKitDemoVC.m */; };
+		E3DEBE7B210809A200CE1E8E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE7A210809A200CE1E8E /* ViewController.xib */; };
+		E3DEBE7E21080C3300CE1E8E /* TmpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE7D21080C3300CE1E8E /* TmpController.m */; };
+		E3DEBE8021081BA300CE1E8E /* ReplayKitDemoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE7F21081BA300CE1E8E /* ReplayKitDemoVC.xib */; };
+		E3DEBE8821081C9E00CE1E8E /* ReplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE8621081C9E00CE1E8E /* ReplayController.m */; };
+		E3DEBE8921081C9E00CE1E8E /* ReplayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE8721081C9E00CE1E8E /* ReplayController.xib */; };
+		E3DEBE8C21081E1600CE1E8E /* Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE8B21081E1600CE1E8E /* Recorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -647,6 +657,22 @@
 		E3C5EDAC20F4B1BD00287C68 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E3C9C5A9201F13CF00139D79 /* RecordTimePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTimePickView.h; sourceTree = "<group>"; };
 		E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTimePickView.m; sourceTree = "<group>"; };
+		E3DEBE152106CD0700CE1E8E /* PhotoPasterVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPasterVC2.h; sourceTree = "<group>"; };
+		E3DEBE162106CD0700CE1E8E /* PhotoPasterVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPasterVC2.m; sourceTree = "<group>"; };
+		E3DEBE172106CD0700CE1E8E /* PhotoPasterVC2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPasterVC2.xib; sourceTree = "<group>"; };
+		E3DEBE1A2106D06F00CE1E8E /* PhotoPasterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPasterView.m; sourceTree = "<group>"; };
+		E3DEBE1B2106D06F00CE1E8E /* PhotoPasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPasterView.h; sourceTree = "<group>"; };
+		E3DEBE212106FA0C00CE1E8E /* ReplayKitDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplayKitDemoVC.h; sourceTree = "<group>"; };
+		E3DEBE222106FA0C00CE1E8E /* ReplayKitDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplayKitDemoVC.m; sourceTree = "<group>"; };
+		E3DEBE7A210809A200CE1E8E /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		E3DEBE7C21080C3300CE1E8E /* TmpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TmpController.h; sourceTree = "<group>"; };
+		E3DEBE7D21080C3300CE1E8E /* TmpController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TmpController.m; sourceTree = "<group>"; };
+		E3DEBE7F21081BA300CE1E8E /* ReplayKitDemoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplayKitDemoVC.xib; sourceTree = "<group>"; };
+		E3DEBE8521081C9E00CE1E8E /* ReplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplayController.h; sourceTree = "<group>"; };
+		E3DEBE8621081C9E00CE1E8E /* ReplayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplayController.m; sourceTree = "<group>"; };
+		E3DEBE8721081C9E00CE1E8E /* ReplayController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplayController.xib; sourceTree = "<group>"; };
+		E3DEBE8A21081E1600CE1E8E /* Recorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
+		E3DEBE8B21081E1600CE1E8E /* Recorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -905,6 +931,7 @@
 			isa = PBXGroup;
 			children = (
 				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
+				E3DEBE1D2106F96E00CE1E8E /* ReplayKit */,
 				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
 				E357D67D20AEBADE006F31C4 /* Album-相册 */,
 				E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */,
@@ -913,8 +940,6 @@
 				E38D567620566CDE003C4C4C /* Main */,
 				E36F1AC12007131B00DD5AB0 /* AppDelegate.h */,
 				E36F1AC22007131B00DD5AB0 /* AppDelegate.mm */,
-				E36F1AC42007131B00DD5AB0 /* ViewController.h */,
-				E36F1AC52007131B00DD5AB0 /* ViewController.m */,
 				E36F1AC72007131B00DD5AB0 /* Main.storyboard */,
 				E36F1ACA2007131B00DD5AB0 /* Assets.xcassets */,
 				E36F1ACC2007131B00DD5AB0 /* LaunchScreen.storyboard */,
@@ -1195,6 +1220,11 @@
 		E38D567620566CDE003C4C4C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E3DEBE7C21080C3300CE1E8E /* TmpController.h */,
+				E3DEBE7D21080C3300CE1E8E /* TmpController.m */,
+				E36F1AC42007131B00DD5AB0 /* ViewController.h */,
+				E36F1AC52007131B00DD5AB0 /* ViewController.m */,
+				E3DEBE7A210809A200CE1E8E /* ViewController.xib */,
 				E3C5EDAA20F4B17700287C68 /* Base */,
 				E38D569B2056755B003C4C4C /* MenuInfo.h */,
 				E38D569A2056755B003C4C4C /* MenuInfo.m */,
@@ -1606,6 +1636,9 @@
 				E3C5ECBF20F3307000287C68 /* PhotoPasterController.h */,
 				E3C5ECBE20F3307000287C68 /* PhotoPasterController.m */,
 				E3C5ECC020F3307000287C68 /* PhotoPasterController.xib */,
+				E3DEBE152106CD0700CE1E8E /* PhotoPasterVC2.h */,
+				E3DEBE162106CD0700CE1E8E /* PhotoPasterVC2.m */,
+				E3DEBE172106CD0700CE1E8E /* PhotoPasterVC2.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1620,6 +1653,8 @@
 		E3C5ECC220F3307000287C68 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3DEBE1B2106D06F00CE1E8E /* PhotoPasterView.h */,
+				E3DEBE1A2106D06F00CE1E8E /* PhotoPasterView.m */,
 				E3C5ECC420F3307000287C68 /* PasterCell.h */,
 				E3C5ECC620F3307000287C68 /* PasterCell.m */,
 				E3C5ECC520F3307000287C68 /* PasterCell.xib */,
@@ -1727,6 +1762,45 @@
 				E3C5EDAC20F4B1BD00287C68 /* BaseViewController.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E3DEBE1D2106F96E00CE1E8E /* ReplayKit */ = {
+			isa = PBXGroup;
+			children = (
+				E3DEBE1E2106F96E00CE1E8E /* Controller */,
+				E3DEBE1F2106F96E00CE1E8E /* Model */,
+				E3DEBE202106F96E00CE1E8E /* View */,
+			);
+			path = ReplayKit;
+			sourceTree = "<group>";
+		};
+		E3DEBE1E2106F96E00CE1E8E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3DEBE8521081C9E00CE1E8E /* ReplayController.h */,
+				E3DEBE8621081C9E00CE1E8E /* ReplayController.m */,
+				E3DEBE8721081C9E00CE1E8E /* ReplayController.xib */,
+				E3DEBE212106FA0C00CE1E8E /* ReplayKitDemoVC.h */,
+				E3DEBE222106FA0C00CE1E8E /* ReplayKitDemoVC.m */,
+				E3DEBE7F21081BA300CE1E8E /* ReplayKitDemoVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E3DEBE1F2106F96E00CE1E8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3DEBE8A21081E1600CE1E8E /* Recorder.h */,
+				E3DEBE8B21081E1600CE1E8E /* Recorder.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3DEBE202106F96E00CE1E8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1845,6 +1919,7 @@
 				E36F1ACE2007131B00DD5AB0 /* LaunchScreen.storyboard in Resources */,
 				E3C5ED0820F3307100287C68 /* SearrchLocResultCell.xib in Resources */,
 				E3C5ED0C20F3307100287C68 /* PhotoCropController.xib in Resources */,
+				E3DEBE7B210809A200CE1E8E /* ViewController.xib in Resources */,
 				E3C5ECEE20F3307100287C68 /* FilterCell.xib in Resources */,
 				E323BD1620AD2D6500F01C49 /* colorsSelect@3x.png in Resources */,
 				E323BD2120AD2D6500F01C49 /* cutSelect@3x.png in Resources */,
@@ -1890,6 +1965,7 @@
 				E33FA6382041462E007C0A2B /* EAlertViewWithCheckBox.xib in Resources */,
 				E3C5ED0B20F3307100287C68 /* PhotoSecondCropController.xib in Resources */,
 				E3C5ECEC20F3307100287C68 /* PhotoFilterController.xib in Resources */,
+				E3DEBE8921081C9E00CE1E8E /* ReplayController.xib in Resources */,
 				E323BD2620AD2D6500F01C49 /* cutSelect@2x.png in Resources */,
 				E3C5ED0420F3307100287C68 /* SearchedLocCell.xib in Resources */,
 				E323BD1C20AD2D6500F01C49 /* right@2x.png in Resources */,
@@ -1897,6 +1973,7 @@
 				E38D566120561F41003C4C4C /* VideoAssetCell.xib in Resources */,
 				E323BD1B20AD2D6500F01C49 /* colorsSelect@2x.png in Resources */,
 				E37B6F6620B3E4DF00315C0A /* paster_housailei.png in Resources */,
+				E3DEBE8021081BA300CE1E8E /* ReplayKitDemoVC.xib in Resources */,
 				E34F64F820DA050700F4E4FD /* LICENSE in Resources */,
 				E34F64F920DA050700F4E4FD /* PEPhotoCropEditor.bundle in Resources */,
 				E37B6F6820B3E4DF00315C0A /* paster_wow.png in Resources */,
@@ -1904,6 +1981,7 @@
 				E3C5ED1A20F3307100287C68 /* PhotoPasterController.xib in Resources */,
 				E39A570120FDCED70018D5B5 /* PhotoEditOptionCell.xib in Resources */,
 				E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */,
+				E3DEBE192106CD0700CE1E8E /* PhotoPasterVC2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1931,7 +2009,9 @@
 				E3C5ED2D20F3314000287C68 /* PhotoEditController.m in Sources */,
 				E3C5ED2020F3307100287C68 /* PhotoCustomRotateVC.m in Sources */,
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
+				E3DEBE8821081C9E00CE1E8E /* ReplayController.m in Sources */,
 				E3B763E0200F178800AD2508 /* UIView+ECategory.m in Sources */,
+				E3DEBE1C2106D06F00CE1E8E /* PhotoPasterView.m in Sources */,
 				E357D69420AEBADE006F31C4 /* AlbumPhotoPreviewVC.m in Sources */,
 				E38D566A205623DB003C4C4C /* QBVideoIconView.m in Sources */,
 				E357D69B20AEBADE006F31C4 /* AlbumSectionModel.m in Sources */,
@@ -1958,6 +2038,7 @@
 				E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */,
 				E3C5ED0620F3307100287C68 /* NearbyLocCell.m in Sources */,
 				E39B99DC20AA7C870041253C /* NSDictionary+CLLocation.m in Sources */,
+				E3DEBE7E21080C3300CE1E8E /* TmpController.m in Sources */,
 				E357D69920AEBADE006F31C4 /* AlbumYearModel.m in Sources */,
 				E3B7641A201592E700AD2508 /* LHModelStateMent.m in Sources */,
 				E37B6F7220B3E61500315C0A /* UIView+Additions.m in Sources */,
@@ -1992,6 +2073,7 @@
 				E3C5ED0120F3307100287C68 /* UndisplayLocCell.m in Sources */,
 				E39B99D820AA73630041253C /* PhotoExifInfoVC.m in Sources */,
 				E36F1C7F2007580C00DD5AB0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				E3DEBE242106FA0C00CE1E8E /* ReplayKitDemoVC.m in Sources */,
 				E3B763DD200E01B400AD2508 /* RecordView.m in Sources */,
 				E38D569C2056755B003C4C4C /* MenuInfo.m in Sources */,
 				E33FA6452041468E007C0A2B /* PHAsset+ECamera.m in Sources */,
@@ -2024,6 +2106,7 @@
 				E3C5EC3720F3106200287C68 /* DistancePickerView.m in Sources */,
 				E3C5ECFD20F3307100287C68 /* PhotoWaterMarkController.m in Sources */,
 				E3C5ED0D20F3307100287C68 /* PhotoCropController.m in Sources */,
+				E3DEBE182106CD0700CE1E8E /* PhotoPasterVC2.m in Sources */,
 				E3C5EC3520F3106200287C68 /* SWActionSheet.m in Sources */,
 				E357D6A320AEBC39006F31C4 /* PhotoImageView.m in Sources */,
 				E38D5698205671BA003C4C4C /* VTMagicView.m in Sources */,
@@ -2048,6 +2131,7 @@
 				E38D5693205671BA003C4C4C /* VTMagicController.m in Sources */,
 				E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */,
 				E36F1AFB200714B400DD5AB0 /* CameraVC.m in Sources */,
+				E3DEBE8C21081E1600CE1E8E /* Recorder.m in Sources */,
 				E357D69520AEBADE006F31C4 /* AlbumVideoPreviewVC.m in Sources */,
 				E34F64FF20DA050700F4E4FD /* PECropRectView.m in Sources */,
 				E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */,

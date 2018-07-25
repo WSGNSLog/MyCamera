@@ -54,6 +54,10 @@
 }
 - (void)addLocationLabel{
     WEAKSELF
+    if (self.locationLabel) {
+        [self.locationLabel removeFromSuperview];
+        self.locationLabel = nil;
+    }
     self.locationLabel = [[UILabel alloc]init];
     self.locationLabel.font = [UIFont systemFontOfSize:13];
     self.locationLabel.numberOfLines = 0;
@@ -66,6 +70,10 @@
     }];
 }
 - (void)addLogoLabel{
+    if (self.logoLabel) {
+        [self.logoLabel removeFromSuperview];
+        self.logoLabel = nil;
+    }
     WEAKSELF
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.logoStr];
     
@@ -93,11 +101,14 @@
 }
 - (void)addLogoLabe2{
     WEAKSELF
-    
+    if (self.logoLabel) {
+        [self.logoLabel removeFromSuperview];
+        self.logoLabel = nil;
+    }
     //通过NSTextAttachment将水印图片添加到富文本中，再将富文本显示到label上
     NSTextAttachment *attachment = [[NSTextAttachment alloc]init];
-    attachment.image = [UIImage imageNamed:@"FaceCamera"];
-    attachment.bounds = CGRectMake(0, -3, 30, 18);
+    attachment.image = [UIImage imageNamed:@"watermark_logo_pic"];
+    attachment.bounds = CGRectMake(0, -3, 33, 23);
     NSDictionary *attributeDic =@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]};
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" by%@",@"shiguang"] attributes:attributeDic];
     [attributedString insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
@@ -119,6 +130,10 @@
 }
 - (void)addDateLabel{
     WEAKSELF
+    if (self.dateLabel) {
+        [self.dateLabel removeFromSuperview];
+        self.dateLabel = nil;
+    }
     self.dateLabel = [[UILabel alloc]init];
     self.dateLabel.font = [UIFont systemFontOfSize:13];
     self.dateLabel.textColor = [UIColor whiteColor];
@@ -273,6 +288,9 @@
     NSString *logoStr = [NSString stringWithFormat:@"Demo by%@",userStr];
     self.logoStr = logoStr;
     [self addLogoLabel];
+}
+- (IBAction)picLogoBtnClick:(UIButton *)sender {
+    [self addLogoLabe2];
 }
 
 - (IBAction)timeClick:(UIButton *)sender {

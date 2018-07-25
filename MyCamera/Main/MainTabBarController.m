@@ -11,6 +11,7 @@
 #import "AlbumController.h"
 #import "VideoAssetPickerController.h"
 #import "MyNavigationController.h"
+#import "TmpController.h"
 
 @interface MainTabBarController ()
 
@@ -31,15 +32,15 @@
     [self addOneChildVC:find title:@"首页" imageName:@"11" selectedImageName:@"22"];
     
     
-    ViewController *noteMake = [ViewController new];
+    TmpController *noteMake = [TmpController new];
     [self addOneChildVC:noteMake title:@"热门" imageName:@"13" selectedImageName:@"14"];
     
     
-    ViewController *micMake = [ViewController new];
+    TmpController *micMake = [TmpController new];
     [self addOneChildVC:micMake title:@"发现" imageName:@"15" selectedImageName:@"16"];
     
     
-    ViewController *mine = [[ViewController alloc]init];
+    TmpController *mine = [[TmpController alloc]init];
     [self addOneChildVC:mine title:@"我的" imageName:@"17" selectedImageName:@"18"];
     
     

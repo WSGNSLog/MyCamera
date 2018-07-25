@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-RU-l1b">
+                <searchBar contentMode="redraw" placeholder="搜索附近地点" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-RU-l1b">
                     <rect key="frame" x="0.0" y="84" width="315" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>

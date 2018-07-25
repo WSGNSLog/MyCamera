@@ -25,7 +25,6 @@
 /**
  *  对字符串进行SHA1加密
  *
- *  @param topInfo 需要加密的文字
  *  @param const_Str 常量盐值
  *  @param IsLower 是否为小写
  *

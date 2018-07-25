@@ -97,7 +97,7 @@
     
     PhotoEditOptionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    UIImage * image= [UIImage imageNamed:self.dataSource[indexPath.item]];
+    UIImage * image= [UIImage imageNamed:self.imageArr[indexPath.item]];
     cell.iconView.image = image;
     
     return cell;

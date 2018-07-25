@@ -17,8 +17,6 @@
  *  初始化
  *
  *  @param asset 相片信息 ALAsset PHAsset
- *
- *  @return
  */
 - (instancetype _Nonnull)initWithPHAsset:(PHAsset * _Nonnull)asset image:(UIImage * _Nonnull)image;
 - (instancetype _Nonnull)initWithCreation:(NSTimeInterval)creation image:(UIImage * _Nonnull)image;

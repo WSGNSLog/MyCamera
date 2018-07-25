@@ -159,8 +159,8 @@
 - (IBAction)changePicInfo:(UIButton *)sender {
     //2.创建CGImageSourceRef
     NSURL *fileUrl = [NSURL URLWithString:self.cachePicPath];
-    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)fileUrl, NULL);
-    UIImage *img = [UIImage imageWithContentsOfFile:self.cachePicPath];
+//    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)fileUrl, NULL);
+//    UIImage *img = [UIImage imageWithContentsOfFile:self.cachePicPath];
 //    //3.利用imageSource获取全部ExifData
 //
 //    CFDictionaryRef imageInfo = CGImageSourceCopyPropertiesAtIndex(imageSource, 0,NULL);
@@ -183,7 +183,7 @@
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
 
     NSDictionary *imageInfo = (__bridge NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, 0, NULL);
-    NSDictionary *imageInfo1 = (__bridge NSDictionary*)CGImageSourceCopyProperties(source, NULL);
+//    NSDictionary *imageInfo1 = (__bridge NSDictionary*)CGImageSourceCopyProperties(source, NULL);
     NSDictionary *metaInfo = (__bridge NSDictionary *)CGImageSourceCopyMetadataAtIndex(source, 0, NULL);
     NSLog(@"===:%@",imageInfo);
     NSMutableDictionary *metaDataDic = [imageInfo mutableCopy];
