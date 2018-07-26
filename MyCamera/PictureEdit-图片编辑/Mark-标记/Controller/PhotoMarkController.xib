@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoMarkController">
+            <connections>
+                <outlet property="imgBgView" destination="Edj-U9-MG3" id="Auk-rU-uKj"/>
+                <outlet property="optionView" destination="yNF-Xd-eiY" id="5UP-QP-5fF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1z-t4-eNE">
+                    <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZY-Np-ffk">
+                            <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf6-Vr-s0z">
+                                    <rect key="frame" x="147.5" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="1ou-uG-7n8"/>
+                                        <constraint firstAttribute="width" constant="30" id="9Dg-Qa-19b"/>
+                                    </constraints>
+                                    <state key="normal" image="markLineType"/>
+                                    <connections>
+                                        <action selector="markLineTypeClick:" destination="-1" eventType="touchUpInside" id="i1t-wq-SXB"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-cH-438">
+                                    <rect key="frame" x="197.5" y="10" width="30" height="30"/>
+                                    <state key="normal" image="markcolor"/>
+                                    <connections>
+                                        <action selector="markLineColotClick:" destination="-1" eventType="touchUpInside" id="lqN-HZ-roe"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8I-qt-nfg">
+                                    <rect key="frame" x="247.5" y="10.5" width="30" height="30"/>
+                                    <state key="normal" image="markline"/>
+                                    <connections>
+                                        <action selector="markLineClick:" destination="-1" eventType="touchUpInside" id="uet-FZ-cDk"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW4-S7-Fhr">
+                                    <rect key="frame" x="327" y="11" width="28" height="28"/>
+                                    <state key="normal" image="CompleteBtnImg"/>
+                                    <connections>
+                                        <action selector="saveClick:" destination="-1" eventType="touchUpInside" id="wrA-iw-ciA"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYW-FU-1ES">
+                                    <rect key="frame" x="20" y="11" width="28" height="28"/>
+                                    <state key="normal" image="CloseIcon"/>
+                                    <connections>
+                                        <action selector="closeClick:" destination="-1" eventType="touchUpInside" id="kkf-pk-Hru"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsz-FC-jmc">
+                                    <rect key="frame" x="98" y="10" width="30" height="30"/>
+                                    <state key="normal" image="markshapes"/>
+                                    <connections>
+                                        <action selector="markLineShapeClick:" destination="-1" eventType="touchUpInside" id="rJm-ff-DRY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Jsz-FC-jmc" firstAttribute="width" secondItem="yf6-Vr-s0z" secondAttribute="width" id="3fM-VV-7M6"/>
+                                <constraint firstItem="Jsz-FC-jmc" firstAttribute="centerY" secondItem="yf6-Vr-s0z" secondAttribute="centerY" id="BPz-NP-LkQ"/>
+                                <constraint firstItem="yf6-Vr-s0z" firstAttribute="leading" secondItem="Jsz-FC-jmc" secondAttribute="trailing" constant="20" id="E8b-KM-Glv"/>
+                                <constraint firstItem="f8I-qt-nfg" firstAttribute="width" secondItem="sh7-cH-438" secondAttribute="width" id="EcQ-Dq-zdM"/>
+                                <constraint firstItem="f8I-qt-nfg" firstAttribute="centerY" secondItem="sh7-cH-438" secondAttribute="centerY" id="I1s-Re-heZ"/>
+                                <constraint firstItem="yf6-Vr-s0z" firstAttribute="centerY" secondItem="RZY-Np-ffk" secondAttribute="centerY" id="PPs-S9-zsu"/>
+                                <constraint firstItem="sh7-cH-438" firstAttribute="centerX" secondItem="RZY-Np-ffk" secondAttribute="centerX" constant="25" id="QWM-Es-NgP"/>
+                                <constraint firstItem="yf6-Vr-s0z" firstAttribute="centerX" secondItem="RZY-Np-ffk" secondAttribute="centerX" constant="-25" id="Vhe-xv-mpp"/>
+                                <constraint firstAttribute="trailing" secondItem="bW4-S7-Fhr" secondAttribute="trailing" constant="20" id="XGc-EP-V8u"/>
+                                <constraint firstItem="Jsz-FC-jmc" firstAttribute="height" secondItem="yf6-Vr-s0z" secondAttribute="height" id="XQK-Ly-C2K"/>
+                                <constraint firstItem="f8I-qt-nfg" firstAttribute="leading" secondItem="sh7-cH-438" secondAttribute="trailing" constant="20" id="aA4-pr-yaF"/>
+                                <constraint firstItem="sh7-cH-438" firstAttribute="centerY" secondItem="RZY-Np-ffk" secondAttribute="centerY" id="aRq-MH-szg"/>
+                                <constraint firstItem="PYW-FU-1ES" firstAttribute="leading" secondItem="RZY-Np-ffk" secondAttribute="leading" constant="20" id="asP-AB-avJ"/>
+                                <constraint firstItem="sh7-cH-438" firstAttribute="height" secondItem="yf6-Vr-s0z" secondAttribute="height" id="bAT-Yb-IDH"/>
+                                <constraint firstItem="bW4-S7-Fhr" firstAttribute="centerY" secondItem="RZY-Np-ffk" secondAttribute="centerY" id="caW-1g-K3Z"/>
+                                <constraint firstItem="PYW-FU-1ES" firstAttribute="centerY" secondItem="RZY-Np-ffk" secondAttribute="centerY" id="iqx-0H-vbg"/>
+                                <constraint firstItem="sh7-cH-438" firstAttribute="width" secondItem="yf6-Vr-s0z" secondAttribute="width" id="jz6-0h-Rwt"/>
+                                <constraint firstAttribute="height" constant="50" id="pRj-Qw-eLZ"/>
+                                <constraint firstItem="f8I-qt-nfg" firstAttribute="height" secondItem="sh7-cH-438" secondAttribute="height" id="sNw-r4-CUk"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNF-Xd-eiY">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="yNF-Xd-eiY" firstAttribute="leading" secondItem="x1z-t4-eNE" secondAttribute="leading" id="YkL-v3-Mm8"/>
+                        <constraint firstAttribute="height" constant="150" id="cIr-Es-ACe"/>
+                        <constraint firstItem="RZY-Np-ffk" firstAttribute="leading" secondItem="x1z-t4-eNE" secondAttribute="leading" id="cZK-Ow-Blr"/>
+                        <constraint firstAttribute="trailing" secondItem="RZY-Np-ffk" secondAttribute="trailing" id="doR-oR-joB"/>
+                        <constraint firstAttribute="bottom" secondItem="RZY-Np-ffk" secondAttribute="bottom" id="eBq-PA-62J"/>
+                        <constraint firstItem="RZY-Np-ffk" firstAttribute="top" secondItem="yNF-Xd-eiY" secondAttribute="bottom" id="lr1-Ha-JsG"/>
+                        <constraint firstItem="yNF-Xd-eiY" firstAttribute="top" secondItem="x1z-t4-eNE" secondAttribute="top" id="p1c-aX-8Bu"/>
+                        <constraint firstAttribute="trailing" secondItem="yNF-Xd-eiY" secondAttribute="trailing" id="xpt-cq-UJK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edj-U9-MG3">
+                    <rect key="frame" x="0.0" y="20" width="375" height="497"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Edj-U9-MG3" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="71I-vq-KQk"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Edj-U9-MG3" secondAttribute="trailing" id="CQo-BJ-jyc"/>
+                <constraint firstItem="x1z-t4-eNE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="KUi-Yn-0Vm"/>
+                <constraint firstItem="Edj-U9-MG3" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="LaB-AQ-gcc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="x1z-t4-eNE" secondAttribute="bottom" id="R8T-FF-84d"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="x1z-t4-eNE" secondAttribute="trailing" id="Vah-q5-AdY"/>
+                <constraint firstItem="x1z-t4-eNE" firstAttribute="top" secondItem="Edj-U9-MG3" secondAttribute="bottom" id="eiM-Td-ZuU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CloseIcon" width="28" height="28"/>
+        <image name="CompleteBtnImg" width="28" height="28"/>
+        <image name="markLineType" width="32" height="32"/>
+        <image name="markcolor" width="32" height="32"/>
+        <image name="markline" width="32" height="32"/>
+        <image name="markshapes" width="32" height="32"/>
+    </resources>
+</document>

@@ -19,6 +19,8 @@
 #import "PicEditOptionView.h"
 #import "PhotoSecondCropController.h"
 #import "PhotoPasterVC2.h"
+#import "PhotoMarkController.h"
+#import "DrawBordController.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -188,6 +190,15 @@
             
             break;
         case 4://标记
+        {
+            DrawBordController *markVC = [[DrawBordController alloc]init];
+            markVC.originImg = [self.image copy];
+            markVC.imageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+                weakSelf.image = image;
+            };
+            [self presentViewController:markVC animated:YES completion:nil];
+        }
             
             break;
         case 5://涂鸦

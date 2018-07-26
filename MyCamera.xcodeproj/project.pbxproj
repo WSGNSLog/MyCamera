@@ -59,6 +59,15 @@
 		E34F64FD20DA050700F4E4FD /* PECropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F64F120DA050700F4E4FD /* PECropViewController.m */; };
 		E34F64FE20DA050700F4E4FD /* PECropView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F64F220DA050700F4E4FD /* PECropView.m */; };
 		E34F64FF20DA050700F4E4FD /* PECropRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F64F320DA050700F4E4FD /* PECropRectView.m */; };
+		E352284D210973DA00C3B6A2 /* PaintStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E352284C210973DA00C3B6A2 /* PaintStep.m */; };
+		E35228502109740A00C3B6A2 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = E352284F2109740A00C3B6A2 /* DrawView.m */; };
+		E35228542109741E00C3B6A2 /* DrawBordController.m in Sources */ = {isa = PBXBuildFile; fileRef = E35228522109741E00C3B6A2 /* DrawBordController.m */; };
+		E35228552109741E00C3B6A2 /* DrawBordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35228532109741E00C3B6A2 /* DrawBordController.xib */; };
+		E352285A210975EA00C3B6A2 /* paster_wow.png in Resources */ = {isa = PBXBuildFile; fileRef = E3522857210975EA00C3B6A2 /* paster_wow.png */; };
+		E352285B210975EA00C3B6A2 /* paster_goodmode.png in Resources */ = {isa = PBXBuildFile; fileRef = E3522858210975EA00C3B6A2 /* paster_goodmode.png */; };
+		E352285C210975EA00C3B6A2 /* paster_housailei.png in Resources */ = {isa = PBXBuildFile; fileRef = E3522859210975EA00C3B6A2 /* paster_housailei.png */; };
+		E352285F21097ABB00C3B6A2 /* BezierStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E352285E21097ABB00C3B6A2 /* BezierStep.m */; };
+		E35228622109A50000C3B6A2 /* DrawImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35228612109A50000C3B6A2 /* DrawImageView.m */; };
 		E357D69320AEBADE006F31C4 /* LocalAlbumController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E357D67F20AEBADE006F31C4 /* LocalAlbumController.xib */; };
 		E357D69420AEBADE006F31C4 /* AlbumPhotoPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E357D68020AEBADE006F31C4 /* AlbumPhotoPreviewVC.m */; };
 		E357D69520AEBADE006F31C4 /* AlbumVideoPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E357D68120AEBADE006F31C4 /* AlbumVideoPreviewVC.m */; };
@@ -95,12 +104,6 @@
 		E36F1C862007580C00DD5AB0 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7B2007580C00DD5AB0 /* MASConstraint.m */; };
 		E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7D2007580C00DD5AB0 /* MASViewConstraint.m */; };
 		E36F1C882007580C00DD5AB0 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7E2007580C00DD5AB0 /* MASViewAttribute.m */; };
-		E37B6F6420B3E4DF00315C0A /* paster_goodmode.png in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F5C20B3E4DF00315C0A /* paster_goodmode.png */; };
-		E37B6F6520B3E4DF00315C0A /* StickerInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F5D20B3E4DF00315C0A /* StickerInfo.xml */; };
-		E37B6F6620B3E4DF00315C0A /* paster_housailei.png in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F5F20B3E4DF00315C0A /* paster_housailei.png */; };
-		E37B6F6720B3E4DF00315C0A /* StickerInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F6020B3E4DF00315C0A /* StickerInfo.xml */; };
-		E37B6F6820B3E4DF00315C0A /* paster_wow.png in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F6220B3E4DF00315C0A /* paster_wow.png */; };
-		E37B6F6920B3E4DF00315C0A /* StickerInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = E37B6F6320B3E4DF00315C0A /* StickerInfo.xml */; };
 		E37B6F7220B3E61500315C0A /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E37B6F7020B3E61400315C0A /* UIView+Additions.m */; };
 		E38D565520522F4C003C4C4C /* VideoAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */; };
 		E38D565620522F4C003C4C4C /* AlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564C20522F4B003C4C4C /* AlbumController.m */; };
@@ -248,6 +251,10 @@
 		E3DEBE92210849F600CE1E8E /* CameraFaceDetectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE90210849F600CE1E8E /* CameraFaceDetectVC.xib */; };
 		E3DEBE9621084A1400CE1E8E /* ImageFaceDetectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */; };
 		E3DEBE9721084A1400CE1E8E /* ImageFaceDetectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */; };
+		E3E5561121095C92001B5662 /* PhotoMarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E5560F21095C92001B5662 /* PhotoMarkController.m */; };
+		E3E5561221095C92001B5662 /* PhotoMarkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E5561021095C92001B5662 /* PhotoMarkController.xib */; };
+		E3E55615210967C5001B5662 /* MarkDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E55614210967C5001B5662 /* MarkDrawView.m */; };
+		E3E5561821096FEC001B5662 /* MarkPaintStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E5561721096FEC001B5662 /* MarkPaintStep.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +352,20 @@
 		E34F64F520DA050700F4E4FD /* PEResizeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEResizeControl.h; sourceTree = "<group>"; };
 		E34F64F620DA050700F4E4FD /* PECropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropView.h; sourceTree = "<group>"; };
 		E34F64F720DA050700F4E4FD /* PECropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropViewController.h; sourceTree = "<group>"; };
+		E352284B210973DA00C3B6A2 /* PaintStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintStep.h; sourceTree = "<group>"; };
+		E352284C210973DA00C3B6A2 /* PaintStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintStep.m; sourceTree = "<group>"; };
+		E352284E2109740A00C3B6A2 /* DrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		E352284F2109740A00C3B6A2 /* DrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		E35228512109741E00C3B6A2 /* DrawBordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBordController.h; sourceTree = "<group>"; };
+		E35228522109741E00C3B6A2 /* DrawBordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBordController.m; sourceTree = "<group>"; };
+		E35228532109741E00C3B6A2 /* DrawBordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawBordController.xib; sourceTree = "<group>"; };
+		E3522857210975EA00C3B6A2 /* paster_wow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_wow.png; sourceTree = "<group>"; };
+		E3522858210975EA00C3B6A2 /* paster_goodmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_goodmode.png; sourceTree = "<group>"; };
+		E3522859210975EA00C3B6A2 /* paster_housailei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_housailei.png; sourceTree = "<group>"; };
+		E352285D21097ABB00C3B6A2 /* BezierStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierStep.h; sourceTree = "<group>"; };
+		E352285E21097ABB00C3B6A2 /* BezierStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierStep.m; sourceTree = "<group>"; };
+		E35228602109A50000C3B6A2 /* DrawImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawImageView.h; sourceTree = "<group>"; };
+		E35228612109A50000C3B6A2 /* DrawImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawImageView.m; sourceTree = "<group>"; };
 		E357D67F20AEBADE006F31C4 /* LocalAlbumController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalAlbumController.xib; sourceTree = "<group>"; };
 		E357D68020AEBADE006F31C4 /* AlbumPhotoPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPhotoPreviewVC.m; sourceTree = "<group>"; };
 		E357D68120AEBADE006F31C4 /* AlbumVideoPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumVideoPreviewVC.m; sourceTree = "<group>"; };
@@ -428,12 +449,6 @@
 		E36F1C9020075A4700DD5AB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E36F1C9120075A5100DD5AB0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E36F1C9220075A5800DD5AB0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		E37B6F5C20B3E4DF00315C0A /* paster_goodmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_goodmode.png; sourceTree = "<group>"; };
-		E37B6F5D20B3E4DF00315C0A /* StickerInfo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StickerInfo.xml; sourceTree = "<group>"; };
-		E37B6F5F20B3E4DF00315C0A /* paster_housailei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_housailei.png; sourceTree = "<group>"; };
-		E37B6F6020B3E4DF00315C0A /* StickerInfo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StickerInfo.xml; sourceTree = "<group>"; };
-		E37B6F6220B3E4DF00315C0A /* paster_wow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paster_wow.png; sourceTree = "<group>"; };
-		E37B6F6320B3E4DF00315C0A /* StickerInfo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StickerInfo.xml; sourceTree = "<group>"; };
 		E37B6F7020B3E61400315C0A /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		E37B6F7120B3E61400315C0A /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		E37B6F7320B3E63300315C0A /* ColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMacro.h; sourceTree = "<group>"; };
@@ -683,6 +698,13 @@
 		E3DEBE9321084A1400CE1E8E /* ImageFaceDetectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageFaceDetectVC.h; sourceTree = "<group>"; };
 		E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageFaceDetectVC.m; sourceTree = "<group>"; };
 		E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageFaceDetectVC.xib; sourceTree = "<group>"; };
+		E3E5560E21095C92001B5662 /* PhotoMarkController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMarkController.h; sourceTree = "<group>"; };
+		E3E5560F21095C92001B5662 /* PhotoMarkController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMarkController.m; sourceTree = "<group>"; };
+		E3E5561021095C92001B5662 /* PhotoMarkController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMarkController.xib; sourceTree = "<group>"; };
+		E3E55613210967C5001B5662 /* MarkDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkDrawView.h; sourceTree = "<group>"; };
+		E3E55614210967C5001B5662 /* MarkDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkDrawView.m; sourceTree = "<group>"; };
+		E3E5561621096FEC001B5662 /* MarkPaintStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkPaintStep.h; sourceTree = "<group>"; };
+		E3E5561721096FEC001B5662 /* MarkPaintStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkPaintStep.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -757,7 +779,7 @@
 		E323BD0320AD2D6500F01C49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E37B6F5A20B3E4DF00315C0A /* paster */,
+				E3522856210975EA00C3B6A2 /* 贴纸 */,
 				E323BD0420AD2D6500F01C49 /* colorsSelect@3x.png */,
 				E323BD0520AD2D6500F01C49 /* left@3x.png */,
 				E323BD0620AD2D6500F01C49 /* revoke@2x.png */,
@@ -779,6 +801,44 @@
 				E323BD1520AD2D6500F01C49 /* fontSelect@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E32F9C5C21095C36003A6143 /* Mark-标记 */ = {
+			isa = PBXGroup;
+			children = (
+				E32F9C5F21095C45003A6143 /* Controller */,
+				E32F9C5E21095C42003A6143 /* Model */,
+				E32F9C5D21095C3E003A6143 /* View */,
+			);
+			path = "Mark-标记";
+			sourceTree = "<group>";
+		};
+		E32F9C5D21095C3E003A6143 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3E55613210967C5001B5662 /* MarkDrawView.h */,
+				E3E55614210967C5001B5662 /* MarkDrawView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E32F9C5E21095C42003A6143 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3E5561621096FEC001B5662 /* MarkPaintStep.h */,
+				E3E5561721096FEC001B5662 /* MarkPaintStep.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E32F9C5F21095C45003A6143 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3E5560E21095C92001B5662 /* PhotoMarkController.h */,
+				E3E5560F21095C92001B5662 /* PhotoMarkController.m */,
+				E3E5561021095C92001B5662 /* PhotoMarkController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E33FA6222041462E007C0A2B /* AlertView */ = {
@@ -853,6 +913,16 @@
 				E34F64EF20DA050700F4E4FD /* UIImage+PECrop.m */,
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		E3522856210975EA00C3B6A2 /* 贴纸 */ = {
+			isa = PBXGroup;
+			children = (
+				E3522857210975EA00C3B6A2 /* paster_wow.png */,
+				E3522858210975EA00C3B6A2 /* paster_goodmode.png */,
+				E3522859210975EA00C3B6A2 /* paster_housailei.png */,
+			);
+			path = "贴纸";
 			sourceTree = "<group>";
 		};
 		E357D67D20AEBADE006F31C4 /* Album-相册 */ = {
@@ -1137,43 +1207,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E37B6F5A20B3E4DF00315C0A /* paster */ = {
-			isa = PBXGroup;
-			children = (
-				E37B6F5B20B3E4DF00315C0A /* 10129003 */,
-				E37B6F5E20B3E4DF00315C0A /* 10129002 */,
-				E37B6F6120B3E4DF00315C0A /* 10129001 */,
-			);
-			path = paster;
-			sourceTree = "<group>";
-		};
-		E37B6F5B20B3E4DF00315C0A /* 10129003 */ = {
-			isa = PBXGroup;
-			children = (
-				E37B6F5C20B3E4DF00315C0A /* paster_goodmode.png */,
-				E37B6F5D20B3E4DF00315C0A /* StickerInfo.xml */,
-			);
-			path = 10129003;
-			sourceTree = "<group>";
-		};
-		E37B6F5E20B3E4DF00315C0A /* 10129002 */ = {
-			isa = PBXGroup;
-			children = (
-				E37B6F5F20B3E4DF00315C0A /* paster_housailei.png */,
-				E37B6F6020B3E4DF00315C0A /* StickerInfo.xml */,
-			);
-			path = 10129002;
-			sourceTree = "<group>";
-		};
-		E37B6F6120B3E4DF00315C0A /* 10129001 */ = {
-			isa = PBXGroup;
-			children = (
-				E37B6F6220B3E4DF00315C0A /* paster_wow.png */,
-				E37B6F6320B3E4DF00315C0A /* StickerInfo.xml */,
-			);
-			path = 10129001;
-			sourceTree = "<group>";
-		};
 		E38D564820522F4B003C4C4C /* VideoAssetPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,10 +1319,12 @@
 				E3C5EC6020F3306F00287C68 /* Filter-滤镜 */,
 				E3C5EC9C20F3307000287C68 /* Frame-边框 */,
 				E3C5ECBC20F3307000287C68 /* Paster-贴纸 */,
+				E32F9C5C21095C36003A6143 /* Mark-标记 */,
 				E3C5ECC820F3307000287C68 /* RotateAndMirror-旋转镜像 */,
 				E3C5EC6D20F3306F00287C68 /* Text-文字 */,
 				E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */,
 				E3C5EC8320F3307000287C68 /* WarterMark-水印 */,
+				E3E5561921097324001B5662 /* DrawBoard-画板 */,
 				E323BD0320AD2D6500F01C49 /* Resources */,
 			);
 			path = "PictureEdit-图片编辑";
@@ -1827,6 +1862,48 @@
 			path = FaceDetector;
 			sourceTree = "<group>";
 		};
+		E3E5561921097324001B5662 /* DrawBoard-画板 */ = {
+			isa = PBXGroup;
+			children = (
+				E3E5561A21097343001B5662 /* Controller */,
+				E3E5561C21097350001B5662 /* View */,
+				E3E5561B2109734A001B5662 /* Model */,
+			);
+			path = "DrawBoard-画板";
+			sourceTree = "<group>";
+		};
+		E3E5561A21097343001B5662 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E35228512109741E00C3B6A2 /* DrawBordController.h */,
+				E35228522109741E00C3B6A2 /* DrawBordController.m */,
+				E35228532109741E00C3B6A2 /* DrawBordController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E3E5561B2109734A001B5662 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E352285D21097ABB00C3B6A2 /* BezierStep.h */,
+				E352285E21097ABB00C3B6A2 /* BezierStep.m */,
+				E352284B210973DA00C3B6A2 /* PaintStep.h */,
+				E352284C210973DA00C3B6A2 /* PaintStep.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3E5561C21097350001B5662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E352284E2109740A00C3B6A2 /* DrawView.h */,
+				E352284F2109740A00C3B6A2 /* DrawView.m */,
+				E35228602109A50000C3B6A2 /* DrawImageView.h */,
+				E35228612109A50000C3B6A2 /* DrawImageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1954,7 +2031,6 @@
 				E323BD1A20AD2D6500F01C49 /* left@2x.png in Resources */,
 				E3C5ED0A20F3307100287C68 /* PhotoCutController.xib in Resources */,
 				E3C5ECF020F3307100287C68 /* PhotoTextController.xib in Resources */,
-				E37B6F6520B3E4DF00315C0A /* StickerInfo.xml in Resources */,
 				E357D69820AEBADE006F31C4 /* AlbumVideoPreviewVC.xib in Resources */,
 				E36F1ACB2007131B00DD5AB0 /* Assets.xcassets in Resources */,
 				E34F64FA20DA050700F4E4FD /* README.md in Resources */,
@@ -1962,10 +2038,10 @@
 				E323BD2320AD2D6500F01C49 /* fontSelected@3x.png in Resources */,
 				E38D566F205628C2003C4C4C /* VideoAssetPickerController.xib in Resources */,
 				E3C5ED2E20F3314000287C68 /* PhotoEditController.xib in Resources */,
+				E3E5561221095C92001B5662 /* PhotoMarkController.xib in Resources */,
 				E3C5EDA920F4AD0F00287C68 /* PhotoExifInfoVC.xib in Resources */,
 				E3DEBE9721084A1400CE1E8E /* ImageFaceDetectVC.xib in Resources */,
 				E36F1AC92007131B00DD5AB0 /* Main.storyboard in Resources */,
-				E37B6F6720B3E4DF00315C0A /* StickerInfo.xml in Resources */,
 				E3C5ECFC20F3307100287C68 /* PhotoLocationController.xib in Resources */,
 				E3DEBE92210849F600CE1E8E /* CameraFaceDetectVC.xib in Resources */,
 				E3C5ED0720F3307100287C68 /* OriginLocCell.xib in Resources */,
@@ -1978,35 +2054,35 @@
 				E323BD2720AD2D6500F01C49 /* fontSelect@2x.png in Resources */,
 				E323BD2220AD2D6500F01C49 /* cutSelected@2x.png in Resources */,
 				E3C5ED2F20F3314000287C68 /* PicEditOptionView.xib in Resources */,
+				E352285A210975EA00C3B6A2 /* paster_wow.png in Resources */,
 				E323BD2420AD2D6500F01C49 /* fontSelected@2x.png in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
 				E3C5ED0520F3307100287C68 /* UndisplayLocCell.xib in Resources */,
 				E323BD1E20AD2D6500F01C49 /* colorsSelected@3x.png in Resources */,
+				E35228552109741E00C3B6A2 /* DrawBordController.xib in Resources */,
 				E323BD1720AD2D6500F01C49 /* left@3x.png in Resources */,
 				E357D69620AEBADE006F31C4 /* AlbumPhotoPreviewVC.xib in Resources */,
 				E38D565C20527EF7003C4C4C /* AlbumController.xib in Resources */,
-				E37B6F6420B3E4DF00315C0A /* paster_goodmode.png in Resources */,
 				E3C5ED1E20F3307100287C68 /* PhotoRotateController.xib in Resources */,
 				E3C5ED1F20F3307100287C68 /* PhotoCustomRotateVC.xib in Resources */,
 				E33FA6382041462E007C0A2B /* EAlertViewWithCheckBox.xib in Resources */,
 				E3C5ED0B20F3307100287C68 /* PhotoSecondCropController.xib in Resources */,
 				E3C5ECEC20F3307100287C68 /* PhotoFilterController.xib in Resources */,
+				E352285B210975EA00C3B6A2 /* paster_goodmode.png in Resources */,
 				E3DEBE8921081C9E00CE1E8E /* ReplayController.xib in Resources */,
 				E323BD2620AD2D6500F01C49 /* cutSelect@2x.png in Resources */,
 				E3C5ED0420F3307100287C68 /* SearchedLocCell.xib in Resources */,
 				E323BD1C20AD2D6500F01C49 /* right@2x.png in Resources */,
-				E37B6F6920B3E4DF00315C0A /* StickerInfo.xml in Resources */,
 				E38D566120561F41003C4C4C /* VideoAssetCell.xib in Resources */,
 				E323BD1B20AD2D6500F01C49 /* colorsSelect@2x.png in Resources */,
-				E37B6F6620B3E4DF00315C0A /* paster_housailei.png in Resources */,
 				E3DEBE8021081BA300CE1E8E /* ReplayKitDemoVC.xib in Resources */,
 				E34F64F820DA050700F4E4FD /* LICENSE in Resources */,
 				E34F64F920DA050700F4E4FD /* PEPhotoCropEditor.bundle in Resources */,
-				E37B6F6820B3E4DF00315C0A /* paster_wow.png in Resources */,
 				E323BD1D20AD2D6500F01C49 /* colorsSelected@2x.png in Resources */,
 				E3C5ED1A20F3307100287C68 /* PhotoPasterController.xib in Resources */,
 				E39A570120FDCED70018D5B5 /* PhotoEditOptionCell.xib in Resources */,
 				E33FA6372041462E007C0A2B /* EAlertView.xib in Resources */,
+				E352285C210975EA00C3B6A2 /* paster_housailei.png in Resources */,
 				E3DEBE192106CD0700CE1E8E /* PhotoPasterVC2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2033,6 +2109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C5ED2D20F3314000287C68 /* PhotoEditController.m in Sources */,
+				E3E55615210967C5001B5662 /* MarkDrawView.m in Sources */,
 				E3C5ED2020F3307100287C68 /* PhotoCustomRotateVC.m in Sources */,
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
 				E3DEBE8821081C9E00CE1E8E /* ReplayController.m in Sources */,
@@ -2045,11 +2122,13 @@
 				E3C5ED1820F3307100287C68 /* PhotoCutView.m in Sources */,
 				E38D5667205623C7003C4C4C /* QBVideoIndicatorView.m in Sources */,
 				E33FA63C20414646007C0A2B /* Utils_DeviceInfo.m in Sources */,
+				E35228622109A50000C3B6A2 /* DrawImageView.m in Sources */,
 				E3B763E6200F3F0E00AD2508 /* CameraModePickView.m in Sources */,
 				E3C5EC3620F3106200287C68 /* ActionSheetStringPicker.m in Sources */,
 				E38D567C20566D9E003C4C4C /* MainTabBarController.m in Sources */,
 				E38D5696205671BA003C4C4C /* UIScrollView+VTMagic.m in Sources */,
 				E357D69720AEBADE006F31C4 /* LocalAlbumController.m in Sources */,
+				E3E5561821096FEC001B5662 /* MarkPaintStep.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
@@ -2081,6 +2160,7 @@
 				E36F1C842007580C00DD5AB0 /* NSArray+MASAdditions.m in Sources */,
 				E33FA6322041462E007C0A2B /* EAlertTitleView.m in Sources */,
 				E3C5EC3320F3106200287C68 /* ActionSheetDistancePicker.m in Sources */,
+				E352285F21097ABB00C3B6A2 /* BezierStep.m in Sources */,
 				E3B76420201592E700AD2508 /* LHDataBaseExecute.m in Sources */,
 				E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */,
 				E3C5ED0E20F3307100287C68 /* PhotoCutController.m in Sources */,
@@ -2092,6 +2172,7 @@
 				E39A570220FDCED70018D5B5 /* PhotoEditOptionCell.m in Sources */,
 				E3C5EDAD20F4B1BD00287C68 /* BaseViewController.m in Sources */,
 				E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */,
+				E35228502109740A00C3B6A2 /* DrawView.m in Sources */,
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
 				E3C5ED0F20F3307100287C68 /* FingerDrawLineInfo.m in Sources */,
 				E38D5697205671BA003C4C4C /* UIColor+VTMagic.m in Sources */,
@@ -2109,6 +2190,7 @@
 				E34F64FC20DA050700F4E4FD /* PEResizeControl.m in Sources */,
 				E3C5ED0020F3307100287C68 /* SearchedLocCell.m in Sources */,
 				E3C5EC3220F3106200287C68 /* ActionSheetLocalePicker.m in Sources */,
+				E35228542109741E00C3B6A2 /* DrawBordController.m in Sources */,
 				E38D5692205671BA003C4C4C /* VTContentView.m in Sources */,
 				E357D6AA20AECB2C006F31C4 /* UIColor+expanded.m in Sources */,
 				E3B76403201592DE00AD2508 /* MBProgressHUD+MJ.m in Sources */,
@@ -2156,6 +2238,7 @@
 				E39B9A1F20AD28A30041253C /* UIButton+category.m in Sources */,
 				E36F1AC32007131B00DD5AB0 /* AppDelegate.mm in Sources */,
 				E33FA6202041460E007C0A2B /* ECameraSQL.m in Sources */,
+				E352284D210973DA00C3B6A2 /* PaintStep.m in Sources */,
 				E38D5693205671BA003C4C4C /* VTMagicController.m in Sources */,
 				E3B76401201592DE00AD2508 /* MBProgressHUD.m in Sources */,
 				E36F1AFB200714B400DD5AB0 /* CameraVC.m in Sources */,
@@ -2169,6 +2252,7 @@
 				E3C5EC3120F3106200287C68 /* ActionSheetDatePicker.m in Sources */,
 				E38D5695205671BA003C4C4C /* UIButton+VTMagic.m in Sources */,
 				E3114C4A20D38A0A00D48461 /* ImageUtil.m in Sources */,
+				E3E5561121095C92001B5662 /* PhotoMarkController.m in Sources */,
 				E39B9A1E20AD28A30041253C /* UIImageView+size.m in Sources */,
 				E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */,
 				E357D69C20AEBADE006F31C4 /* AlbumItemCell.m in Sources */,

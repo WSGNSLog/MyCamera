@@ -21,10 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
     self.imageTag = 1;
     self.imageView.image = [UIImage imageNamed:imageName];
     [self faceDetectWithImage:[UIImage imageNamed:imageName]];
+    
+    //可能会出现方框不存在(即没有识别人脸)这种情况，这是由于xib忘记关闭Auto Layout以及Size Classes了.xib面板中的第一个选项卡中找到use Auto Layout ，将前面的✔️去掉就可以了
 }
 - (IBAction)closeClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

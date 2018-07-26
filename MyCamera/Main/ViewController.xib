@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-Aq-md1">
-                    <rect key="frame" x="44" y="132" width="123" height="30"/>
+                    <rect key="frame" x="29" y="132" width="123" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="拍照、短视频录制"/>
                     <connections>
@@ -29,35 +29,27 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3g-s4-fVd">
-                    <rect key="frame" x="44" y="170" width="138" height="30"/>
+                    <rect key="frame" x="29" y="178" width="62" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="相册、照片编辑美化"/>
+                    <state key="normal" title="相册视频"/>
                     <connections>
                         <action selector="openAlbumBtnClick:" destination="-1" eventType="touchUpInside" id="bbp-WB-ZLW"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCL-S1-Fc2">
-                    <rect key="frame" x="44" y="227" width="62" height="30"/>
+                    <rect key="frame" x="29" y="226" width="138" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="相册视频"/>
+                    <state key="normal" title="相册、照片编辑美化"/>
                     <connections>
                         <action selector="openAlbumPhotoBtnClick:" destination="-1" eventType="touchUpInside" id="2oE-3g-eDC"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dno-jS-U37">
-                    <rect key="frame" x="51" y="279" width="65" height="30"/>
+                    <rect key="frame" x="29" y="278" width="65" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="ReplayKit"/>
                     <connections>
                         <action selector="replayKitClick:" destination="-1" eventType="touchUpInside" id="fvp-Cv-JtM"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-Fl-V79">
-                    <rect key="frame" x="52" y="329" width="62" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="照片信息"/>
-                    <connections>
-                        <action selector="photoInfoBtnClick:" destination="-1" eventType="touchUpInside" id="85j-SZ-cgM"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVy-aB-lpL">
@@ -74,6 +66,14 @@
                     <state key="normal" title="图片人脸识别"/>
                     <connections>
                         <action selector="imageFaceDetect:" destination="-1" eventType="touchUpInside" id="O47-1U-hNT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-Fl-V79">
+                    <rect key="frame" x="32" y="329" width="62" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="照片信息"/>
+                    <connections>
+                        <action selector="photoInfoBtnClick:" destination="-1" eventType="touchUpInside" id="85j-SZ-cgM"/>
                     </connections>
                 </button>
             </subviews>

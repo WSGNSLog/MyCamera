@@ -24,7 +24,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmP-7g-R8l">
                         <rect key="frame" x="0.0" y="74" width="111" height="25"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="allVideoTimeBar" translatesAutoresizingMaskIntoConstraints="NO" id="pg9-by-JWU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayBarBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="pg9-by-JWU">
                                 <rect key="frame" x="0.0" y="0.0" width="111" height="25"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8T-Yn-Yja">
@@ -80,6 +80,6 @@
     </objects>
     <resources>
         <image name="Play" width="80" height="80"/>
-        <image name="allVideoTimeBar" width="87" height="27"/>
+        <image name="grayBarBgImage" width="16" height="16"/>
     </resources>
 </document>
