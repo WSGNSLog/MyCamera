@@ -14,10 +14,10 @@ typedef enum {
 
 @interface DrawView : UIView
 
-@property (nonatomic,strong,getter=getImage) UIImage *image;
+@property (nonatomic,strong) UIImage *image;
 @property (nonatomic,strong) UIColor *paintColor;
 //当前绘图模式
 @property (nonatomic,assign) DrawViewMode drawViewMode;
 @property (nonatomic,assign) CGFloat sliderValue;
-
+- (UIImage *)getImage;
 @end

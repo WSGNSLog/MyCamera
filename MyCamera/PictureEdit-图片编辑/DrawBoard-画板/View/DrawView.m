@@ -309,10 +309,29 @@
 
 
 - (UIImage *)getImage{
-    return self.imageView.image;
+    NSLog(@"getImage");
+    CGImageRef imgRef = self.image.CGImage;
+    CGFloat w = CGImageGetWidth(imgRef);
+    CGFloat h = CGImageGetHeight(imgRef);
+    
+    //以大图大小为底图
+    //以showImg的图大小为画布创建上下文
+    //UIGraphicsBeginImageContext(CGSizeMake(w, h));
+    UIGraphicsBeginImageContextWithOptions(self.image.size, NO, 0);
+    //先把大图 绘制到上下文中
+    [self.image drawInRect:CGRectMake(0, 0, w, h)];
+    //再把小图放到上下文中
+    //[self.locationLabel drawInRect:CGRectMake(100, 100, 100, 50)];
+    [self drawViewHierarchyInRect:CGRectMake(0,0, w, h) afterScreenUpdates:YES];
+
+    
+    UIImage *resultImg = UIGraphicsGetImageFromCurrentImageContext();//从当前上下文中获得最终图片
+    UIGraphicsEndImageContext();//关闭上下文
+    
+    //CGImageRelease(imgRef);//imageView.image不需要释放
+    
+    return resultImg;
 }
-- (void)setImage:(UIImage *)image{
-    self.imageView.image = image;
-}
+
 
 @end
