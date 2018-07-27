@@ -13,7 +13,7 @@
 typedef enum {
     PaintViewModeStroke,
     PaintViewModeBezier
-} PaintViewMode;
+} PaintImgViewMode;
 
 @implementation DrawImageView{
     
@@ -24,7 +24,7 @@ typedef enum {
     //当前笔触粗细选择器
     UISlider *slider;
     //当前绘图模式
-    PaintViewMode paintViewMode;
+    PaintImgViewMode paintImgViewMode;
     
     //画的线路径的集合，内部是NSMutableArray类型
     NSMutableArray *bezierSteps;
@@ -101,7 +101,7 @@ typedef enum {
 
 //增加控制面板
 -(void)createControlBoard{
-    paintViewMode = PaintViewModeBezier;
+    paintImgViewMode = PaintViewModeBezier;
     
     UIView *controlBoard = [[UIView alloc]initWithFrame:CGRectMake(0, 60, 60, self.height-50)];
     //    controlBoard.backgroundColor = [UIColor lightGrayColor];
@@ -219,8 +219,8 @@ typedef enum {
 #pragma mark -手指移动
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    NSLog(@"%u",paintViewMode);
-    switch (paintViewMode) {
+    NSLog(@"%u",paintImgViewMode);
+    switch (paintImgViewMode) {
             
             //笔画模式
         case PaintViewModeStroke:
@@ -237,7 +237,7 @@ typedef enum {
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    switch (paintViewMode) {
+    switch (paintImgViewMode) {
             
             //笔画模式
         case PaintViewModeStroke:
@@ -253,7 +253,7 @@ typedef enum {
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    switch (paintViewMode) {
+    switch (paintImgViewMode) {
             
             
             //笔画模式
@@ -385,11 +385,11 @@ typedef enum {
 //贝塞尔按钮的点击事件
 -(void)berzierBtnClick:(id)sender{
     UIButton *btn = sender;
-    if(paintViewMode == PaintViewModeStroke){
-        paintViewMode = PaintViewModeBezier;
+    if(paintImgViewMode == PaintViewModeStroke){
+        paintImgViewMode = PaintViewModeBezier;
         [btn setBackgroundImage:[UIImage imageNamed:@"bezierBoard_l"] forState:UIControlStateNormal];
     }else{
-        paintViewMode = PaintViewModeStroke;
+        paintImgViewMode = PaintViewModeStroke;
         [btn setBackgroundImage:[UIImage imageNamed:@"bezierBoard"] forState:UIControlStateNormal];
     }
     

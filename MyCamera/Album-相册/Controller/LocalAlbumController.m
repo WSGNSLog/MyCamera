@@ -15,6 +15,7 @@
 #import "Utils_DateInfo.h"
 #import "AlbumPhotoPreviewVC.h"
 #import "AlbumVideoPreviewVC.h"
+#import "PhotoEditController.h"
 
 static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     return CGSizeMake(size.width * scale, size.height * scale);
@@ -283,9 +284,12 @@ static NSString *const AlbumIHeaderID = @"AlbumIHeaderID";
     
     PHAsset *asset = model.asset;
     if (asset.mediaType == PHAssetMediaTypeImage) {
-        AlbumPhotoPreviewVC *previewVC = [[AlbumPhotoPreviewVC alloc]init];
-        previewVC.model = model;
-        [self.navigationController pushViewController:previewVC animated:YES];
+        PhotoEditController *editVC = [[PhotoEditController alloc]init];
+        editVC.asset = model.asset;
+        [self.navigationController pushViewController:editVC animated:YES];
+//        AlbumPhotoPreviewVC *previewVC = [[AlbumPhotoPreviewVC alloc]init];
+//        previewVC.model = model;
+//        [self.navigationController pushViewController:previewVC animated:YES];
     }else if (asset.mediaType == PHAssetMediaTypeVideo){
         AlbumVideoPreviewVC *previewVC = [[AlbumVideoPreviewVC alloc]init];
         previewVC.model = model;

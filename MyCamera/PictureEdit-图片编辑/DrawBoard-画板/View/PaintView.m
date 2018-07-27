@@ -1,50 +1,24 @@
 //
-//  DrawView.m
+//  PaintView.m
 //  MyCamera
 //
 //  Created by shiguang on 2018/7/26.
 //  Copyright © 2018年 shiguang. All rights reserved.
 //
-/*
- // 圆弧
- // Center：圆心
- // startAngle:弧度
- // clockwise:YES:顺时针 NO：逆时针
- 
- // 扇形
- CGPoint center = CGPointMake(125, 125);
- UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:100 startAngle:0 endAngle:M_PI_2 clockwise:YES];
- 
- // 添加一根线到圆心
- [path addLineToPoint:center];
- 
- // 封闭路径，关闭路径：从路径的终点到起点
- //    [path closePath];
- 
- 
- //    [path stroke];
- 
- // 填充：必须是一个完整的封闭路径,默认就会自动关闭路径
- [path fill];
- */
 
-#import "DrawView.h"
+#import "PaintView.h"
 #import "PaintStep.h"
 #import "BezierStep.h"
-#import <math.h>
 
-@interface DrawView()
-@property (nonatomic,strong) UIImageView *imageView;
-@end
-@implementation DrawView{
+@implementation PaintView{
     
     //画的线路径的集合，内部是NSMutableArray类型
     NSMutableArray *paintSteps;
     //当前选中的颜色
     UIColor *currColor;
+    
     //画的线路径的集合，内部是NSMutableArray类型
     NSMutableArray *bezierSteps;
-
 }
 
 -(instancetype)init{
@@ -59,25 +33,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         //初始化uiview的样式
-//        [self paintViewInit];
+        [self paintViewInit];
     }
     return  self;
 }
-- (void)setPaintColor:(UIColor *)paintColor{
-    currColor = paintColor;
-}
+
 //初始化paintViewInit样式和数据
 -(void)paintViewInit{
     //添加背景色
-    self.backgroundColor = [UIColor clearColor];
-//    WEAKSELF
-//    self.imageView =  [[UIImageView alloc]init];
-//    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    self.imageView.image = self.image;
-//    [self addSubview:self.imageView];
-//    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.bottom.equalTo(weakSelf);
-//    }];
+    self.backgroundColor = [UIColor whiteColor];
     //初始化路径集合
     paintSteps = [[NSMutableArray alloc]init];
     bezierSteps = [[NSMutableArray alloc]init];
@@ -119,13 +83,11 @@
         //设置path 样式
         CGContextSetStrokeColorWithColor(ctx, step->color);
         CGContextSetLineWidth(ctx, step->strokeWidth);
-        CGPoint centerPoint = CGPointMake((step->startPoint.x+step->endPoint.x)/2, (step->startPoint.y+step->endPoint.y)/2);
-        //hypot(double x,double y);已知直角三角形两个直角边长度，求斜边长度
-        double a1 = centerPoint.x - step->startPoint.x;
-        double a2 = centerPoint.y - step->startPoint.y;
-        double radius = hypot(a1, a2);
-        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
-        [path stroke];
+        //路径参考线
+        CGContextMoveToPoint(ctx, step->startPoint.x, step->startPoint.y);
+        CGContextAddQuadCurveToPoint(ctx, step->controlPoint.x, step->controlPoint.y, step->endPoint.x, step->endPoint.y);
+        //描边
+        CGContextStrokePath(ctx);
         
         switch (step->status) {
             case BezierStepStatusSetControl:
@@ -151,16 +113,19 @@
     }
 }
 
+
 #pragma mark -手指移动
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    switch (self.drawViewMode) {
+    switch (self.paintViewMode) {
+            
             //笔画模式
-        case DrawViewModeStroke:
+        case PaintViewModeStroke:
             [self strokeModeTouchesBegan:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case PaintViewModeBezier:
             [self bezierModeTouchesBegan:touches withEvent:event];
             break;
         default:
@@ -170,13 +135,14 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    switch (self.drawViewMode) {
+    switch (self.paintViewMode) {
+            
             //笔画模式
-        case DrawViewModeStroke:
+        case PaintViewModeStroke:
             [self strokeModeTouchesMoved:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case PaintViewModeBezier:
             [self bezierModeTouchesMoved:touches withEvent:event];
             break;
         default:
@@ -185,13 +151,15 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    switch (self.drawViewMode) {
+    switch (self.paintViewMode) {
+            
+            
             //笔画模式
-        case DrawViewModeStroke:
+        case PaintViewModeStroke:
             [self strokeModeTouchesEnded:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case PaintViewModeBezier:
             [self bezierModeTouchesEnded:touches withEvent:event];
             break;
         default:
@@ -216,6 +184,7 @@
     NSMutableArray *pathPoints = step->pathPoints;
     //获取当前点
     CGPoint movePoint = [[touches anyObject]locationInView:self];
+    NSLog(@"touchesMoved     x:%f,y:%f",movePoint.x,movePoint.y);
     //CGPint要通过NSValue封装一次才能放入NSArray
     [pathPoints addObject:[NSValue valueWithCGPoint:movePoint]];
     //通知重新渲染界面，这个方法会重新调用UIView的drawRect:(CGRect)rect方法
@@ -237,13 +206,16 @@
         switch (step->status) {
                 
             case BezierStepStatusSetStart:
+            {
+                step->endPoint = point;
+                step->status = BezierStepStatusSetControl;
+            }
+                break;
             case BezierStepStatusSetEnd:
             {
                 step =  [[BezierStep alloc]init];
                 step->color = currColor.CGColor;
                 step->strokeWidth = self.sliderValue;
-                step->startPoint  = point;
-                step->status = BezierStepStatusSetControl;
                 [bezierSteps addObject:step];
             }
                 break;
@@ -256,8 +228,6 @@
         step =  [[BezierStep alloc]init];
         step->color = currColor.CGColor;
         step->strokeWidth = self.sliderValue;
-        step->startPoint  = point;
-        step->status = BezierStepStatusSetControl;
         [bezierSteps addObject:step];
     }
     
@@ -268,14 +238,11 @@
     
     BezierStep *step = [bezierSteps lastObject];
     CGPoint point =[[touches anyObject]locationInView:self];
-    step->status = BezierStepStatusSetControl;
     switch (step->status) {
             
-        case BezierStepStatusSetStart:
         case BezierStepStatusSetControl:
         {
             step->controlPoint = point;
-            step->endPoint = point;
         }
             
             break;
@@ -292,9 +259,14 @@
     CGPoint point =[[touches anyObject]locationInView:self];
     switch (step->status) {
         case BezierStepStatusSetStart:
+        {
+            step->startPoint = point;
+            //            step->status = BezierStepStatusSetControl;
+        }
+            break;
         case BezierStepStatusSetControl:
         {
-            step->endPoint = point;
+            step->controlPoint = point;
             step->status = BezierStepStatusSetEnd;
         }
             break;
@@ -302,17 +274,26 @@
         default:
             break;
     }
-    [self setNeedsDisplay];
+    
     
     
 }
 
-
-- (UIImage *)getImage{
-    return self.imageView.image;
+#pragma mark -控制面板按钮点击
+//贝塞尔按钮的点击事件
+-(void)berzierBtnClick:(id)sender{
+    UIButton *btn = sender;
+    if(self.paintViewMode == PaintViewModeStroke){
+        self.paintViewMode = PaintViewModeBezier;
+        [btn setBackgroundImage:[UIImage imageNamed:@"bezierBoard_l"] forState:UIControlStateNormal];
+    }else{
+        self.paintViewMode = PaintViewModeStroke;
+        [btn setBackgroundImage:[UIImage imageNamed:@"bezierBoard"] forState:UIControlStateNormal];
+    }
+    
 }
-- (void)setImage:(UIImage *)image{
-    self.imageView.image = image;
+- (void)setPaintColor:(UIColor *)paintColor{
+    currColor = paintColor;
 }
 
 @end
