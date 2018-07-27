@@ -5,12 +5,6 @@
 //  Created by shiguang on 2018/7/26.
 //  Copyright © 2018年 shiguang. All rights reserved.
 //
-/*
- 步骤和原理
- 1：重写uiview的 init、initWithFrame方法，主要是添加一个白色的背景色
- 2：重写touchesBegan、touchesMoved、touchesEnded，作用是接收屏幕触摸的坐标，手指接触uiview后会依次执行这三个方法。 其中重写touchesBegan和重写touchesEnded只在开始和结束执行一次，而手指在移动的过程中，会多次执行touchesMoved
- 3：重写drawRect方法，根据用户手指的移动，画出涂鸦
- */
 #import "MarkDrawView.h"
 
 @implementation MarkDrawView

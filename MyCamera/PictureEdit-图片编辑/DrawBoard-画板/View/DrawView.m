@@ -6,26 +6,7 @@
 //  Copyright © 2018年 shiguang. All rights reserved.
 //
 /*
- // 圆弧
- // Center：圆心
- // startAngle:弧度
- // clockwise:YES:顺时针 NO：逆时针
- 
- // 扇形
- CGPoint center = CGPointMake(125, 125);
- UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:100 startAngle:0 endAngle:M_PI_2 clockwise:YES];
- 
- // 添加一根线到圆心
- [path addLineToPoint:center];
- 
- // 封闭路径，关闭路径：从路径的终点到起点
- //    [path closePath];
- 
- 
- //    [path stroke];
- 
- // 填充：必须是一个完整的封闭路径,默认就会自动关闭路径
- [path fill];
+ 前面思路来自http://liuyanwei.jumppo.com/2015/07/26/ios-draw-Graffiti.html
  */
 
 #import "DrawView.h"
@@ -70,20 +51,20 @@
 -(void)paintViewInit{
     //添加背景色
     self.backgroundColor = [UIColor clearColor];
-//    WEAKSELF
 //    self.imageView =  [[UIImageView alloc]init];
 //    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //    self.imageView.image = self.image;
+//    self.imageView.backgroundColor = self.backgroundColor;
 //    [self addSubview:self.imageView];
-//    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.bottom.equalTo(weakSelf);
-//    }];
     //初始化路径集合
     paintSteps = [[NSMutableArray alloc]init];
     bezierSteps = [[NSMutableArray alloc]init];
-    
+    self.sliderValue = 1;
 }
-
+//- (void)layoutSubviews{
+//    self.imageView.image = self.image;
+//    self.imageView.frame = self.bounds;
+//}
 
 -(void)drawRect:(CGRect)rect{
     //必须调用父类drawRect方法，否则 UIGraphicsGetCurrentContext()获取不到context
@@ -119,12 +100,15 @@
         //设置path 样式
         CGContextSetStrokeColorWithColor(ctx, step->color);
         CGContextSetLineWidth(ctx, step->strokeWidth);
+//        UIColor *color = [UIColor colorWithCGColor:step->color];
+//        [color set];
         CGPoint centerPoint = CGPointMake((step->startPoint.x+step->endPoint.x)/2, (step->startPoint.y+step->endPoint.y)/2);
         //hypot(double x,double y);已知直角三角形两个直角边长度，求斜边长度
         double a1 = centerPoint.x - step->startPoint.x;
         double a2 = centerPoint.y - step->startPoint.y;
         double radius = hypot(a1, a2);
         UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
+        path.lineWidth = step->strokeWidth;
         [path stroke];
         
         switch (step->status) {
@@ -332,6 +316,9 @@
     
     return resultImg;
 }
-
+- (void)deleteLastDrawing{
+    [bezierSteps removeLastObject];
+    [self setNeedsDisplay];
+}
 
 @end

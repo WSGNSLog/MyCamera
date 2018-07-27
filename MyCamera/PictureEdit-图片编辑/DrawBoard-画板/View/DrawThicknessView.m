@@ -35,7 +35,7 @@
 }
 - (void)sliderValueChange{
     if (self.SliderChangeBlock) {
-        self.SliderChangeBlock(1);
+        self.SliderChangeBlock(slider.value);
     }
 }
 

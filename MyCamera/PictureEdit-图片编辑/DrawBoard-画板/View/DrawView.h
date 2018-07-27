@@ -20,4 +20,6 @@ typedef enum {
 @property (nonatomic,assign) DrawViewMode drawViewMode;
 @property (nonatomic,assign) CGFloat sliderValue;
 - (UIImage *)getImage;
+- (void)deleteLastDrawing;
+
 @end
