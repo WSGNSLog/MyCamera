@@ -29,6 +29,8 @@
 #import "Helper.h"
 #import "ECustomAlertView.h"
 #import "UIFont+CustomFont.h"
+#import "MyImageHelper.h"
+
 
 #define PickerBarH 34
 #define BLUECOLOR @"19c9db"

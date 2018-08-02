@@ -11,8 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
-#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
+//#import <BaiduMapAPI_Map/BMKMapComponent.h>
+
 #import "ActionSheetDatePicker.h"
 
 @interface PhotoWaterMarkController ()<BMKLocationServiceDelegate,BMKPoiSearchDelegate,BMKGeoCodeSearchDelegate>
@@ -196,33 +196,35 @@
     
     
     
-    _geocodesearch = [[BMKGeoCodeSearch alloc]init];
-    _geocodesearch.delegate = self;
-    CLLocation *assetLocation = self.asset.location;
-    CLLocationCoordinate2D originCoor = (CLLocationCoordinate2D){0, 0};//原始坐标
-    if (assetLocation.coordinate.latitude && assetLocation.coordinate.longitude) {
-        originCoor = (CLLocationCoordinate2D){assetLocation.coordinate.latitude, assetLocation.coordinate.longitude};
-    }
-    
-    //转换WGS84坐标至百度坐标(加密后的坐标)
-    NSDictionary* testdic = BMKConvertBaiduCoorFrom(originCoor,BMK_COORDTYPE_GPS);
-    
-    NSLog(@"x=%@,y=%@",[testdic objectForKey:@"x"],[testdic objectForKey:@"y"]);
-    //解密加密后的坐标字典
-    
-    CLLocationCoordinate2D baiduCoor = BMKCoorDictionaryDecode(testdic);//转换后的百度坐标
-    BMKReverseGeoCodeSearchOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc]init];
-    reverseGeocodeSearchOption.location = baiduCoor;
-    reverseGeocodeSearchOption.isLatestAdmin = YES;
-    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
-    if(flag)
-    {
-        NSLog(@"反geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"反geo检索发送失败");
-    }
+    /*
+     _geocodesearch = [[BMKGeoCodeSearch alloc]init];
+     _geocodesearch.delegate = self;
+     CLLocation *assetLocation = self.asset.location;
+     CLLocationCoordinate2D originCoor = (CLLocationCoordinate2D){0, 0};//原始坐标
+     if (assetLocation.coordinate.latitude && assetLocation.coordinate.longitude) {
+     originCoor = (CLLocationCoordinate2D){assetLocation.coordinate.latitude, assetLocation.coordinate.longitude};
+     }
+     
+     //转换WGS84坐标至百度坐标(加密后的坐标)
+     NSDictionary* testdic = BMKConvertBaiduCoorFrom(originCoor,BMK_COORDTYPE_GPS);
+     
+     NSLog(@"x=%@,y=%@",[testdic objectForKey:@"x"],[testdic objectForKey:@"y"]);
+     //解密加密后的坐标字典
+     
+     CLLocationCoordinate2D baiduCoor = BMKCoorDictionaryDecode(testdic);//转换后的百度坐标
+     BMKReverseGeoCodeSearchOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc]init];
+     reverseGeocodeSearchOption.location = baiduCoor;
+     reverseGeocodeSearchOption.isLatestAdmin = YES;
+     BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+     if(flag)
+     {
+     NSLog(@"反geo检索发送成功");
+     }
+     else
+     {
+     NSLog(@"反geo检索发送失败");
+     }
+     */
     
     self.showImg = [self.originImg copy];
     
@@ -246,9 +248,9 @@
         }
     }];
     
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    [_locService startUserLocationService];
+//    _locService = [[BMKLocationService alloc]init];
+//    _locService.delegate = self;
+//    [_locService startUserLocationService];
 }
 - (IBAction)locationBtnClick:(UIButton *)sender {
     
@@ -433,89 +435,6 @@
     return image ;
 }
 
-#pragma mark - BMKSearchDelegate
-- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPOISearchResult*)result errorCode:(BMKSearchErrorCode)error
-{
-    _searcher.delegate = nil;
-    _searcher = nil;
-    if (error == BMK_SEARCH_NO_ERROR) {
-        
-    }else {
-        NSLog(@"未找到地理位置信息");
-    }
-}
-
-/**
- *用户位置更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
-{
-    [_locService stopUserLocationService];
-    _locService.delegate = nil;
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    _userLocation = userLocation.location;
-    
-    //初始化检索对象
-    _geocodesearch =[[BMKGeoCodeSearch alloc]init];
-    _geocodesearch.delegate = self;
-    //发起反向地理编码检索
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude};
-    BMKReverseGeoCodeSearchOption *reverseGeoCodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc]init];
-    reverseGeoCodeSearchOption.location = pt;
-    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeoCodeSearchOption];
-    
-    if(flag)
-    {
-        NSLog(@"反geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"反geo检索发送失败");
-    }
-    
-}
-/**
- *在将要启动定位时，会调用此函数
- */
-- (void)willStartLocatingUser{
-    NSLog(@"%s",__func__);
-}
-
-/**
- *在停止定位后，会调用此函数
- */
-- (void)didStopLocatingUser{
-    NSLog(@"%s",__func__);
-}
-
-/**
- *用户方向更新后，会调用此函数
- *@param userLocation 新的用户位置
- */
-- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation{
-    NSLog(@"didUpdateUserHeading lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-}
-
-#pragma mark - 反向地理编码
--(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeSearchResult *)result errorCode:(BMKSearchErrorCode)error
-{
-    _geocodesearch.delegate = nil;
-    if (error == 0) {
-        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
-        item.coordinate = result.location;
-        item.title = result.address;
-
-        NSString* titleStr;
-        NSString* showmeg;
-        titleStr = @"反向地理编码";
-        showmeg = [NSString stringWithFormat:@"%@",item.title];
-        
-        NSLog(@"原图地理位置反向地理编码:%@",showmeg);
-    }else{
-        NSLog(@"未找到地理位置信息");
-    }
-}
 - (CGRect)imageRect{
     return AVMakeRectWithAspectRatioInsideRect(self.originImg.size, self.picBgView.bounds);
 }

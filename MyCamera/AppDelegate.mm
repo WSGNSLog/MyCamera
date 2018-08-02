@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "MainTabBarController.h"
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 
-
-@interface AppDelegate ()
+@interface AppDelegate ()<BMKGeneralDelegate>
 {
     BMKMapManager* _mapManager;
 }

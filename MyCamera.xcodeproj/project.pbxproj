@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3114C4A20D38A0A00D48461 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3114C3C20D38A0A00D48461 /* ImageUtil.m */; };
+		E310AC52210F0B6400FBFB55 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC51210F0B6400FBFB55 /* ImageUtil.m */; };
+		E310AC5921100D6000FBFB55 /* MeituFrameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC5721100D6000FBFB55 /* MeituFrameVC.m */; };
+		E310AC5A21100D6000FBFB55 /* MeituFrameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E310AC5821100D6000FBFB55 /* MeituFrameVC.xib */; };
+		E310AC5D211030C300FBFB55 /* FrameImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC5C211030C300FBFB55 /* FrameImageView.m */; };
+		E310AC672110428300FBFB55 /* UIBezierPath+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC662110428300FBFB55 /* UIBezierPath+Category.m */; };
+		E310AC6B211042FB00FBFB55 /* UIImage+Cut.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC6A211042FB00FBFB55 /* UIImage+Cut.m */; };
+		E310AC6E2110435600FBFB55 /* CutPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = E310AC6D2110435600FBFB55 /* CutPathView.m */; };
 		E3114C4B20D38A0A00D48461 /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = E3114C3F20D38A0A00D48461 /* UIImage+SplitImageIntoTwoParts.m */; };
 		E3114C4C20D38A0A00D48461 /* UIImage+Cut.m in Sources */ = {isa = PBXBuildFile; fileRef = E3114C4220D38A0A00D48461 /* UIImage+Cut.m */; };
 		E3114C4D20D38A0A00D48461 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = E3114C4520D38A0A00D48461 /* UIImage+Alpha.m */; };
@@ -86,6 +92,12 @@
 		E357D6A320AEBC39006F31C4 /* PhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E357D6A120AEBC39006F31C4 /* PhotoImageView.m */; };
 		E357D6A720AEBC85006F31C4 /* UIView+PBExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E357D6A620AEBC85006F31C4 /* UIView+PBExtend.m */; };
 		E357D6AA20AECB2C006F31C4 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = E357D6A920AECB2C006F31C4 /* UIColor+expanded.m */; };
+		E358BF902112AF11000FE5C3 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E358BF8A2112AF11000FE5C3 /* BaiduMapAPI_Location.framework */; };
+		E358BF912112AF11000FE5C3 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E358BF8C2112AF11000FE5C3 /* libcrypto.a */; };
+		E358BF922112AF11000FE5C3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E358BF8D2112AF11000FE5C3 /* libssl.a */; };
+		E358BF932112AF11000FE5C3 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E358BF8E2112AF11000FE5C3 /* BaiduMapAPI_Base.framework */; };
+		E358BF942112AF11000FE5C3 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E358BF8F2112AF11000FE5C3 /* BaiduMapAPI_Search.framework */; };
+		E358BF972112B24B000FE5C3 /* MyImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E358BF962112B24B000FE5C3 /* MyImageHelper.m */; };
 		E36373DE2109DE9E00D02AC5 /* DrawColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E36373DD2109DE9E00D02AC5 /* DrawColorView.m */; };
 		E36F1AC32007131B00DD5AB0 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E36F1AC22007131B00DD5AB0 /* AppDelegate.mm */; };
 		E36F1AC62007131B00DD5AB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1AC52007131B00DD5AB0 /* ViewController.m */; };
@@ -223,24 +235,23 @@
 		E3C5ED2E20F3314000287C68 /* PhotoEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C5ED2620F3314000287C68 /* PhotoEditController.xib */; };
 		E3C5ED2F20F3314000287C68 /* PicEditOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C5ED2B20F3314000287C68 /* PicEditOptionView.xib */; };
 		E3C5ED3020F3314000287C68 /* PicEditOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5ED2C20F3314000287C68 /* PicEditOptionView.m */; };
-		E3C5ED3820F3373100287C68 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3220F3373100287C68 /* BaiduMapAPI_Location.framework */; };
-		E3C5ED3920F3373100287C68 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3320F3373100287C68 /* libcrypto.a */; };
-		E3C5ED3A20F3373100287C68 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3420F3373100287C68 /* BaiduMapAPI_Utils.framework */; };
-		E3C5ED3B20F3373100287C68 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3520F3373100287C68 /* BaiduMapAPI_Base.framework */; };
-		E3C5ED3C20F3373100287C68 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3620F3373100287C68 /* libssl.a */; };
-		E3C5ED3D20F3373100287C68 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3720F3373100287C68 /* BaiduMapAPI_Search.framework */; };
 		E3C5ED3F20F337E100287C68 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED3E20F337E100287C68 /* libstdc++.6.0.9.tbd */; };
 		E3C5ED4120F337F000287C68 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED4020F337F000287C68 /* libsqlite3.0.tbd */; };
 		E3C5ED4320F337FD00287C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F1C9020075A4700DD5AB0 /* CoreGraphics.framework */; };
 		E3C5ED4620F3381200287C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F1C8F20075A4100DD5AB0 /* QuartzCore.framework */; };
 		E3C5ED4720F3381700287C68 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F1C8B20075A1900DD5AB0 /* CoreLocation.framework */; };
-		E3C5ED4920F34CD300287C68 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED4820F34CD200287C68 /* BaiduMapAPI_Map.framework */; };
 		E3C5ED4A20F3564B00287C68 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED4420F3380500287C68 /* SystemConfiguration.framework */; };
 		E3C5ED4B20F3565100287C68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED4220F337F700287C68 /* Security.framework */; };
 		E3C5ED4C20F3566B00287C68 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C5ED4520F3380A00287C68 /* OpenGLES.framework */; };
 		E3C5EDA920F4AD0F00287C68 /* PhotoExifInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C5EDA820F4AD0F00287C68 /* PhotoExifInfoVC.xib */; };
 		E3C5EDAD20F4B1BD00287C68 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5EDAC20F4B1BD00287C68 /* BaseViewController.m */; };
 		E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */; };
+		E3CAD4EA210EED13001EA29C /* FrameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAD4E8210EED13001EA29C /* FrameController.m */; };
+		E3CAD4EB210EED13001EA29C /* FrameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3CAD4E9210EED13001EA29C /* FrameController.xib */; };
+		E3CAD4EE210EEDEB001EA29C /* FrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAD4ED210EEDEB001EA29C /* FrameView.m */; };
+		E3CAD4F4210EFC7A001EA29C /* FrameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAD4F3210EFC7A001EA29C /* FrameCell.m */; };
+		E3D3395221105BE8005BEF2D /* ImageCutoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */; };
+		E3D3395321105BE8005BEF2D /* ImageCutoutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */; };
 		E3DBBB9C2109DF0E0074CCE9 /* DrawDashedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBBB9B2109DF0E0074CCE9 /* DrawDashedView.m */; };
 		E3DEBE182106CD0700CE1E8E /* PhotoPasterVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE162106CD0700CE1E8E /* PhotoPasterVC2.m */; };
 		E3DEBE192106CD0700CE1E8E /* PhotoPasterVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE172106CD0700CE1E8E /* PhotoPasterVC2.xib */; };
@@ -280,7 +291,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E3114C3C20D38A0A00D48461 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
+		E310AC50210F0B6400FBFB55 /* ImageUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
+		E310AC51210F0B6400FBFB55 /* ImageUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
+		E310AC5621100D6000FBFB55 /* MeituFrameVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeituFrameVC.h; sourceTree = "<group>"; };
+		E310AC5721100D6000FBFB55 /* MeituFrameVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeituFrameVC.m; sourceTree = "<group>"; };
+		E310AC5821100D6000FBFB55 /* MeituFrameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeituFrameVC.xib; sourceTree = "<group>"; };
+		E310AC5B211030C300FBFB55 /* FrameImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameImageView.h; sourceTree = "<group>"; };
+		E310AC5C211030C300FBFB55 /* FrameImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameImageView.m; sourceTree = "<group>"; };
+		E310AC652110428300FBFB55 /* UIBezierPath+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Category.h"; sourceTree = "<group>"; };
+		E310AC662110428300FBFB55 /* UIBezierPath+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Category.m"; sourceTree = "<group>"; };
+		E310AC69211042FB00FBFB55 /* UIImage+Cut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
+		E310AC6A211042FB00FBFB55 /* UIImage+Cut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Cut.m"; sourceTree = "<group>"; };
+		E310AC6C2110435600FBFB55 /* CutPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CutPathView.h; sourceTree = "<group>"; };
+		E310AC6D2110435600FBFB55 /* CutPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CutPathView.m; sourceTree = "<group>"; };
 		E3114C3D20D38A0A00D48461 /* ColorMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMatrix.h; sourceTree = "<group>"; };
 		E3114C3F20D38A0A00D48461 /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
 		E3114C4020D38A0A00D48461 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
@@ -292,7 +315,6 @@
 		E3114C4620D38A0A00D48461 /* UIImage+Cut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
 		E3114C4720D38A0A00D48461 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		E3114C4820D38A0A00D48461 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		E3114C4920D38A0A00D48461 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
 		E3114C5020D3A92E00D48461 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		E3114C5120D3A92E00D48461 /* BaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		E3114C5220D3A92E00D48461 /* BaseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseController.xib; sourceTree = "<group>"; };
@@ -403,6 +425,13 @@
 		E357D6A620AEBC85006F31C4 /* UIView+PBExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PBExtend.m"; sourceTree = "<group>"; };
 		E357D6A820AECB2B006F31C4 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
 		E357D6A920AECB2C006F31C4 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		E358BF8A2112AF11000FE5C3 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		E358BF8C2112AF11000FE5C3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		E358BF8D2112AF11000FE5C3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		E358BF8E2112AF11000FE5C3 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		E358BF8F2112AF11000FE5C3 /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		E358BF952112B24B000FE5C3 /* MyImageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyImageHelper.h; sourceTree = "<group>"; };
+		E358BF962112B24B000FE5C3 /* MyImageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyImageHelper.m; sourceTree = "<group>"; };
 		E36373DC2109DE9E00D02AC5 /* DrawColorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawColorView.h; sourceTree = "<group>"; };
 		E36373DD2109DE9E00D02AC5 /* DrawColorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawColorView.m; sourceTree = "<group>"; };
 		E36F1ABE2007131B00DD5AB0 /* MyCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -672,23 +701,26 @@
 		E3C5ED2A20F3314000287C68 /* PicEditOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicEditOptionView.h; sourceTree = "<group>"; };
 		E3C5ED2B20F3314000287C68 /* PicEditOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicEditOptionView.xib; sourceTree = "<group>"; };
 		E3C5ED2C20F3314000287C68 /* PicEditOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicEditOptionView.m; sourceTree = "<group>"; };
-		E3C5ED3220F3373100287C68 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
-		E3C5ED3320F3373100287C68 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		E3C5ED3420F3373100287C68 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
-		E3C5ED3520F3373100287C68 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
-		E3C5ED3620F3373100287C68 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		E3C5ED3720F3373100287C68 /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
 		E3C5ED3E20F337E100287C68 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		E3C5ED4020F337F000287C68 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E3C5ED4220F337F700287C68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E3C5ED4420F3380500287C68 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E3C5ED4520F3380A00287C68 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		E3C5ED4820F34CD200287C68 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
 		E3C5EDA820F4AD0F00287C68 /* PhotoExifInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoExifInfoVC.xib; sourceTree = "<group>"; };
 		E3C5EDAB20F4B1BD00287C68 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		E3C5EDAC20F4B1BD00287C68 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		E3C9C5A9201F13CF00139D79 /* RecordTimePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTimePickView.h; sourceTree = "<group>"; };
 		E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTimePickView.m; sourceTree = "<group>"; };
+		E3CAD4E7210EED13001EA29C /* FrameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameController.h; sourceTree = "<group>"; };
+		E3CAD4E8210EED13001EA29C /* FrameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameController.m; sourceTree = "<group>"; };
+		E3CAD4E9210EED13001EA29C /* FrameController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrameController.xib; sourceTree = "<group>"; };
+		E3CAD4EC210EEDEB001EA29C /* FrameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameView.h; sourceTree = "<group>"; };
+		E3CAD4ED210EEDEB001EA29C /* FrameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameView.m; sourceTree = "<group>"; };
+		E3CAD4F2210EFC7A001EA29C /* FrameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameCell.h; sourceTree = "<group>"; };
+		E3CAD4F3210EFC7A001EA29C /* FrameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameCell.m; sourceTree = "<group>"; };
+		E3D3394F21105BE8005BEF2D /* ImageCutoutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCutoutVC.h; sourceTree = "<group>"; };
+		E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCutoutVC.m; sourceTree = "<group>"; };
+		E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCutoutVC.xib; sourceTree = "<group>"; };
 		E3DBBB9A2109DF0E0074CCE9 /* DrawDashedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawDashedView.h; sourceTree = "<group>"; };
 		E3DBBB9B2109DF0E0074CCE9 /* DrawDashedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawDashedView.m; sourceTree = "<group>"; };
 		E3DEBE152106CD0700CE1E8E /* PhotoPasterVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPasterVC2.h; sourceTree = "<group>"; };
@@ -727,21 +759,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E358BF932112AF11000FE5C3 /* BaiduMapAPI_Base.framework in Frameworks */,
 				E3C5ED4C20F3566B00287C68 /* OpenGLES.framework in Frameworks */,
 				E3C5ED4B20F3565100287C68 /* Security.framework in Frameworks */,
 				E3C5ED4A20F3564B00287C68 /* SystemConfiguration.framework in Frameworks */,
-				E3C5ED4920F34CD300287C68 /* BaiduMapAPI_Map.framework in Frameworks */,
+				E358BF902112AF11000FE5C3 /* BaiduMapAPI_Location.framework in Frameworks */,
 				E3C5ED4720F3381700287C68 /* CoreLocation.framework in Frameworks */,
+				E358BF942112AF11000FE5C3 /* BaiduMapAPI_Search.framework in Frameworks */,
 				E3C5ED4620F3381200287C68 /* QuartzCore.framework in Frameworks */,
+				E358BF912112AF11000FE5C3 /* libcrypto.a in Frameworks */,
 				E3C5ED4320F337FD00287C68 /* CoreGraphics.framework in Frameworks */,
+				E358BF922112AF11000FE5C3 /* libssl.a in Frameworks */,
 				E32F61DE20E9FAB000EF009A /* CoreTelephony.framework in Frameworks */,
-				E3C5ED3B20F3373100287C68 /* BaiduMapAPI_Base.framework in Frameworks */,
-				E3C5ED3A20F3373100287C68 /* BaiduMapAPI_Utils.framework in Frameworks */,
-				E3C5ED3C20F3373100287C68 /* libssl.a in Frameworks */,
-				E3C5ED3820F3373100287C68 /* BaiduMapAPI_Location.framework in Frameworks */,
 				E3C5ED4120F337F000287C68 /* libsqlite3.0.tbd in Frameworks */,
-				E3C5ED3920F3373100287C68 /* libcrypto.a in Frameworks */,
-				E3C5ED3D20F3373100287C68 /* BaiduMapAPI_Search.framework in Frameworks */,
 				E3C5ED3F20F337E100287C68 /* libstdc++.6.0.9.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,11 +793,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E310AC642110413100FBFB55 /* UIBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				E310AC652110428300FBFB55 /* UIBezierPath+Category.h */,
+				E310AC662110428300FBFB55 /* UIBezierPath+Category.m */,
+			);
+			path = UIBezierPath;
+			sourceTree = "<group>";
+		};
+		E310AC68211042E800FBFB55 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E310AC69211042FB00FBFB55 /* UIImage+Cut.h */,
+				E310AC6A211042FB00FBFB55 /* UIImage+Cut.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E310AC6F21105AA200FBFB55 /* Cutout-抠图 */ = {
+			isa = PBXGroup;
+			children = (
+				E310AC68211042E800FBFB55 /* Util */,
+				E310AC7121105B4400FBFB55 /* View */,
+				E310AC7021105B1E00FBFB55 /* Controller */,
+			);
+			path = "Cutout-抠图";
+			sourceTree = "<group>";
+		};
+		E310AC7021105B1E00FBFB55 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3D3394F21105BE8005BEF2D /* ImageCutoutVC.h */,
+				E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */,
+				E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E310AC7121105B4400FBFB55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E310AC6C2110435600FBFB55 /* CutPathView.h */,
+				E310AC6D2110435600FBFB55 /* CutPathView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E3114C3B20D38A0A00D48461 /* FilterImageLibs */ = {
 			isa = PBXGroup;
 			children = (
-				E3114C4920D38A0A00D48461 /* ImageUtil.h */,
-				E3114C3C20D38A0A00D48461 /* ImageUtil.m */,
+				E310AC50210F0B6400FBFB55 /* ImageUtil.h */,
+				E310AC51210F0B6400FBFB55 /* ImageUtil.m */,
 				E3114C3D20D38A0A00D48461 /* ColorMatrix.h */,
 				E3114C3E20D38A0A00D48461 /* UIImage-Extensions */,
 			);
@@ -852,6 +929,39 @@
 				E3E5560E21095C92001B5662 /* PhotoMarkController.h */,
 				E3E5560F21095C92001B5662 /* PhotoMarkController.m */,
 				E3E5561021095C92001B5662 /* PhotoMarkController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E333DF8A210EE0D800261265 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAD4EC210EEDEB001EA29C /* FrameView.h */,
+				E3CAD4ED210EEDEB001EA29C /* FrameView.m */,
+				E3CAD4F2210EFC7A001EA29C /* FrameCell.h */,
+				E3CAD4F3210EFC7A001EA29C /* FrameCell.m */,
+				E310AC5B211030C300FBFB55 /* FrameImageView.h */,
+				E310AC5C211030C300FBFB55 /* FrameImageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E333DF8B210EE0E900261265 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E333DF8C210EE0F000261265 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAD4E7210EED13001EA29C /* FrameController.h */,
+				E3CAD4E8210EED13001EA29C /* FrameController.m */,
+				E3CAD4E9210EED13001EA29C /* FrameController.xib */,
+				E310AC5621100D6000FBFB55 /* MeituFrameVC.h */,
+				E310AC5721100D6000FBFB55 /* MeituFrameVC.m */,
+				E310AC5821100D6000FBFB55 /* MeituFrameVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1001,6 +1111,26 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		E358BF892112AF11000FE5C3 /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				E358BF8A2112AF11000FE5C3 /* BaiduMapAPI_Location.framework */,
+				E358BF8B2112AF11000FE5C3 /* thirdlibs */,
+				E358BF8E2112AF11000FE5C3 /* BaiduMapAPI_Base.framework */,
+				E358BF8F2112AF11000FE5C3 /* BaiduMapAPI_Search.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
+		E358BF8B2112AF11000FE5C3 /* thirdlibs */ = {
+			isa = PBXGroup;
+			children = (
+				E358BF8C2112AF11000FE5C3 /* libcrypto.a */,
+				E358BF8D2112AF11000FE5C3 /* libssl.a */,
+			);
+			path = thirdlibs;
+			sourceTree = "<group>";
+		};
 		E36F1AB52007131B00DD5AB0 = {
 			isa = PBXGroup;
 			children = (
@@ -1026,8 +1156,8 @@
 			isa = PBXGroup;
 			children = (
 				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
-				E3DEBE1D2106F96E00CE1E8E /* ReplayKit */,
-				E3DEBE8D2108498600CE1E8E /* FaceDetector */,
+				E3DEBE1D2106F96E00CE1E8E /* ReplayKit-屏幕录像 */,
+				E3DEBE8D2108498600CE1E8E /* FaceDetector-人脸 */,
 				E38D564820522F4B003C4C4C /* VideoAssetPicker */,
 				E357D67D20AEBADE006F31C4 /* Album-相册 */,
 				E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */,
@@ -1067,6 +1197,8 @@
 		E36F1AF32007148C00DD5AB0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E310AC642110413100FBFB55 /* UIBezierPath */,
+				E3CAD4F9210F093B001EA29C /* UIImage */,
 				E3C5EC1B20F30F3E00287C68 /* UIFont */,
 				E33FA6222041462E007C0A2B /* AlertView */,
 				E3B76330200DD04200AD2508 /* UIImage+categories */,
@@ -1156,7 +1288,7 @@
 		E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				E3C5ED3120F3373100287C68 /* BaiduMap */,
+				E358BF892112AF11000FE5C3 /* BaiduMap */,
 				E3C5EC1F20F3106200287C68 /* ActionSheetPicker */,
 				E34F64E820DA050700F4E4FD /* PEPhotoCropEditor */,
 				E3114C3B20D38A0A00D48461 /* FilterImageLibs */,
@@ -1340,6 +1472,7 @@
 				E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */,
 				E3C5EC8320F3307000287C68 /* WarterMark-水印 */,
 				E3E5561921097324001B5662 /* DrawBoard-画板 */,
+				E310AC6F21105AA200FBFB55 /* Cutout-抠图 */,
 				E323BD0320AD2D6500F01C49 /* Resources */,
 			);
 			path = "PictureEdit-图片编辑";
@@ -1622,6 +1755,9 @@
 		E3C5EC9C20F3307000287C68 /* Frame-边框 */ = {
 			isa = PBXGroup;
 			children = (
+				E333DF8C210EE0F000261265 /* Controller */,
+				E333DF8B210EE0E900261265 /* Model */,
+				E333DF8A210EE0D800261265 /* View */,
 			);
 			path = "Frame-边框";
 			sourceTree = "<group>";
@@ -1802,20 +1938,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3C5ED3120F3373100287C68 /* BaiduMap */ = {
-			isa = PBXGroup;
-			children = (
-				E3C5ED4820F34CD200287C68 /* BaiduMapAPI_Map.framework */,
-				E3C5ED3220F3373100287C68 /* BaiduMapAPI_Location.framework */,
-				E3C5ED3320F3373100287C68 /* libcrypto.a */,
-				E3C5ED3420F3373100287C68 /* BaiduMapAPI_Utils.framework */,
-				E3C5ED3520F3373100287C68 /* BaiduMapAPI_Base.framework */,
-				E3C5ED3620F3373100287C68 /* libssl.a */,
-				E3C5ED3720F3373100287C68 /* BaiduMapAPI_Search.framework */,
-			);
-			path = BaiduMap;
-			sourceTree = "<group>";
-		};
 		E3C5EDAA20F4B17700287C68 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1825,14 +1947,23 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		E3DEBE1D2106F96E00CE1E8E /* ReplayKit */ = {
+		E3CAD4F9210F093B001EA29C /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				E358BF952112B24B000FE5C3 /* MyImageHelper.h */,
+				E358BF962112B24B000FE5C3 /* MyImageHelper.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		E3DEBE1D2106F96E00CE1E8E /* ReplayKit-屏幕录像 */ = {
 			isa = PBXGroup;
 			children = (
 				E3DEBE1E2106F96E00CE1E8E /* Controller */,
 				E3DEBE1F2106F96E00CE1E8E /* Model */,
 				E3DEBE202106F96E00CE1E8E /* View */,
 			);
-			path = ReplayKit;
+			path = "ReplayKit-屏幕录像";
 			sourceTree = "<group>";
 		};
 		E3DEBE1E2106F96E00CE1E8E /* Controller */ = {
@@ -1864,7 +1995,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E3DEBE8D2108498600CE1E8E /* FaceDetector */ = {
+		E3DEBE8D2108498600CE1E8E /* FaceDetector-人脸 */ = {
 			isa = PBXGroup;
 			children = (
 				E3DEBE8E210849F600CE1E8E /* CameraFaceDetectVC.h */,
@@ -1874,7 +2005,7 @@
 				E3DEBE9421084A1400CE1E8E /* ImageFaceDetectVC.m */,
 				E3DEBE9521084A1400CE1E8E /* ImageFaceDetectVC.xib */,
 			);
-			path = FaceDetector;
+			path = "FaceDetector-人脸";
 			sourceTree = "<group>";
 		};
 		E3E5561921097324001B5662 /* DrawBoard-画板 */ = {
@@ -2035,6 +2166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D3395321105BE8005BEF2D /* ImageCutoutVC.xib in Resources */,
 				E323BD1820AD2D6500F01C49 /* revoke@2x.png in Resources */,
 				E323BD1920AD2D6500F01C49 /* revoke@3x.png in Resources */,
 				E3114C5420D3A92E00D48461 /* BaseController.xib in Resources */,
@@ -2081,8 +2213,10 @@
 				E3C5ED2F20F3314000287C68 /* PicEditOptionView.xib in Resources */,
 				E352285A210975EA00C3B6A2 /* paster_wow.png in Resources */,
 				E323BD2420AD2D6500F01C49 /* fontSelected@2x.png in Resources */,
+				E3CAD4EB210EED13001EA29C /* FrameController.xib in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
 				E3C5ED0520F3307100287C68 /* UndisplayLocCell.xib in Resources */,
+				E310AC5A21100D6000FBFB55 /* MeituFrameVC.xib in Resources */,
 				E323BD1E20AD2D6500F01C49 /* colorsSelected@3x.png in Resources */,
 				E35228552109741E00C3B6A2 /* DrawBordController.xib in Resources */,
 				E323BD1720AD2D6500F01C49 /* left@3x.png in Resources */,
@@ -2134,6 +2268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C5ED2D20F3314000287C68 /* PhotoEditController.m in Sources */,
+				E3CAD4F4210EFC7A001EA29C /* FrameCell.m in Sources */,
 				E3E55615210967C5001B5662 /* MarkDrawView.m in Sources */,
 				E3C5ED2020F3307100287C68 /* PhotoCustomRotateVC.m in Sources */,
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
@@ -2173,11 +2308,13 @@
 				E357D69920AEBADE006F31C4 /* AlbumYearModel.m in Sources */,
 				E3B7641A201592E700AD2508 /* LHModelStateMent.m in Sources */,
 				E37B6F7220B3E61500315C0A /* UIView+Additions.m in Sources */,
+				E310AC6E2110435600FBFB55 /* CutPathView.m in Sources */,
 				E3C5ED0220F3307100287C68 /* SearrchLocResultCell.m in Sources */,
 				E3B763E920108EED00AD2508 /* UIColor+Category.m in Sources */,
 				E33FA6442041468E007C0A2B /* EMediaTool.m in Sources */,
 				E3C5ED0920F3307100287C68 /* PhotoSecondCropController.m in Sources */,
 				E3C5EC3820F3106200287C68 /* AbstractActionSheetPicker.m in Sources */,
+				E310AC6B211042FB00FBFB55 /* UIImage+Cut.m in Sources */,
 				E38D567420565596003C4C4C /* QBCheckmarkView.m in Sources */,
 				E3114C4B20D38A0A00D48461 /* UIImage+SplitImageIntoTwoParts.m in Sources */,
 				E33FA6462041468E007C0A2B /* ECameraAsset.m in Sources */,
@@ -2187,17 +2324,20 @@
 				E36F1C842007580C00DD5AB0 /* NSArray+MASAdditions.m in Sources */,
 				E33FA6322041462E007C0A2B /* EAlertTitleView.m in Sources */,
 				E3C5EC3320F3106200287C68 /* ActionSheetDistancePicker.m in Sources */,
+				E310AC52210F0B6400FBFB55 /* ImageUtil.m in Sources */,
 				E352285F21097ABB00C3B6A2 /* BezierStep.m in Sources */,
 				E3B76420201592E700AD2508 /* LHDataBaseExecute.m in Sources */,
 				E3B76329200DA9DA00AD2508 /* PhotoView.m in Sources */,
 				E3C5ED0E20F3307100287C68 /* PhotoCutController.m in Sources */,
 				E36F1AC62007131B00DD5AB0 /* ViewController.m in Sources */,
 				E33FA6392041462E007C0A2B /* ECustomAlertView.m in Sources */,
+				E310AC672110428300FBFB55 /* UIBezierPath+Category.m in Sources */,
 				E3B7641D201592E700AD2508 /* LHDBPath.m in Sources */,
 				E3C5ECEA20F3307100287C68 /* PhotoFilterController.m in Sources */,
 				E3C5ED1620F3307100287C68 /* TripView.m in Sources */,
 				E39A570220FDCED70018D5B5 /* PhotoEditOptionCell.m in Sources */,
 				E3C5EDAD20F4B1BD00287C68 /* BaseViewController.m in Sources */,
+				E3CAD4EA210EED13001EA29C /* FrameController.m in Sources */,
 				E3B7633C200DD24500AD2508 /* NSString+Common.m in Sources */,
 				E35228502109740A00C3B6A2 /* DrawView.m in Sources */,
 				E3B76339200DD04300AD2508 /* UIImage+Color.m in Sources */,
@@ -2206,6 +2346,7 @@
 				E3B7632F200DCFFD00AD2508 /* ToolFunction.m in Sources */,
 				E3C5ED0120F3307100287C68 /* UndisplayLocCell.m in Sources */,
 				E39B99D820AA73630041253C /* PhotoExifInfoVC.m in Sources */,
+				E310AC5D211030C300FBFB55 /* FrameImageView.m in Sources */,
 				E36F1C7F2007580C00DD5AB0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E3DEBE242106FA0C00CE1E8E /* ReplayKitDemoVC.m in Sources */,
 				E3B763DD200E01B400AD2508 /* RecordView.m in Sources */,
@@ -2256,6 +2397,7 @@
 				E357D6A720AEBC85006F31C4 /* UIView+PBExtend.m in Sources */,
 				E357D6A020AEBB9A006F31C4 /* Utils_DateInfo.m in Sources */,
 				E38D565620522F4C003C4C4C /* AlbumController.m in Sources */,
+				E310AC5921100D6000FBFB55 /* MeituFrameVC.m in Sources */,
 				E36F1C852007580C00DD5AB0 /* View+MASAdditions.m in Sources */,
 				E36F1C812007580C00DD5AB0 /* MASCompositeConstraint.m in Sources */,
 				E36F1C802007580C00DD5AB0 /* ViewController+MASAdditions.m in Sources */,
@@ -2277,11 +2419,11 @@
 				E34F64FF20DA050700F4E4FD /* PECropRectView.m in Sources */,
 				E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */,
 				E3114C4E20D38A0A00D48461 /* UIImage+RoundedCorner.m in Sources */,
+				E358BF972112B24B000FE5C3 /* MyImageHelper.m in Sources */,
 				E3114C4D20D38A0A00D48461 /* UIImage+Alpha.m in Sources */,
 				E3C5ED1020F3307100287C68 /* PhotoEditView.m in Sources */,
 				E3C5EC3120F3106200287C68 /* ActionSheetDatePicker.m in Sources */,
 				E38D5695205671BA003C4C4C /* UIButton+VTMagic.m in Sources */,
-				E3114C4A20D38A0A00D48461 /* ImageUtil.m in Sources */,
 				E3E5561121095C92001B5662 /* PhotoMarkController.m in Sources */,
 				E39B9A1E20AD28A30041253C /* UIImageView+size.m in Sources */,
 				E38D567920566D15003C4C4C /* MyNavigationController.m in Sources */,
@@ -2289,10 +2431,12 @@
 				E3B7641C201592E700AD2508 /* LHPredicate.m in Sources */,
 				E34F64FB20DA050700F4E4FD /* UIImage+PECrop.m in Sources */,
 				E3B76402201592DE00AD2508 /* MBProgressHUD+Add.m in Sources */,
+				E3D3395221105BE8005BEF2D /* ImageCutoutVC.m in Sources */,
 				E36F1AFF200748E300DD5AB0 /* Helper.m in Sources */,
 				E3C5ED1D20F3307100287C68 /* PasterCell.m in Sources */,
 				E3B76338200DD04300AD2508 /* UIImage+Rotate.m in Sources */,
 				E38D565A20522F4C003C4C4C /* AlbumCell.m in Sources */,
+				E3CAD4EE210EEDEB001EA29C /* FrameView.m in Sources */,
 				E3C5ED1720F3307100287C68 /* TKImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2471,6 +2615,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyCamera/ThirdLibrary",
 					"$(PROJECT_DIR)/MyCamera/ThirdLibrary/BaiduMap",
+					"$(PROJECT_DIR)/MyCamera/ThirdLibrary/BaiduMap/thirdlibs",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = myCamera.wsg.demo;
@@ -2498,6 +2643,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyCamera/ThirdLibrary",
 					"$(PROJECT_DIR)/MyCamera/ThirdLibrary/BaiduMap",
+					"$(PROJECT_DIR)/MyCamera/ThirdLibrary/BaiduMap/thirdlibs",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = myCamera.wsg.demo;

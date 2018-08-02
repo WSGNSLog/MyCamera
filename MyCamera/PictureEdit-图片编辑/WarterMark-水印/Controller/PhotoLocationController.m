@@ -8,8 +8,9 @@
 
 #import "PhotoLocationController.h"
 
-#import <BaiduMapAPI_Search/BMKSearchComponent.h>
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationService.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
+#import <BaiduMapAPI_Search/BMKPoiSearch.h>
 #import "UndisplayLocCell.h"
 #import "NearbyLocCell.h"
 #import "OriginLocCell.h"
@@ -17,9 +18,9 @@
 #import "SearrchLocResultCell.h"
 
 @interface PhotoLocationController ()<BMKPoiSearchDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate> {
-    BMKPoiSearch* _searcher;
-    BMKLocationService* _locService;
-    BMKGeoCodeSearch* _geocodesearch;
+    BMKLocationService * _locService;
+    BMKGeoCodeSearch * _searcher;
+    BMKPoiSearch * _poiSearcher;
     CLLocation *_userLocation;
     
 }
@@ -29,7 +30,7 @@
 @property (nonatomic,assign) BOOL isNearbyLocation;
 @property (nonatomic,retain) UITableView *tableView;
 @property (nonatomic,assign) BOOL isSearching;
-
+@property (nonatomic, copy) NSString *city;
 @end
 static NSString *const UndisplayCellID = @"UndisplayCell";
 static NSString *const NearbyCellID = @"NearbyCell";
@@ -38,7 +39,9 @@ static NSString *const SearchedCellID = @"SearchedCell";
 static NSString *const SearchResultCellID = @"SearrchResultCell";
 
 @implementation PhotoLocationController
-
+/*
+ 新版本百度地图SDK中有个类似于安卓语义化的地理位置信息，但是位置非常不准
+ */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
@@ -103,24 +106,20 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchBar.text.length >0) {
         self.isNearbyLocation = NO;
-        //初始化检索对象
-        _searcher =[[BMKPoiSearch alloc]init];
-        _searcher.delegate = self;
-        //发起检索
-        BMKPOICitySearchOption *option = [[BMKPOICitySearchOption alloc]init];
-        option.pageIndex = 0;
-        option.pageSize = 10;
-        option.city= @"天津";
-        option.keyword = searchBar.text;
-        BOOL flag = [_searcher poiSearchInCity:option];
-        
-        if(flag)
-        {
-            NSLog(@"周边检索发送成功");
+        _poiSearcher = [[BMKPoiSearch alloc]init];
+        _poiSearcher.delegate = self;
+        BMKCitySearchOption *citySearchOption = [[BMKCitySearchOption alloc]init];
+        citySearchOption.pageIndex = 0;
+        citySearchOption.pageCapacity = 10;
+        citySearchOption.city= self.city;
+        citySearchOption.keyword = searchBar.text;
+        BOOL flag = [_poiSearcher poiSearchInCity:citySearchOption];
+        if(flag) {
+            NSLog(@"城市内检索发送成功");
         }
-        else
-        {
-            NSLog(@"周边检索发送失败");
+        else {
+            [MBProgressHUD showError:@"地点检索失败"];
+            NSLog(@"城市内检索发送失败");
         }
     }
 }
@@ -130,51 +129,46 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     
-    self.cancelBtnWidthConstraint.constant = 0;
     if (searchBar.text.length >0) {
         self.isNearbyLocation = NO;
-        //初始化检索对象
-        _searcher =[[BMKPoiSearch alloc]init];
-        _searcher.delegate = self;
-        //发起检索
-        BMKPOICitySearchOption *option = [[BMKPOICitySearchOption alloc]init];
-        option.pageIndex = 0;
-        option.pageSize = 10;
-        option.city= @"天津";
-        option.keyword = searchBar.text;
-        BOOL flag = [_searcher poiSearchInCity:option];
-        
-        if(flag)
-        {
-            NSLog(@"周边检索发送成功");
+        _poiSearcher = [[BMKPoiSearch alloc]init];
+        _poiSearcher.delegate = self;
+        BMKCitySearchOption *citySearchOption = [[BMKCitySearchOption alloc]init];
+        citySearchOption.pageIndex = 0;
+        citySearchOption.pageCapacity = 10;
+        citySearchOption.city= self.city;
+        citySearchOption.keyword = searchBar.text;
+        BOOL flag = [_poiSearcher poiSearchInCity:citySearchOption];
+        if(flag) {
+            NSLog(@"城市内检索发送成功");
         }
-        else
-        {
-            NSLog(@"周边检索发送失败");
+        else {
+            //        [MBProgressHUD showError:@"地点检索失败"];
+            NSLog(@"地点检索失败");
+            NSLog(@"城市内检索发送失败");
         }
     }
 }
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
-    NSLog(@"=======");
     return YES;
 }
 
 #pragma mark - BMKSearchDelegate
-- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPOISearchResult*)result errorCode:(BMKSearchErrorCode)error
-{
-    _searcher.delegate = nil;
-    _searcher = nil;
-    if (error == BMK_SEARCH_NO_ERROR) {
+- (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResult errorCode:(BMKSearchErrorCode)errorCode{
+    _poiSearcher.delegate = nil;
+    
+    
+    if (errorCode == BMK_SEARCH_NO_ERROR) {
         if (self.dataSource.count>0) {
             [self.dataSource removeAllObjects];
         }
         
-        [self.dataSource addObjectsFromArray:result.poiInfoList];
+        [self.dataSource addObjectsFromArray:poiResult.poiInfoList];
         [self.tableView reloadData];
-        
-        
-    }else {
+    }
+    else {
         [MBProgressHUD showError:@"未找到地理位置信息"];
+        NSLog(@"未找到地理位置信息");
     }
 }
 
@@ -187,17 +181,24 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
     [_locService stopUserLocationService];
     _locService.delegate = nil;
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    [geocoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (placemarks.count>0) {
+            CLPlacemark *placeMark = [placemarks objectAtIndex:0];
+            
+            self.city = placeMark.locality;
+            
+        }
+    }];
     _userLocation = userLocation.location;
     
     //初始化检索对象
-    _geocodesearch =[[BMKGeoCodeSearch alloc]init];
-    _geocodesearch.delegate = self;
-    //发起反向地理编码检索
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude};
-    BMKReverseGeoCodeSearchOption *reverseGeoCodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc]init];
-    reverseGeoCodeSearchOption.location = pt;
-    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeoCodeSearchOption];
-    
+    _searcher =[[BMKGeoCodeSearch alloc]init];
+    _searcher.delegate = self;
+    //发起检索
+    BMKReverseGeoCodeOption *option = [[BMKReverseGeoCodeOption alloc]init];
+    option.reverseGeoPoint = CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude);
+    BOOL flag = [_searcher reverseGeoCode:option];
     if(flag)
     {
         NSLog(@"反geo检索发送成功");
@@ -205,15 +206,29 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
     else
     {
         NSLog(@"反geo检索发送失败");
+        //        [MBProgressHUD showError:@"未找到地理位置信息"];
+        NSLog(@"未找到地理位置信息");
     }
     
 }
 #pragma mark - 反向地理编码
--(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeSearchResult *)result errorCode:(BMKSearchErrorCode)error
-{
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result: (BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
     _searcher.delegate = nil;
-    _searcher = nil;
     
+    if (error == BMK_SEARCH_NO_ERROR) {
+        BMKPoiInfo * info = result.poiList.firstObject;
+        self.city = info.city;
+        if (self.dataSource.count>0) {
+            [self.dataSource removeAllObjects];
+        }
+        
+        [self.dataSource addObjectsFromArray:result.poiList];
+        [self.tableView reloadData];
+    }
+    else {
+        [MBProgressHUD showError:@"未找到地理位置信息"];
+        NSLog(@"未找到地理位置信息");
+    }
     if (error == BMK_SEARCH_NO_ERROR) {
         if (self.dataSource.count>0) {
             [self.dataSource removeAllObjects];
@@ -358,9 +373,7 @@ static NSString *const SearchResultCellID = @"SearrchResultCell";
     return  YES;
 }
 - (void)dealloc{
-    if (_geocodesearch != nil) {
-        _geocodesearch = nil;
-    }
+    
     NSLog(@"%s",__func__);
 }
 

@@ -21,6 +21,9 @@
 #import "PhotoPasterVC2.h"
 #import "PhotoMarkController.h"
 #import "DrawBordController.h"
+#import "FrameController.h"
+#import "MeituFrameVC.h"
+#import "ImageCutoutVC.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -65,8 +68,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2",@"美图边框",@"抠图", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker",@"border",@"border", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -187,7 +190,14 @@
         }
             break;
         case 3://画框
-            
+        {
+            FrameController *frameVC = [[FrameController alloc]init];
+            frameVC.originImg = self.image;
+            frameVC.ImageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            };
+            [self.navigationController pushViewController:frameVC animated:YES];
+        }
             break;
         case 4://标记
         {
@@ -266,7 +276,26 @@
             
         }
             break;
-            
+        case 12://画框2:仿美图
+        {
+            MeituFrameVC *frameVC = [[MeituFrameVC alloc]init];
+            frameVC.originImg = self.image;
+            frameVC.ImageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            };
+            [self presentViewController:frameVC animated:YES completion:nil];
+        }
+            break;
+        case 13://
+        {
+            ImageCutoutVC *cutoutVC = [[ImageCutoutVC alloc]init];
+            cutoutVC.image = self.image;
+            cutoutVC.ImageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            };
+            [self presentViewController:cutoutVC animated:YES completion:nil];
+        }
+            break;
         default:
             break;
     }

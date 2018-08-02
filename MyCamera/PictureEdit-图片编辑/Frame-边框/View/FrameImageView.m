@@ -1,0 +1,144 @@
+//
+//  FrameImageView.m
+//  MyCamera
+//
+//  Created by shiguang on 2018/7/31.
+//  Copyright © 2018年 shiguang. All rights reserved.
+//
+
+#import "FrameImageView.h"
+#import "UIView+PBExtend.h"
+#import "UIView+ECategory.h"
+
+@interface FrameImageView()
+
+/** bounds */
+@property (nonatomic,assign) CGRect screenBounds;
+
+/** center*/
+@property (nonatomic,assign) CGPoint screenCenter;
+
+@end
+
+@implementation FrameImageView
+
+
+-(void)setImage:(UIImage *)image{
+    
+    if(image == nil) return;
+    
+    [super setImage:image];
+    
+    //确定frame
+    [self calFrame];
+    
+    self.contentMode = UIViewContentModeScaleAspectFit;
+    
+    if(_ImageSetBlock != nil) _ImageSetBlock(image);
+}
+
+
+
+/*
+ *  确定frame
+ */
+-(void)calFrame{
+    
+    CGSize size = self.image.size;
+    
+    CGFloat w = size.width;
+    CGFloat h = size.height;
+    
+    CGRect superFrame = self.screenBounds;
+    CGFloat superW =superFrame.size.width ;
+    CGFloat superH =superFrame.size.height;
+    
+    CGFloat calW = superW;
+    CGFloat calH = superW;
+    
+    if (w>=h) {//较宽
+        
+        if(w> superW){//比屏幕宽
+            
+            CGFloat scale = superW / w;
+            
+            //确定宽度
+            calW = w * scale;
+            calH = h * scale;
+            
+        }else if(w <= superW){//比屏幕窄，直接居中显示
+            
+            calW = w;
+            calH = h;
+        }
+        
+    }else if(w<h){//较高
+        
+        CGFloat scale1 = superH / h;
+        CGFloat scale2 = superW / w;
+        
+        BOOL isFat = w * scale1 > superW;//比较胖
+        
+        CGFloat scale =isFat ? scale2 : scale1;
+        
+        if(h> superH){//比屏幕高
+            
+            //确定宽度
+            calW = w * scale;
+            calH = h * scale;
+            
+        }else if(h <= superH){//比屏幕窄，直接居中显示
+            
+            if(w>superW){
+                
+                //确定宽度
+                calW = w * scale;
+                calH = h * scale;
+                
+                
+            }else{
+                calW = w;
+                calH = h;
+            }
+            
+        }
+    }
+    
+    CGRect frame = [UIView frameWithW:calW h:calH center:self.screenCenter];
+    
+    self.calF = frame;
+}
+
+
+
+
+
+
+
+
+
+
+-(CGRect)screenBounds{
+    
+    if(CGRectEqualToRect(_screenBounds, CGRectZero)){
+        
+        _screenBounds = [UIScreen mainScreen].bounds;
+    }
+    
+    return _screenBounds;
+}
+
+-(CGPoint)screenCenter{
+    if(CGPointEqualToPoint(_screenCenter, CGPointZero)){
+        CGSize size = self.screenBounds.size;
+        _screenCenter = CGPointMake(size.width * .5f, size.height * .5f);
+    }
+    
+    return _screenCenter;
+}
+
+- (void)dealloc{
+    NSLog(@"%s",__func__);
+}
+
+@end
