@@ -75,6 +75,7 @@
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
     [rightBarBtn setTitle:@"save" forState:UIControlStateNormal];
     [rightBarBtn setBackgroundColor:[UIColor cyanColor]];
+    [rightBarBtn addTarget:self action:@selector(saveClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBarBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
@@ -324,6 +325,17 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.editView.hidden = YES;
+}
+- (void)saveClick{
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image: didFinishSavingWithError:contextInfo:), nil);
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    if (error) {
+        NSLog(@"%@",error);
+        [MBProgressHUD showText:@"保存失败"];
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)dealloc{
     NSLog(@"%s",__func__);

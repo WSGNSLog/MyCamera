@@ -12,12 +12,20 @@ typedef enum {
     DrawViewModeBezier
 } DrawViewMode;
 
+typedef enum {
+    DrawModeCircle = 0,
+    DrawModeSquare = 1,
+    DrawModeLine = 2,
+    DrawModeTriangle = 3,
+    DrawModeFree = 4
+}DrawMode;
+
 @interface DrawView : UIView
 
 @property (nonatomic,strong) UIImage *image;
 @property (nonatomic,strong) UIColor *paintColor;
 //当前绘图模式
-@property (nonatomic,assign) DrawViewMode drawViewMode;
+@property (nonatomic,assign) DrawMode drawMode;
 @property (nonatomic,assign) CGFloat sliderValue;
 - (UIImage *)getImage;
 - (void)deleteLastDrawing;

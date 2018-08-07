@@ -40,7 +40,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         //初始化uiview的样式
-//        [self paintViewInit];
+        //[self paintViewInit];
     }
     return  self;
 }
@@ -94,23 +94,52 @@
         CGContextStrokePath(ctx);
     }
     
+    
+    
     //渲染bezier路径
     for (int i=0; i<bezierSteps.count; i++) {
         BezierStep *step = bezierSteps[i];
         //设置path 样式
         CGContextSetStrokeColorWithColor(ctx, step->color);
         CGContextSetLineWidth(ctx, step->strokeWidth);
-//        UIColor *color = [UIColor colorWithCGColor:step->color];
-//        [color set];
-        CGPoint centerPoint = CGPointMake((step->startPoint.x+step->endPoint.x)/2, (step->startPoint.y+step->endPoint.y)/2);
-        //hypot(double x,double y);已知直角三角形两个直角边长度，求斜边长度
-        double a1 = centerPoint.x - step->startPoint.x;
-        double a2 = centerPoint.y - step->startPoint.y;
-        double radius = hypot(a1, a2);
-        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
-        path.lineWidth = step->strokeWidth;
-        [path stroke];
-        
+        //        UIColor *color = [UIColor colorWithCGColor:step->color];
+        //        [color set];
+        if (step.paintMode == PaintModeCircle) {
+            CGPoint centerPoint = CGPointMake((step->startPoint.x+step->endPoint.x)/2, (step->startPoint.y+step->endPoint.y)/2);
+            //hypot(double x,double y);已知直角三角形两个直角边长度，求斜边长度
+            double a1 = centerPoint.x - step->startPoint.x;
+            double a2 = centerPoint.y - step->startPoint.y;
+            double radius = hypot(a1, a2);
+            UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
+            path.lineWidth = step->strokeWidth;
+            [path stroke];
+        }
+        if (step.paintMode == PaintModeTriangle) {
+            double ab = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+            CGFloat am = step->endPoint.y-step->startPoint.y;
+            CGFloat bm = step->endPoint.x-step->startPoint.x;
+            double asinA = asin(bm/am);
+            if (isnan(asinA)) {
+                NSLog(@"error");
+            }
+            double asina = asinA - M_PI/3.0;
+            CGFloat an = ab * sin(asina);
+            CGFloat cn =  ab * cos(asina);
+            CGPoint c = CGPointMake(step->startPoint.x+cn, step->startPoint.y-an);
+            
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            path.lineWidth = step->strokeWidth;
+            [path moveToPoint:step->startPoint];
+            [path addLineToPoint:step->endPoint];
+            [path moveToPoint:step->endPoint];
+            [path addLineToPoint:c];
+            [path moveToPoint:c];
+            [path addLineToPoint:step->startPoint];
+            //NSLog(@"**startPoint:%@,endPoint:%@,c:%@",NSStringFromCGPoint(step->startPoint),NSStringFromCGPoint(step->endPoint),NSStringFromCGPoint(c));
+            
+            [path closePath];
+            [path stroke];
+        }
         switch (step->status) {
             case BezierStepStatusSetControl:
                 //画出起点到控制线的距离
@@ -133,18 +162,22 @@
         
         
     }
+    
+    
 }
 
 #pragma mark -手指移动
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    switch (self.drawViewMode) {
+    switch (self.drawMode) {
             //笔画模式
-        case DrawViewModeStroke:
+        case DrawModeFree:
             [self strokeModeTouchesBegan:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case DrawModeCircle:
+        case DrawModeTriangle:
+        case DrawModeLine:
             [self bezierModeTouchesBegan:touches withEvent:event];
             break;
         default:
@@ -154,13 +187,15 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    switch (self.drawViewMode) {
+    switch (self.drawMode) {
             //笔画模式
-        case DrawViewModeStroke:
+        case DrawModeFree:
             [self strokeModeTouchesMoved:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case DrawModeCircle:
+        case DrawModeTriangle:
+        case DrawModeLine:
             [self bezierModeTouchesMoved:touches withEvent:event];
             break;
         default:
@@ -169,13 +204,15 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    switch (self.drawViewMode) {
+    switch (self.drawMode) {
             //笔画模式
-        case DrawViewModeStroke:
+        case DrawModeFree:
             [self strokeModeTouchesEnded:touches withEvent:event];
             break;
             //曲线模式
-        case DrawViewModeBezier:
+        case DrawModeCircle:
+        case DrawModeTriangle:
+        case DrawModeLine:
             [self bezierModeTouchesEnded:touches withEvent:event];
             break;
         default:
@@ -224,6 +261,7 @@
             case BezierStepStatusSetEnd:
             {
                 step =  [[BezierStep alloc]init];
+                step.paintMode = (int)self.drawMode;
                 step->color = currColor.CGColor;
                 step->strokeWidth = self.sliderValue;
                 step->startPoint  = point;
@@ -238,6 +276,7 @@
         
     }else{
         step =  [[BezierStep alloc]init];
+        step.paintMode = (int)self.drawMode;
         step->color = currColor.CGColor;
         step->strokeWidth = self.sliderValue;
         step->startPoint  = point;

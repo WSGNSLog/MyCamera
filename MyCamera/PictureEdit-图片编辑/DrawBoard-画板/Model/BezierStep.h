@@ -16,6 +16,13 @@ typedef enum {
     BezierStepStatusSetControl
 }BezierStepStatus;
 
+typedef enum {
+    PaintModeCircle = 0,
+    PaintModeSquare = 1,
+    PaintModeLine = 2,
+    PaintModeTriangle = 3,
+}PaintMode;
+
 @interface BezierStep : NSObject{
     
 @public
@@ -30,7 +37,8 @@ typedef enum {
     float strokeWidth;
     //步骤状态
     BezierStepStatus status;
+    
 }
-
+@property(nonatomic,assign) PaintMode paintMode;
 
 @end

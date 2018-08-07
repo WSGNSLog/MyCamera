@@ -23,9 +23,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04s-ba-fMB">
-                    <rect key="frame" x="62" y="551" width="46" height="30"/>
+                    <rect key="frame" x="67" y="551" width="37" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="close"/>
                     <connections>
                         <action selector="closeClick:" destination="-1" eventType="touchUpInside" id="eRq-3h-4OY"/>
                     </connections>
@@ -59,17 +59,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-Jn-sBJ">
-                    <rect key="frame" x="233" y="551" width="46" height="30"/>
+                    <rect key="frame" x="241" y="551" width="31" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="stop"/>
                     <connections>
                         <action selector="stopClick:" destination="-1" eventType="touchUpInside" id="Cx0-Bi-gL4"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-jO-3qd">
-                    <rect key="frame" x="146" y="551" width="46" height="30"/>
+                    <rect key="frame" x="153" y="551" width="32" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="start"/>
                     <connections>
                         <action selector="startRecordClick:" destination="-1" eventType="touchUpInside" id="FpK-sU-dYz"/>
                     </connections>

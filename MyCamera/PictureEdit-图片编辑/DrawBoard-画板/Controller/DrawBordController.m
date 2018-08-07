@@ -62,11 +62,19 @@
     shapeView.ShapeChangeBlock = ^(LineShape shape) {
         weakSelf.lineShape = shape;
         switch (shape) {
-            case LineShapeFree:
-                weakSelf.drawView.drawViewMode = DrawViewModeStroke;
+            case LineShapeCircle:
+                weakSelf.drawView.drawMode = DrawModeCircle;
                 break;
-                
-            default:weakSelf.drawView.drawViewMode = DrawViewModeBezier;
+            case LineShapeSquare:
+                weakSelf.drawView.drawMode = DrawModeSquare;
+                break;
+            case LineShapeTriangle:
+                weakSelf.drawView.drawMode = DrawModeTriangle;
+                break;
+            case LineShapeFree:
+                weakSelf.drawView.drawMode = DrawModeFree;
+                break;
+            default:weakSelf.drawView.drawMode = DrawModeFree;;
                 break;
         }
     };
@@ -216,7 +224,7 @@
         DrawView *drawView = [[DrawView alloc]init];
         self.drawView = drawView;
         self.drawView.image = self.originImg;
-        self.drawView.drawViewMode = DrawViewModeBezier;
+        self.drawView.drawMode = DrawModeCircle;
         [self.imgBgView addSubview:drawView];
     }
     return _drawView;

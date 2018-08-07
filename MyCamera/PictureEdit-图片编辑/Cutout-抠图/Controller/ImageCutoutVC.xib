@@ -52,19 +52,27 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wh7-Pp-cAn">
                                                     <rect key="frame" x="10" y="10" width="220" height="220"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fM-rp-9iy" userLabel="Square Btn">
                                                             <rect key="frame" x="0.0" y="0.0" width="220" height="220"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <state key="normal" title="Button"/>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SV-pT-6UW" userLabel="Scale Btn">
                                                     <rect key="frame" x="210" y="210" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                     <state key="normal" image="layout_handle_scale"/>
                                                 </button>
                                             </subviews>
@@ -181,6 +189,88 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deM-VM-OYV">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                            <subviews>
+                                <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2h-96-Mhq">
+                                    <rect key="frame" x="5" y="23.5" width="47.5" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="矩形"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="yVN-Ns-PIo"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Ib-1Hg">
+                                    <rect key="frame" x="57.5" y="23.5" width="48" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="珠宝形"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="tDz-6c-nS8"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dY-bY-deR">
+                                    <rect key="frame" x="110.5" y="23.5" width="47.5" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="三角形"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="t0d-1a-MtD"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwP-CA-lqw">
+                                    <rect key="frame" x="163" y="23.5" width="48" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="五角星"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="UbQ-ph-8jj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpo-Ar-SQL">
+                                    <rect key="frame" x="216" y="23.5" width="48" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="圆形"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="u5c-ax-27S"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-gj-EGk">
+                                    <rect key="frame" x="269" y="25" width="48" height="26"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <state key="normal" title="椭圆锯齿"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="E0S-4z-XaO"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRS-Rt-DsU">
+                                    <rect key="frame" x="322" y="23.5" width="48" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="心形"/>
+                                    <connections>
+                                        <action selector="shapeTypeBtnClicked:" destination="-1" eventType="touchUpInside" id="LD7-dE-6jA"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Z4g-Ib-1Hg" firstAttribute="leading" secondItem="I2h-96-Mhq" secondAttribute="trailing" constant="5" id="029-lO-GbO"/>
+                                <constraint firstItem="I2h-96-Mhq" firstAttribute="leading" secondItem="deM-VM-OYV" secondAttribute="leading" constant="5" id="3b5-gX-Iw4"/>
+                                <constraint firstItem="QwP-CA-lqw" firstAttribute="leading" secondItem="7dY-bY-deR" secondAttribute="trailing" constant="5" id="5QE-ZQ-dSZ"/>
+                                <constraint firstItem="Z4g-Ib-1Hg" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="Eb7-MX-BFD"/>
+                                <constraint firstAttribute="trailing" secondItem="xRS-Rt-DsU" secondAttribute="trailing" constant="5" id="Fyz-N6-NZh"/>
+                                <constraint firstItem="I2h-96-Mhq" firstAttribute="centerY" secondItem="QwP-CA-lqw" secondAttribute="centerY" id="LIy-KN-uJ7"/>
+                                <constraint firstItem="bpo-Ar-SQL" firstAttribute="leading" secondItem="QwP-CA-lqw" secondAttribute="trailing" constant="5" id="Lz3-04-iON"/>
+                                <constraint firstItem="QwP-CA-lqw" firstAttribute="centerX" secondItem="deM-VM-OYV" secondAttribute="centerX" id="QHb-OK-Mbe"/>
+                                <constraint firstItem="7dY-bY-deR" firstAttribute="leading" secondItem="Z4g-Ib-1Hg" secondAttribute="trailing" constant="5" id="SJp-Y6-MB9"/>
+                                <constraint firstItem="xRS-Rt-DsU" firstAttribute="leading" secondItem="g8i-gj-EGk" secondAttribute="trailing" constant="5" id="TzN-pJ-XiR"/>
+                                <constraint firstItem="QwP-CA-lqw" firstAttribute="centerY" secondItem="deM-VM-OYV" secondAttribute="centerY" id="WWZ-W3-TZ5"/>
+                                <constraint firstItem="xRS-Rt-DsU" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="XWI-eb-c0y"/>
+                                <constraint firstItem="g8i-gj-EGk" firstAttribute="leading" secondItem="bpo-Ar-SQL" secondAttribute="trailing" constant="5" id="aG9-pi-n3m"/>
+                                <constraint firstItem="g8i-gj-EGk" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="coE-SJ-ZDD"/>
+                                <constraint firstItem="xRS-Rt-DsU" firstAttribute="centerY" secondItem="g8i-gj-EGk" secondAttribute="centerY" id="dto-oC-Q4L"/>
+                                <constraint firstItem="bpo-Ar-SQL" firstAttribute="centerY" secondItem="QwP-CA-lqw" secondAttribute="centerY" id="eXX-TD-Yba"/>
+                                <constraint firstItem="7dY-bY-deR" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="hIb-Jg-xMo"/>
+                                <constraint firstItem="Z4g-Ib-1Hg" firstAttribute="centerY" secondItem="QwP-CA-lqw" secondAttribute="centerY" id="i4V-ga-uy2"/>
+                                <constraint firstItem="bpo-Ar-SQL" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="nPT-4Z-9WZ"/>
+                                <constraint firstItem="g8i-gj-EGk" firstAttribute="centerY" secondItem="bpo-Ar-SQL" secondAttribute="centerY" id="tvb-xP-px7"/>
+                                <constraint firstItem="I2h-96-Mhq" firstAttribute="width" secondItem="QwP-CA-lqw" secondAttribute="width" id="wDf-A5-u8L"/>
+                                <constraint firstItem="7dY-bY-deR" firstAttribute="centerY" secondItem="QwP-CA-lqw" secondAttribute="centerY" id="xbv-g4-CXo"/>
+                            </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWn-Gm-Q79">
                             <rect key="frame" x="0.0" y="77" width="375" height="1"/>

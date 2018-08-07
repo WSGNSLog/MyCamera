@@ -605,4 +605,8 @@ typedef NS_ENUM(NSInteger,ClipTypes) {
     }
     return _fingerImageClipPathArray;
 }
+- (void)dealloc{
+    NSLog(@"%s",__func__);
+}
+
 @end

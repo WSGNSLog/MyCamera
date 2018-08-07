@@ -93,7 +93,7 @@
 
 - (IBAction)closeClick:(UIButton *)sender {
     
-    [self stopClick:nil];
+//    [self stopClick:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

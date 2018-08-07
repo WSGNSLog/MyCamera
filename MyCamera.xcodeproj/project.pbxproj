@@ -121,6 +121,8 @@
 		E36F1C872007580C00DD5AB0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7D2007580C00DD5AB0 /* MASViewConstraint.m */; };
 		E36F1C882007580C00DD5AB0 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E36F1C7E2007580C00DD5AB0 /* MASViewAttribute.m */; };
 		E37B6F7220B3E61500315C0A /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E37B6F7020B3E61400315C0A /* UIView+Additions.m */; };
+		E387181B2113FE4600DFD80E /* ImageOutcutProVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E38718192113FE4600DFD80E /* ImageOutcutProVC.m */; };
+		E387181C2113FE4600DFD80E /* ImageOutcutProVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E387181A2113FE4600DFD80E /* ImageOutcutProVC.xib */; };
 		E38D565520522F4C003C4C4C /* VideoAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */; };
 		E38D565620522F4C003C4C4C /* AlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D564C20522F4B003C4C4C /* AlbumController.m */; };
 		E38D565920522F4C003C4C4C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38D565120522F4B003C4C4C /* AlbumCell.xib */; };
@@ -494,6 +496,9 @@
 		E37B6F7020B3E61400315C0A /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		E37B6F7120B3E61400315C0A /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		E37B6F7320B3E63300315C0A /* ColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMacro.h; sourceTree = "<group>"; };
+		E38718182113FE4600DFD80E /* ImageOutcutProVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOutcutProVC.h; sourceTree = "<group>"; };
+		E38718192113FE4600DFD80E /* ImageOutcutProVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOutcutProVC.m; sourceTree = "<group>"; };
+		E387181A2113FE4600DFD80E /* ImageOutcutProVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageOutcutProVC.xib; sourceTree = "<group>"; };
 		E38D564A20522F4B003C4C4C /* AlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumController.h; sourceTree = "<group>"; };
 		E38D564B20522F4B003C4C4C /* VideoAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAssetPickerController.m; sourceTree = "<group>"; };
 		E38D564C20522F4B003C4C4C /* AlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumController.m; sourceTree = "<group>"; };
@@ -827,6 +832,9 @@
 				E3D3394F21105BE8005BEF2D /* ImageCutoutVC.h */,
 				E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */,
 				E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */,
+				E38718182113FE4600DFD80E /* ImageOutcutProVC.h */,
+				E38718192113FE4600DFD80E /* ImageOutcutProVC.m */,
+				E387181A2113FE4600DFD80E /* ImageOutcutProVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2214,6 +2222,7 @@
 				E352285A210975EA00C3B6A2 /* paster_wow.png in Resources */,
 				E323BD2420AD2D6500F01C49 /* fontSelected@2x.png in Resources */,
 				E3CAD4EB210EED13001EA29C /* FrameController.xib in Resources */,
+				E387181C2113FE4600DFD80E /* ImageOutcutProVC.xib in Resources */,
 				E3B76404201592DE00AD2508 /* MBProgressHUD.bundle in Resources */,
 				E3C5ED0520F3307100287C68 /* UndisplayLocCell.xib in Resources */,
 				E310AC5A21100D6000FBFB55 /* MeituFrameVC.xib in Resources */,
@@ -2273,6 +2282,7 @@
 				E3C5ED2020F3307100287C68 /* PhotoCustomRotateVC.m in Sources */,
 				E3B763D7200DDC2800AD2508 /* UIImage+Common.m in Sources */,
 				E3DEBE8821081C9E00CE1E8E /* ReplayController.m in Sources */,
+				E387181B2113FE4600DFD80E /* ImageOutcutProVC.m in Sources */,
 				E3B763E0200F178800AD2508 /* UIView+ECategory.m in Sources */,
 				E3DEBE1C2106D06F00CE1E8E /* PhotoPasterView.m in Sources */,
 				E357D69420AEBADE006F31C4 /* AlbumPhotoPreviewVC.m in Sources */,
