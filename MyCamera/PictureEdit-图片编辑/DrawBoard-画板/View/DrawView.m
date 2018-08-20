@@ -65,7 +65,73 @@
 //    self.imageView.image = self.image;
 //    self.imageView.frame = self.bounds;
 //}
-
+- (void)test{
+//    CGFloat dashLineConfig1[] = {1.0,1.0};
+//    CGFloat dashLineConfig2[] = {4.0,2.0};
+//    CGFloat dashLineConfig3[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
+//    [path setLineDash:dashLineConfig3 count:6 phase:0];
+}
+-(CGPoint)calPoint1:(BezierStep *)step{
+    CGFloat newX = 0;
+    CGFloat newY = 0;
+    
+    CGFloat length = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+    
+    double angle = atan((step->endPoint.y - step->startPoint.y) / (step->endPoint.x - step->startPoint.x));
+    if (angle == 0) {
+        NSLog(@"error");
+    }
+    if (!isnan(angle)) {//right-down
+        if (step->startPoint.x <=step->endPoint.x && step->startPoint.y <= step->endPoint.y) {
+            newX = cos(angle + M_PI / 3 ) * length + step->startPoint.x;
+            newY = sin(angle + M_PI / 3 ) * length + step->startPoint.y;
+            NSLog(@"1111");
+        }
+        else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//left-up
+            NSLog(@"2222");
+            newX = step->startPoint.x - cos(angle + M_PI / 3 ) * length;
+            newY = step->startPoint.y - sin(angle + M_PI / 3 ) * length;
+        }else if (step->startPoint.x < step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//right-up
+            NSLog(@"3333");
+            newX = cos(angle + M_PI / 3 ) * length + step->startPoint.x;
+            newY = step->startPoint.y - sin(angle + M_PI / 3 ) * length ;
+        }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y < step->endPoint.y ){//left-down
+            NSLog(@"4444");
+            newX = step->startPoint.x - cos(angle + M_PI / 3 ) * length;
+            newY = sin(angle + M_PI / 3 ) * length + step->startPoint.y;
+        }
+    }
+    return CGPointMake(newX, newY);
+}
+- (CGPoint)calPoint1_OriginMethod:(BezierStep *)step{
+    CGFloat newX1 = 0;
+    CGFloat newY1 = 0;
+    CGFloat newX2 = 0;
+    CGFloat newY2 = 0;
+    
+    CGFloat length = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+    
+    double angle = atan((step->endPoint.y - step->startPoint.y) / (step->endPoint.x - step->startPoint.x));
+    if (!isnan(angle)) {
+        newX2 = cos(angle - M_PI / 3) * length + step->endPoint.x;
+        newY2 = sin(angle - M_PI / 3) * length + step->endPoint.y;
+        newX1 = cos(M_PI - angle - M_PI / 3 - M_PI_2) * length + step->endPoint.x;
+        newY1 = sin(M_PI - angle - M_PI / 3 - M_PI_2) * length + step->endPoint.y;
+    }
+    double length1 = hypot((step->endPoint.x - newX2) ,(step->endPoint.y - newY2));
+    double length2 = hypot((step->endPoint.x - newX1) ,(step->endPoint.y - newY1));
+    NSLog(@"=====%f, %f,%f",length,length1,length2);
+    return CGPointMake(newX1, newY1);
+}
+#pragma mark - 尖始终向上
+- (CGPoint)calPoint2:(BezierStep *)step{
+    
+    double length = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+    double x1 =step->startPoint.x + length*cos(M_PI/3.0);
+    //double y1 = step->startPoint.y - sqrt(pow(length, 2) - pow(length/2, 2));
+    double y1 = step->startPoint.y - length*sin(M_PI/3.0);
+    return CGPointMake(x1,  y1);
+}
 -(void)drawRect:(CGRect)rect{
     //必须调用父类drawRect方法，否则 UIGraphicsGetCurrentContext()获取不到context
     [super drawRect:rect];
@@ -116,16 +182,42 @@
         }
         if (step.paintMode == PaintModeTriangle) {
             double ab = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+            
+            /*
             CGFloat am = step->endPoint.y-step->startPoint.y;
             CGFloat bm = step->endPoint.x-step->startPoint.x;
-            double asinA = asin(bm/am);
+
+            double asinA = asin(bm/ab);
+            //atan(bm/am)
             if (isnan(asinA)) {
                 NSLog(@"error");
+                NSLog(@"atan:%f,%f",atan(bm/am),atan(am/bm));
             }
-            double asina = asinA - M_PI/3.0;
+            double asina = (asinA - M_PI/3.0);
+            if (asina<=0) {
+                NSLog(@"-----");
+            }
             CGFloat an = ab * sin(asina);
             CGFloat cn =  ab * cos(asina);
             CGPoint c = CGPointMake(step->startPoint.x+cn, step->startPoint.y-an);
+            */
+            /*
+            CGPoint c = [self calPoint2:step];
+            CGPoint b = CGPointMake(step->startPoint.x+ab, step->startPoint.y);
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            path.lineWidth = step->strokeWidth;
+            [path moveToPoint:step->startPoint];
+            [path addLineToPoint:b];
+            [path moveToPoint:b];
+            [path addLineToPoint:c];
+            [path moveToPoint:c];
+            [path addLineToPoint:step->startPoint];
+            [path closePath];
+            [path stroke];
+            
+            */
+            
+            CGPoint c = [self calPoint1:step];;
             
             UIBezierPath *path = [UIBezierPath bezierPath];
             path.lineWidth = step->strokeWidth;
@@ -135,9 +227,7 @@
             [path addLineToPoint:c];
             [path moveToPoint:c];
             [path addLineToPoint:step->startPoint];
-            //NSLog(@"**startPoint:%@,endPoint:%@,c:%@",NSStringFromCGPoint(step->startPoint),NSStringFromCGPoint(step->endPoint),NSStringFromCGPoint(c));
-            
-            [path closePath];
+            [path closePath];///[path closePath]
             [path stroke];
         }
         switch (step->status) {
@@ -319,6 +409,11 @@
         {
             step->endPoint = point;
             step->status = BezierStepStatusSetEnd;
+            /*
+             if (point.x == step->startPoint.x && point.y==step->endPoint.y) {
+                [bezierSteps removeLastObject];
+             }
+             */
         }
             break;
             
@@ -333,14 +428,16 @@
 
 - (UIImage *)getImage{
     NSLog(@"getImage");
-    CGImageRef imgRef = self.image.CGImage;
-    CGFloat w = CGImageGetWidth(imgRef);
-    CGFloat h = CGImageGetHeight(imgRef);
+//    CGImageRef imgRef = self.image.CGImage;
+//    CGFloat w = CGImageGetWidth(imgRef);
+//    CGFloat h = CGImageGetHeight(imgRef);
     
+    CGFloat w = self.image.size.width;
+    CGFloat h = self.image.size.height;
     //以大图大小为底图
     //以showImg的图大小为画布创建上下文
-    //UIGraphicsBeginImageContext(CGSizeMake(w, h));
-    UIGraphicsBeginImageContextWithOptions(self.image.size, NO, 0);
+    UIGraphicsBeginImageContext(CGSizeMake(w, h));
+    //UIGraphicsBeginImageContextWithOptions(self.image.size, NO, 0);
     //先把大图 绘制到上下文中
     [self.image drawInRect:CGRectMake(0, 0, w, h)];
     //再把小图放到上下文中

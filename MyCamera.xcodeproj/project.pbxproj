@@ -1139,6 +1139,13 @@
 			path = thirdlibs;
 			sourceTree = "<group>";
 		};
+		E36AB199211A9644002636A8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		E36F1AB52007131B00DD5AB0 = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1170,7 @@
 		E36F1AC02007131B00DD5AB0 /* MyCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E36AB199211A9644002636A8 /* New Group */,
 				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
 				E3DEBE1D2106F96E00CE1E8E /* ReplayKit-屏幕录像 */,
 				E3DEBE8D2108498600CE1E8E /* FaceDetector-人脸 */,

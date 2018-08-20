@@ -82,6 +82,9 @@
     ImageFaceDetectVC *faceVC = [[ImageFaceDetectVC alloc]init];
     [self presentViewController:faceVC animated:YES completion:nil];
 }
+- (IBAction)videoEdit:(UIButton *)sender {
+    
+}
 
 
 
