@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoTextController">
             <connections>
                 <outlet property="bottomView" destination="NEO-Lh-DCe" id="hLm-xh-uYK"/>
+                <outlet property="imageBg" destination="U1N-Hb-wLR" id="Dpv-nw-jKx"/>
                 <outlet property="imageView" destination="i80-SP-jbj" id="izM-d2-kB8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,20 +24,42 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEO-Lh-DCe">
-                    <rect key="frame" x="0.0" y="547" width="375" height="120"/>
-                    <color key="backgroundColor" red="0.18039215689999999" green="0.74509803919999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="0.0" y="537" width="375" height="130"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELM-0m-7yF">
+                            <rect key="frame" x="0.0" y="80" width="375" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C59-Ya-v3H">
+                                    <rect key="frame" x="23" y="12" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="addNewTextView:" destination="-1" eventType="touchUpInside" id="dld-hJ-nyd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="UjA-EA-LxY"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96028922260000005" green="1" blue="0.93538846769999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="XQ0-cw-DUC"/>
+                        <constraint firstAttribute="bottom" secondItem="ELM-0m-7yF" secondAttribute="bottom" id="MUm-5n-i6s"/>
+                        <constraint firstAttribute="height" constant="130" id="XQ0-cw-DUC"/>
+                        <constraint firstAttribute="trailing" secondItem="ELM-0m-7yF" secondAttribute="trailing" id="Ya0-9T-PyK"/>
+                        <constraint firstItem="ELM-0m-7yF" firstAttribute="leading" secondItem="NEO-Lh-DCe" secondAttribute="leading" id="nyd-4S-05m"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1N-Hb-wLR">
-                    <rect key="frame" x="0.0" y="84" width="375" height="463"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="453"/>
                     <subviews>
                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i80-SP-jbj">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="463"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="453"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="i80-SP-jbj" firstAttribute="leading" secondItem="U1N-Hb-wLR" secondAttribute="leading" id="1aU-Ut-S3x"/>
                         <constraint firstAttribute="trailing" secondItem="i80-SP-jbj" secondAttribute="trailing" id="CRS-UG-1E3"/>
@@ -56,6 +79,7 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="NEO-Lh-DCe" secondAttribute="bottom" id="tYR-KI-3zM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="33.5" y="62.5"/>
         </view>
     </objects>
 </document>

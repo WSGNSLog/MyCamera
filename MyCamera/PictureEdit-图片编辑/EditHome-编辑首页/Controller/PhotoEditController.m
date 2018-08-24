@@ -24,6 +24,7 @@
 #import "FrameController.h"
 #import "MeituFrameVC.h"
 #import "ImageCutoutVC.h"
+#import "PhotoTextTwoController.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -68,8 +69,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2",@"美图边框",@"抠图", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker",@"border",@"border", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2",@"美图边框",@"抠图",@"文字", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker",@"border",@"border",@"text", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -295,6 +296,18 @@
                 weakSelf.imageView.image = image;
             };
             [self presentViewController:cutoutVC animated:YES completion:nil];
+        }
+            break;
+        case 14:
+        {
+            PhotoTextTwoController *text = [[PhotoTextTwoController alloc] init];
+            text.image = self.imageView.image;
+            text.asset = self.asset;
+            [text addFinishBlock:^(UIImage *image) {
+                weakSelf.imageView.image = image;
+            }];
+            [self.navigationController pushViewController:text animated:YES];
+            
         }
             break;
         default:
