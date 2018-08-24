@@ -256,6 +256,7 @@
 		E3C922C4212FD14800DC45A6 /* PhotoTextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C922BD212FD14700DC45A6 /* PhotoTextController.xib */; };
 		E3C922C5212FD14800DC45A6 /* PhotoTextTwoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C922BF212FD14800DC45A6 /* PhotoTextTwoController.xib */; };
 		E3C922C6212FD14800DC45A6 /* TextInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C922C0212FD14800DC45A6 /* TextInputController.xib */; };
+		E3C922CE212FD31F00DC45A6 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3C922CC212FD31E00DC45A6 /* WawaSC-Regular.otf */; };
 		E3C9C5AB201F13D000139D79 /* RecordTimePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */; };
 		E3CAD4EA210EED13001EA29C /* FrameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAD4E8210EED13001EA29C /* FrameController.m */; };
 		E3CAD4EB210EED13001EA29C /* FrameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3CAD4E9210EED13001EA29C /* FrameController.xib */; };
@@ -738,6 +739,7 @@
 		E3C922BE212FD14800DC45A6 /* PhotoTextTwoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTextTwoController.h; sourceTree = "<group>"; };
 		E3C922BF212FD14800DC45A6 /* PhotoTextTwoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTextTwoController.xib; sourceTree = "<group>"; };
 		E3C922C0212FD14800DC45A6 /* TextInputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputController.xib; sourceTree = "<group>"; };
+		E3C922CC212FD31E00DC45A6 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		E3C9C5A9201F13CF00139D79 /* RecordTimePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTimePickView.h; sourceTree = "<group>"; };
 		E3C9C5AA201F13D000139D79 /* RecordTimePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTimePickView.m; sourceTree = "<group>"; };
 		E3CAD4E7210EED13001EA29C /* FrameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameController.h; sourceTree = "<group>"; };
@@ -1204,6 +1206,7 @@
 				E36F1B0C20074CA400DD5AB0 /* ThirdLibrary */,
 				E36F1AF32007148C00DD5AB0 /* Utils */,
 				E38D567620566CDE003C4C4C /* Main */,
+				E3C922C7212FD31E00DC45A6 /* Resources */,
 				E36F1AC12007131B00DD5AB0 /* AppDelegate.h */,
 				E36F1AC22007131B00DD5AB0 /* AppDelegate.mm */,
 				E36F1AC72007131B00DD5AB0 /* Main.storyboard */,
@@ -1994,6 +1997,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E3C922C7212FD31E00DC45A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3C922C8212FD31E00DC45A6 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3C922C8212FD31E00DC45A6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E3C922CB212FD31E00DC45A6 /* Wawati SC */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		E3C922CB212FD31E00DC45A6 /* Wawati SC */ = {
+			isa = PBXGroup;
+			children = (
+				E3C922CC212FD31E00DC45A6 /* WawaSC-Regular.otf */,
+			);
+			path = "Wawati SC";
+			sourceTree = "<group>";
+		};
 		E3CAD4F9210F093B001EA29C /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2225,6 +2252,7 @@
 				E3C5ED0820F3307100287C68 /* SearrchLocResultCell.xib in Resources */,
 				E3C5ED0C20F3307100287C68 /* PhotoCropController.xib in Resources */,
 				E3DEBE7B210809A200CE1E8E /* ViewController.xib in Resources */,
+				E3C922CE212FD31F00DC45A6 /* WawaSC-Regular.otf in Resources */,
 				E3C5ECEE20F3307100287C68 /* FilterCell.xib in Resources */,
 				E323BD1620AD2D6500F01C49 /* colorsSelect@3x.png in Resources */,
 				E323BD2120AD2D6500F01C49 /* cutSelect@3x.png in Resources */,
