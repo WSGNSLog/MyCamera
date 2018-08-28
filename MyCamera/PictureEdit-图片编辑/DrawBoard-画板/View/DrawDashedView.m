@@ -9,45 +9,43 @@
 
 #import "DrawDashedView.h"
 
+#import "PhotoBeautyParam.h"
+
+#define EdgeMargin 20
+#define btnWH 30
 @implementation DrawDashedView
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame DefaultType:(LineType)type{
     if (self = [super initWithFrame:frame]) {
-        
+        self.lineType = LineTypeDefault;
         [self createDashedTypeOption];
+        self.backgroundColor = FuncViewBGColor
     }
     
     return self;
 }
 - (void)createDashedTypeOption{
     
-    NSArray *imgArr = @[@"lineShape_circle",@"lineShape_square",@"lineShape_line",@"lineShape_triangle",@"lineShape_free"];
-    NSArray *imgSelectedArr = @[@"lineShape_circle_highLight",@"lineShape_square_highLight",@"lineShape_line_highLight",@"lineShape_triangle_highLight",@"lineShape_free_highLight"];
+    NSArray *imgArr = @[@"lineShape_line",@"icon_dashLineOne",@"icon_dashLineTwo",@"icon_dashLineThree"];
     UILabel *label = [[UILabel alloc]init];
-    label.text = @"样式";
+    label.text = @"线型";
     label.textColor = [UIColor grayColor];
     label.font = [UIFont systemFontOfSize:13];
-    label.frame = CGRectMake(15, (self.height-15)/2, 30, 15);
+    label.frame = CGRectMake(20, (self.height-15)/2, 30, 15);
     [self addSubview:label];
-    CGFloat margin = 15;
-    CGFloat btnWH = 30;
-    for (int i=0; i<5; i++) {
+    
+    for (int i=0; i<imgArr.count; i++) {
         UIButton *btn = [[UIButton alloc]init];
         btn.tag = i;
-        btn.frame = CGRectMake(label.x+label.width+margin*(i+1)+btnWH*i, (self.height-btnWH)/2.0, btnWH, btnWH);
+        btn.frame = CGRectMake(label.x+label.width+EdgeMargin*(i+1)+btnWH*i, (self.height-btnWH)/2.0, btnWH, btnWH);
         [btn setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:imgSelectedArr[i]] forState:UIControlStateSelected];
-        btn.selected = (i==self.shape? YES:NO);
-        [btn addTarget:self action:@selector(shapeChangeClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.layer.cornerRadius = 5;
-        btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        btn.layer.borderWidth = 1;
-        btn.clipsToBounds = YES;
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_highLight",imgArr[i]]] forState:UIControlStateSelected];
+        btn.selected = (i==self.lineType? YES:NO);
+        [btn addTarget:self action:@selector(lineTypeChange:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
     }
-    
 }
-- (void)shapeChangeClick:(UIButton *)btn{
+- (void)lineTypeChange:(UIButton *)btn{
     btn.selected = YES;
     for (UIView *subV in self.subviews) {
         if ([subV isKindOfClass:[UIButton class]]) {

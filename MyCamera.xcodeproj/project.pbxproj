@@ -350,6 +350,7 @@
 		E323BD1520AD2D6500F01C49 /* fontSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fontSelect@2x.png"; sourceTree = "<group>"; };
 		E323BD3020AD603A00F01C49 /* 2222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2222.jpg; sourceTree = "<group>"; };
 		E32F61DD20E9FAA000EF009A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E330BA112134E69E00780DE8 /* PhotoBeautyParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBeautyParam.h; sourceTree = "<group>"; };
 		E33FA619204145FB007C0A2B /* CameraModeSelectBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModeSelectBtn.h; sourceTree = "<group>"; };
 		E33FA61A204145FC007C0A2B /* CameraModeSelectBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModeSelectBtn.m; sourceTree = "<group>"; };
 		E33FA61C2041460D007C0A2B /* ECameraSQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECameraSQL.m; sourceTree = "<group>"; };
@@ -2105,6 +2106,7 @@
 		E3E5561B2109734A001B5662 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E330BA112134E69E00780DE8 /* PhotoBeautyParam.h */,
 				E352285D21097ABB00C3B6A2 /* BezierStep.h */,
 				E352285E21097ABB00C3B6A2 /* BezierStep.m */,
 				E352284B210973DA00C3B6A2 /* PaintStep.h */,

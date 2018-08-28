@@ -15,7 +15,7 @@ typedef enum {
 }LineType;
 @interface DrawDashedView : UIView
 
-@property (nonatomic,copy) void(^LineTypeChangeBlock)(LineType shape);
-@property (nonatomic,assign) LineType shape;
+@property (nonatomic,copy) void(^LineTypeChangeBlock)(LineType lineType);
+@property (nonatomic,assign) LineType lineType;
 - (instancetype)initWithFrame:(CGRect)frame DefaultType:(LineType)shape;
 @end

@@ -82,7 +82,12 @@
     
 }
 - (void)createDashedView{
-//    DrawDashedView *dashedView = [[DrawDashedView alloc]init];
+    WEAKSELF
+    DrawDashedView *dashedView = [[DrawDashedView alloc]initWithFrame:CGRectMake(25, (self.optionView.height-40)/2, LL_ScreenWidth-25-OptionViewMargin, 40) DefaultType:LineTypeDefault];
+    dashedView.LineTypeChangeBlock = ^(LineType lineType) {
+        weakSelf.drawView.drawLineType = (int)lineType;
+    };
+    [self.optionView addSubview:dashedView];
 }
 //创建笔触粗细选择器
 -(void)createStrokeWidthSlider{

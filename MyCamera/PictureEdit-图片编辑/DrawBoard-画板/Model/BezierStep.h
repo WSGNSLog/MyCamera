@@ -22,7 +22,12 @@ typedef enum {
     PaintModeLine = 2,
     PaintModeTriangle = 3,
 }PaintMode;
-
+typedef enum {
+    PaintLineTypeDefault = 0,
+    PaintLineType1 = 1,
+    PaintLineType2 = 2,
+    PaintLineType3 = 3,
+}PaintLineType;
 @interface BezierStep : NSObject{
     
 @public
@@ -40,5 +45,5 @@ typedef enum {
     
 }
 @property(nonatomic,assign) PaintMode paintMode;
-
+@property(nonatomic,assign) PaintLineType paintLineType;
 @end

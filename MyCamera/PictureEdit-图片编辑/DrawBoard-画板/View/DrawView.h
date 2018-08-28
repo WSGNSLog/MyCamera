@@ -19,6 +19,12 @@ typedef enum {
     DrawModeTriangle = 3,
     DrawModeFree = 4
 }DrawMode;
+typedef enum {
+    DrawLineTypeDefault = 0,
+    DrawLineType1 = 1,
+    DrawLineType2 = 2,
+    DrawLineType3 = 3,
+}DrawLineType;
 
 @interface DrawView : UIView
 
@@ -26,6 +32,7 @@ typedef enum {
 @property (nonatomic,strong) UIColor *paintColor;
 //当前绘图模式
 @property (nonatomic,assign) DrawMode drawMode;
+@property (nonatomic,assign) DrawLineType drawLineType;
 @property (nonatomic,assign) CGFloat sliderValue;
 - (UIImage *)getImage;
 - (void)deleteLastDrawing;

@@ -65,11 +65,41 @@
 //    self.imageView.image = self.image;
 //    self.imageView.frame = self.bounds;
 //}
-- (void)test{
-//    CGFloat dashLineConfig1[] = {1.0,1.0};
-//    CGFloat dashLineConfig2[] = {4.0,2.0};
-//    CGFloat dashLineConfig3[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
-//    [path setLineDash:dashLineConfig3 count:6 phase:0];
+- (NSArray *)calRectPoint11:(BezierStep *)step{
+    
+    CGPoint point1 = CGPointZero;
+    CGPoint point2 = CGPointZero;
+    if (step->startPoint.x <=step->endPoint.x && step->startPoint.y <= step->endPoint.y) {
+        point1 = CGPointMake(step->startPoint.x, step->endPoint.y);
+        point2 = CGPointMake(step->endPoint.x, step->startPoint.y);
+        
+    }else if (step->startPoint.x < step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//right-up
+        point1 = CGPointMake(step->endPoint.x, step->startPoint.y);
+        point2 = CGPointMake(step->startPoint.x, step->endPoint.y);
+    }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//left-up
+        point1 = CGPointMake(step->startPoint.x, step->endPoint.y);
+        point2 = CGPointMake(step->endPoint.x, step->startPoint.y);
+    }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y < step->endPoint.y ){//left-down
+        point1 = CGPointMake(step->startPoint.x, step->endPoint.y);
+        point2 = CGPointMake(step->endPoint.x, step->startPoint.y);
+    }
+    return @[[NSValue valueWithCGPoint:point1],[NSValue valueWithCGPoint:point2]];
+}
+- (CGRect)calRect:(BezierStep *)step{
+    
+    CGRect rect = CGRectZero;
+    double w = roundf(fabs(step->endPoint.x - step->startPoint.x));
+    double h = roundf(fabs(step->endPoint.y - step->startPoint.y));
+    if (step->startPoint.x <=step->endPoint.x && step->startPoint.y <= step->endPoint.y) {
+        rect = CGRectMake(roundf(step->startPoint.x), roundf(step->startPoint.y), w, h);
+    }else if (step->startPoint.x < step->endPoint.x  && step->startPoint.y > step->endPoint.y ){
+        rect = CGRectMake(roundf(step->startPoint.x), roundf(step->endPoint.y), w, h);
+    }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y > step->endPoint.y ){
+        rect = CGRectMake(roundf(step->endPoint.x), roundf(step->endPoint.y), w, h);
+    }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y < step->endPoint.y ){
+        rect = CGRectMake(roundf(step->endPoint.x), roundf(step->startPoint.y), w, h);
+    }
+    return rect;
 }
 -(CGPoint)calPoint1:(BezierStep *)step{
     CGFloat newX = 0;
@@ -178,6 +208,16 @@
             double radius = hypot(a1, a2);
             UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
             path.lineWidth = step->strokeWidth;
+            if (step.paintLineType == PaintLineType1) {
+                CGFloat dashLineConfig[] = {4.0,2.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }else if (step.paintLineType == PaintLineType2){
+                CGFloat dashLineConfig[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
+                [path setLineDash:dashLineConfig count:6 phase:0];
+            }else if (step.paintLineType == PaintLineType3){
+                CGFloat dashLineConfig[] = {1.0,1.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }
             [path stroke];
         }
         if (step.paintMode == PaintModeTriangle) {
@@ -221,6 +261,16 @@
             
             UIBezierPath *path = [UIBezierPath bezierPath];
             path.lineWidth = step->strokeWidth;
+            if (step.paintLineType == PaintLineType1) {
+                CGFloat dashLineConfig[] = {4.0,2.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }else if (step.paintLineType == PaintLineType2){
+                CGFloat dashLineConfig[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
+                [path setLineDash:dashLineConfig count:6 phase:0];
+            }else if (step.paintLineType == PaintLineType3){
+                CGFloat dashLineConfig[] = {1.0,1.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }
             [path moveToPoint:step->startPoint];
             [path addLineToPoint:step->endPoint];
             [path moveToPoint:step->endPoint];
@@ -228,6 +278,42 @@
             [path moveToPoint:c];
             [path addLineToPoint:step->startPoint];
             [path closePath];///[path closePath]
+            [path stroke];
+        }
+        if (step.paintMode == PaintModeSquare) {
+            
+            UIBezierPath *path = [UIBezierPath bezierPathWithRect:[self calRect:step]];
+            if (step.paintLineType == PaintLineType1) {
+                CGFloat dashLineConfig[] = {4.0,2.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }else if (step.paintLineType == PaintLineType2){
+                CGFloat dashLineConfig[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
+                [path setLineDash:dashLineConfig count:6 phase:0];
+            }else if (step.paintLineType == PaintLineType3){
+                CGFloat dashLineConfig[] = {1.0,1.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }
+            path.lineWidth = step->strokeWidth;
+            [path stroke];
+            
+        }
+        
+        if (step.paintMode == PaintModeLine) {
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            if (step.paintLineType == PaintLineType1) {
+                CGFloat dashLineConfig[] = {4.0,2.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }else if (step.paintLineType == PaintLineType2){
+                CGFloat dashLineConfig[] = {4.0, 2.0, 8.0, 2.0,16.0,2.0};
+                [path setLineDash:dashLineConfig count:6 phase:0];
+            }else if (step.paintLineType == PaintLineType3){
+                CGFloat dashLineConfig[] = {1.0,1.0};
+                [path setLineDash:dashLineConfig count:2 phase:0];
+            }
+            path.lineWidth = step->strokeWidth;
+            [path moveToPoint:step->startPoint];
+            [path addLineToPoint:step->endPoint];
+            
             [path stroke];
         }
         switch (step->status) {
@@ -268,6 +354,7 @@
         case DrawModeCircle:
         case DrawModeTriangle:
         case DrawModeLine:
+        case DrawModeSquare:
             [self bezierModeTouchesBegan:touches withEvent:event];
             break;
         default:
@@ -286,6 +373,7 @@
         case DrawModeCircle:
         case DrawModeTriangle:
         case DrawModeLine:
+        case DrawModeSquare:
             [self bezierModeTouchesMoved:touches withEvent:event];
             break;
         default:
@@ -303,6 +391,7 @@
         case DrawModeCircle:
         case DrawModeTriangle:
         case DrawModeLine:
+        case DrawModeSquare:
             [self bezierModeTouchesEnded:touches withEvent:event];
             break;
         default:
@@ -352,6 +441,10 @@
             {
                 step =  [[BezierStep alloc]init];
                 step.paintMode = (int)self.drawMode;
+                step.paintLineType = (int)self.drawLineType;
+                if (!currColor || !currColor.CGColor) {
+                    NSLog(@"error");
+                }
                 step->color = currColor.CGColor;
                 step->strokeWidth = self.sliderValue;
                 step->startPoint  = point;
@@ -367,6 +460,10 @@
     }else{
         step =  [[BezierStep alloc]init];
         step.paintMode = (int)self.drawMode;
+        step.paintLineType = (int)self.drawLineType;
+        if (!currColor || !currColor.CGColor) {
+            NSLog(@"error");
+        }
         step->color = currColor.CGColor;
         step->strokeWidth = self.sliderValue;
         step->startPoint  = point;
@@ -409,11 +506,10 @@
         {
             step->endPoint = point;
             step->status = BezierStepStatusSetEnd;
-            /*
+            
              if (point.x == step->startPoint.x && point.y==step->endPoint.y) {
                 [bezierSteps removeLastObject];
              }
-             */
         }
             break;
             
@@ -453,8 +549,11 @@
     return resultImg;
 }
 - (void)deleteLastDrawing{
-    [bezierSteps removeLastObject];
-    [self setNeedsDisplay];
+    if (bezierSteps.count >0) {
+        [bezierSteps removeLastObject];
+        [self setNeedsDisplay];
+    }
+    
 }
 
 @end
