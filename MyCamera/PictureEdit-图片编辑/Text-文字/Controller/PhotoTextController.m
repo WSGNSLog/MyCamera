@@ -17,7 +17,7 @@
 #define CellHeight 75
 #define CellMargin 8
 
-@interface PhotoTextController ()<VideoTextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface PhotoTextController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     ImageBlock _block;
 }
@@ -26,10 +26,10 @@
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *fontArr;
 @property (nonatomic, strong) NSIndexPath *selectIndex;
-@property (nonatomic, weak) CustomTextView *textField ;
+@property (nonatomic, weak) CustomTextView *textView;
 @property (nonatomic, readonly) CGRect imageRect;
 @property (weak, nonatomic) IBOutlet UIView *imageBg;
-
+@property (nonatomic,strong) NSMutableArray *textViewArray;
 @end
 
 @implementation PhotoTextController
@@ -62,9 +62,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)rightBarClick{
+    for (CustomTextView *textV in self.textViewArray) {
+        [textV setEditLayerAndButtonHidden:YES];
+    }
     if (_block) {
         _block([self composeImage]);
     }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -214,7 +218,8 @@
 {
 //    CGRect rect = [text boundingRectWithSize:CGSizeMake((self.imageView.width - 170) / 2, MAXFLOAT) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:@18.0} context:nil];
 //    textField.frame = rect;
-    [self.textField layoutSubviews];
+    
+// //   [self.textView layoutSubviews];
 }
 
 //删除在文字操作view
@@ -231,6 +236,25 @@
     _block = block;
 }
 - (UIImage *)composeImage{
+    CGFloat w = self.image.size.width;
+    CGFloat h = self.image.size.height;
+    CGFloat scale_x = w/self.imageRect.size.width;
+    CGFloat scale_y = h/self.imageRect.size.height;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(w, h));
+    [self.image drawInRect:CGRectMake(0, 0, w, h)];
+    
+    CGRect rect = [self textViewRect:self.textView];
+    CGFloat newW = rect.size.width*scale_x;
+    CGFloat newH = rect.size.height*scale_y;
+    [self.textView.textImage drawInRect:CGRectMake(rect.origin.x*scale_x,rect.origin.y*scale_y , newW, newH)];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return image;
+}
+- (UIImage *)composeImage2{
     CGImageRef imgRef = self.imageView.image.CGImage;
     CGFloat w = CGImageGetWidth(imgRef);
     CGFloat h = CGImageGetHeight(imgRef);
@@ -249,7 +273,31 @@
     
     return img;
 }
+- (void)textEditClick:(CustomTextView*)textView{
+    
+}
+- (void)textViewRemovedClick:(CustomTextView *)textView{
+    
+}
+- (void)textViewOnTap:(CustomTextView *)textView{
+    for (CustomTextView *textV in self.textViewArray) {
+        if ([textV isEqual:textView]) {
+            [textV setEditLayerAndButtonHidden:NO];
+        }else{
+            [textV setEditLayerAndButtonHidden:YES];
+        }
+    }
+}
 - (CGRect)imageRect{
     return AVMakeRectWithAspectRatioInsideRect(self.image.size, self.imageBg.bounds);
+}
+- (CGRect)textViewRect:(CustomTextView *)textView{
+    return [textView convertRect:textView.bounds toView:self.imageView];
+}
+- (NSMutableArray *)textViewArray{
+    if (!_textViewArray) {
+        _textViewArray = [NSMutableArray array];
+    }
+    return _textViewArray;
 }
 @end

@@ -44,8 +44,7 @@
 @end
 
 @implementation CustomTextView
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         _styleIndex = 0;
         _hasSetBubble = NO;
@@ -162,8 +161,7 @@
     return self;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
     
     CGPoint center = [self convertPoint:self.center fromView:self.superview];
@@ -195,8 +193,7 @@
     }
 }
 
-- (void)calculateTextLabelFont
-{
+- (void)calculateTextLabelFont{
     CGRect rect = [_textLabel.text boundingRectWithSize:CGSizeMake(_textLabel.width, MAXFLOAT) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:_textLabel.font} context:nil];
     if (rect.size.height > _textLabel.height) {
         _textLabel.font = [UIFont systemFontOfSize:_textLabel.font.pointSize - 0.1];
@@ -204,14 +201,12 @@
     }
 }
 
-- (NSString*)text
-{
+- (NSString*)text{
     return _textLabel.text;
 }
 
 //生成字幕图片
-- (UIImage*)textImage
-{
+- (UIImage*)textImage{
     _borderView.layer.borderWidth = 0;
     [_borderView setNeedsDisplay];
     CGRect rect = _borderView.bounds;
@@ -228,7 +223,7 @@
     CGContextRotateCTM(context, _rotateAngle);
     
     [_textLabel drawTextInRect:CGRectMake(-rect.size.width / 2, -rect.size.height / 2, rect.size.width, rect.size.height)];
-    [_borderView drawViewHierarchyInRect:CGRectMake(-rect.size.width / 2, -rect.size.height / 2, rect.size.width, rect.size.height) afterScreenUpdates:YES];
+//    [_borderView drawViewHierarchyInRect:CGRectMake(-rect.size.width / 2, -rect.size.height / 2, rect.size.width, rect.size.height) afterScreenUpdates:YES];
     UIImage *rotatedImg = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
@@ -270,7 +265,8 @@
 
 - (CGRect)textRect
 {
-    CGRect rect = [_textLabel.text boundingRectWithSize:CGSizeMake(0, self.bounds.size.width - 25) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:_textLabel.font} context:nil];
+//    CGRect rect = [_textLabel.text boundingRectWithSize:CGSizeMake(0, self.bounds.size.width - 25) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:_textLabel.font} context:nil];
+    CGRect rect = [_textLabel.text boundingRectWithSize:CGSizeMake(self.imageRect.size.width-50, MAXFLOAT) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:_textLabel.font} context:nil];
     //限制最小的文字框大小
     if (rect.size.width < 30) {
         rect.size.width = 30;
@@ -306,14 +302,15 @@
 }
 
 #pragma mark - GestureRecognizer handle
-- (void)onTap:(UITapGestureRecognizer*)recognizer
-{
+- (void)onTap:(UITapGestureRecognizer*)recognizer{
     _isInputting = YES;
     [_hiddenTextField becomeFirstResponder];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textViewOnTap:)]) {
+        [self.delegate textViewOnTap:self];
+    }
 }
 
-- (void)handlePanSlide:(UIPanGestureRecognizer*)recognizer
-{
+- (void)handlePanSlide:(UIPanGestureRecognizer*)recognizer{
     //拖动
     if (recognizer.view == self) {
         CGPoint translation = [recognizer translationInView:self.superview];
@@ -374,8 +371,7 @@
 }
 
 //双手指放大
-- (void)handlePinch:(UIPinchGestureRecognizer*)recognizer
-{
+- (void)handlePinch:(UIPinchGestureRecognizer*)recognizer{
     CGFloat newFontSize = MAX(10.0f, MIN(150.f, _textLabel.font.pointSize * recognizer.scale));
     // set font size
     _textLabel.font = [_textLabel.font fontWithSize:newFontSize];
@@ -394,8 +390,7 @@
 }
 
 //双手指旋转
-- (void)handleRotate:(UIRotationGestureRecognizer*)recognizer
-{
+- (void)handleRotate:(UIRotationGestureRecognizer*)recognizer{
     recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
     
     _rotateAngle += recognizer.rotation;
@@ -404,8 +399,7 @@
 
 
 #pragma mark - UI event handle
-- (void)onInputConfirmBtnClicked:(UIButton*)sender
-{
+- (void)onInputConfirmBtnClicked:(UIButton*)sender{
     _isInputting = NO;
     [_inputTextView resignFirstResponder];
     [_hiddenTextField resignFirstResponder];
@@ -419,7 +413,9 @@
         [self calculateTextLabelFont];
     }
     ///
-    [self.delegate onTextInputDone:_textLabel.text textField:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textInputDone:textField:)]) {
+        [self.delegate textInputDone:_textLabel.text textField:self];
+    }
 }
 
 -(void)textViewDidChangeValue:(NSNotification *)obj{
@@ -432,22 +428,25 @@
     }
 }
 
-- (void)onDeleteBtnClicked:(UIButton*)sender
-{
-    [self.delegate onRemoveTextField:self];
+- (void)onDeleteBtnClicked:(UIButton*)sender{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textViewRemovedClick:)]) {
+        [self.delegate textViewRemovedClick:self];
+    }
     [self removeFromSuperview];
 }
 
-- (void)onStyleBtnClicked:(UIButton*)sender
-{
-    [self.delegate onBubbleTap];
+- (void)onStyleBtnClicked:(UIButton*)sender{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textEditClick:)]) {
+        [self.delegate textEditClick:self];
+    }
 }
 
-- (void)dealloc
-{
+- (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
+- (void)setEditLayerAndButtonHidden:(BOOL)isHidden{
+    _deleteBtn.hidden = _styleBtn.hidden = _scaleRotateBtn.hidden = self.border.hidden = isHidden;
+}
 
 
 

@@ -1166,13 +1166,6 @@
 			path = thirdlibs;
 			sourceTree = "<group>";
 		};
-		E36AB199211A9644002636A8 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		E36F1AB52007131B00DD5AB0 = {
 			isa = PBXGroup;
 			children = (
@@ -1197,7 +1190,6 @@
 		E36F1AC02007131B00DD5AB0 /* MyCamera */ = {
 			isa = PBXGroup;
 			children = (
-				E36AB199211A9644002636A8 /* New Group */,
 				E36F1AF42007148C00DD5AB0 /* Camera-相机 */,
 				E3DEBE1D2106F96E00CE1E8E /* ReplayKit-屏幕录像 */,
 				E3DEBE8D2108498600CE1E8E /* FaceDetector-人脸 */,
@@ -1985,15 +1977,15 @@
 		E3C922A9212FD10000DC45A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E3C922AA212FD10000DC45A6 /* TextFontCell.h */,
-				E3C922AB212FD10000DC45A6 /* TextFontCell.xib */,
-				E3C922AC212FD10000DC45A6 /* MyTextView.m */,
-				E3C922AD212FD10000DC45A6 /* CustomTextView.m */,
-				E3C922AE212FD10000DC45A6 /* NewTestView.m */,
-				E3C922AF212FD10000DC45A6 /* MyTextView.h */,
-				E3C922B0212FD10000DC45A6 /* TextFontCell.m */,
-				E3C922B1212FD10000DC45A6 /* NewTestView.h */,
 				E3C922B2212FD10000DC45A6 /* CustomTextView.h */,
+				E3C922AD212FD10000DC45A6 /* CustomTextView.m */,
+				E3C922AF212FD10000DC45A6 /* MyTextView.h */,
+				E3C922AC212FD10000DC45A6 /* MyTextView.m */,
+				E3C922B1212FD10000DC45A6 /* NewTestView.h */,
+				E3C922AE212FD10000DC45A6 /* NewTestView.m */,
+				E3C922AA212FD10000DC45A6 /* TextFontCell.h */,
+				E3C922B0212FD10000DC45A6 /* TextFontCell.m */,
+				E3C922AB212FD10000DC45A6 /* TextFontCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

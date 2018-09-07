@@ -101,6 +101,37 @@
     }
     return rect;
 }
+-(CGPoint)calPoint1_needFix:(BezierStep *)step{
+    CGFloat newX = 0;
+    CGFloat newY = 0;
+    CGFloat length = hypot(step->endPoint.x-step->startPoint.x, step->endPoint.y-step->startPoint.y);
+    double angle = atan((step->endPoint.y - step->startPoint.y) / (step->endPoint.x - step->startPoint.x));
+    if (angle == 0) {
+        NSLog(@"error");
+    }
+    if (!isnan(angle)) {//right-down
+        if (step->startPoint.x <=step->endPoint.x && step->startPoint.y <= step->endPoint.y) {
+            newX = cos(angle + M_PI / 3 ) * length + step->startPoint.x;
+            newY = sin(angle + M_PI / 3 ) * length + step->startPoint.y;
+            NSLog(@"1111");
+        }
+        else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//left-up
+            NSLog(@"2222");
+            newX = step->startPoint.x - cos(angle + M_PI / 3 ) * length;
+            newY = step->startPoint.y - sin(angle + M_PI / 3 ) * length;
+        }else if (step->startPoint.x < step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//right-up
+            NSLog(@"3333");
+            newX = cos(angle + M_PI / 3 ) * length + step->startPoint.x;
+            newY = step->startPoint.y - sin(angle + M_PI / 3 ) * length ;
+        }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y < step->endPoint.y ){//left-down
+            NSLog(@"4444");
+            newX = step->startPoint.x - cos(angle + M_PI / 3 ) * length;
+            newY = sin(angle + M_PI / 3 ) * length + step->startPoint.y;
+        }
+    }
+    return CGPointMake(newX, newY);
+}
+#pragma mark - 三角形修正版计算
 -(CGPoint)calPoint1:(BezierStep *)step{
     CGFloat newX = 0;
     CGFloat newY = 0;
@@ -124,11 +155,11 @@
         }else if (step->startPoint.x < step->endPoint.x  && step->startPoint.y > step->endPoint.y ){//right-up
             NSLog(@"3333");
             newX = cos(angle + M_PI / 3 ) * length + step->startPoint.x;
-            newY = step->startPoint.y - sin(angle + M_PI / 3 ) * length ;
+            newY = step->startPoint.y + sin(angle + M_PI / 3 ) * length ;
         }else if (step->startPoint.x > step->endPoint.x  && step->startPoint.y < step->endPoint.y ){//left-down
             NSLog(@"4444");
-            newX = step->startPoint.x - cos(angle + M_PI / 3 ) * length;
-            newY = sin(angle + M_PI / 3 ) * length + step->startPoint.y;
+            newX = step->endPoint.x + cos(M_PI / 3 + angle) * length;
+            newY = step->endPoint.y + sin(M_PI / 3 + angle) * length;
         }
     }
     return CGPointMake(newX, newY);

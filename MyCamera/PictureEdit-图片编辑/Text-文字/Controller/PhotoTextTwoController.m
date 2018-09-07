@@ -15,7 +15,7 @@
 #define CellHeight 75
 #define CellMargin 8
 
-@interface PhotoTextTwoController ()<VideoTextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface PhotoTextTwoController ()<TextFieldViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     ImageBlock _block;
 }
@@ -33,7 +33,7 @@
 @implementation PhotoTextTwoController
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.imageView.frame = self.imageRect;
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -53,11 +53,17 @@
     [self initBottomView];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UIImageView *imageV = [[UIImageView alloc]init];
+    
+    UIView *imgBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LL_ScreenWidth, LL_ScreenHeight-165)];
+    [self.view addSubview:imgBgView];
+    self.imageBg = imgBgView;
+    
+    UIImageView *imageV = [[UIImageView alloc]initWithFrame:self.imageRect];
     imageV.userInteractionEnabled = YES;
     imageV.image = self.image;
     [self.imageBg addSubview:imageV];
     self.imageView = imageV;
+    
 }
 - (void)initNav{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(leftBarClick)];
@@ -128,33 +134,41 @@
     
 }
 - (IBAction)addNewTextView:(UIButton *)sender {
+    for (CustomTextView *textV in self.textViewArray) {
+        [textV setEditLayerAndButtonHidden:YES];
+    }
     
-        CustomTextView *textField = [[CustomTextView alloc] initWithFrame:CGRectMake((self.imageView.width - 170) / 2, (self.imageView.height - 50) / 2, 170, 50)];
-        textField.delegate = self;
-        [self.imageView addSubview:textField];
-        self.textField = textField;
+    CustomTextView *textView = [[CustomTextView alloc] initWithFrame:CGRectMake((self.imageView.width - 170) / 2, (self.imageView.height - 50) / 2, 170, 50)];
+    textView.delegate = self;
+    textView.imageRect = self.imageRect;
+    [self.imageView addSubview:textView];
+    self.textField = textView;
     
 }
 
 //文字输入完成
-- (void)onTextInputDone:(NSString *)text textField:(CustomTextView *)textField
-{
+- (void)textInputDone:(NSString *)text textField:(CustomTextView *)textView{
     //    CGRect rect = [text boundingRectWithSize:CGSizeMake((self.imageView.width - 170) / 2, MAXFLOAT) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:@18.0} context:nil];
     //    textField.frame = rect;
-    [self.textField layoutSubviews];
+//    [self.textField layoutSubviews];
 }
-
+- (void)textViewOnTap:(CustomTextView *)textView{
+    for (CustomTextView *textV in self.textViewArray) {
+        if ([textV isEqual:textView]) {
+            [textV setEditLayerAndButtonHidden:NO];
+        }else{
+            [textV setEditLayerAndButtonHidden:YES];
+        }
+    }
+}
 //删除在文字操作view
-- (void)onRemoveTextField:(CustomTextView *)textField
-{
+- (void)textViewRemovedClick:(CustomTextView *)textView{
     
 }
-- (void)onBubbleTap
-{
+- (void)textEditClick:(CustomTextView *)textView{
     
 }
--(void)addFinishBlock:(ImageBlock)block
-{
+-(void)addFinishBlock:(ImageBlock)block{
     _block = block;
 }
 - (UIImage *)composeImage{
