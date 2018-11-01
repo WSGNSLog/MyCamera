@@ -33,8 +33,6 @@
 @property (nonatomic, readonly) UIImage* textImage;             //生成字幕image
 @property (nonatomic, assign) CGRect imageRect;
 
-- (void)setTextBubbleImage:(UIImage *)image textNormalizationFrame:(CGRect)frame;
-
 - (CGRect)textFrameOnView:(UIView*)view;
 
 //关闭键盘

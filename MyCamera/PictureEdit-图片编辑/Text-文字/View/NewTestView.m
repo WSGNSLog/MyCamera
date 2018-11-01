@@ -18,6 +18,9 @@
 @property(nonatomic,retain)CALayer * editLayer;
 @property(nonatomic,retain)CALayer * rotateLayer;
 @property(nonatomic,retain)CAShapeLayer * border;
+@property (nonatomic,assign) CGFloat fontSize;
+@property (nonatomic,copy) NSString *fontName;
+
 @end
 
 @implementation NewTestView
@@ -26,11 +29,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _fontSize = 18;
         self.textLabel = [[UILabel alloc]init];
         [self addSubview:self.textLabel];
         self.textLabel.frame = CGRectMake(24, 24, frame.size.width - 48, frame.size.height - 48);
         self.textLabel.preferredMaxLayoutWidth = LL_ScreenWidth - 48;
-        self.textLabel.font = [UIFont systemFontOfSize:20];
+        self.textLabel.font = [UIFont systemFontOfSize:self.fontSize];
         self.textLabel.numberOfLines = 0;
         
         CAShapeLayer *border = [CAShapeLayer layer];
@@ -191,6 +195,7 @@
             //放大
             CGFloat delta = translation.x / 10;
             CGFloat newFontSize = MAX(10.0f, MIN(150.f, _textLabel.font.pointSize + delta));
+            self.fontSize = newFontSize;
             _textLabel.font = [UIFont systemFontOfSize:newFontSize];
             //            if (!_hasSetBubble) {
             _textLabel.bounds = [self textRect];

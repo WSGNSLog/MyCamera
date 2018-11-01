@@ -27,9 +27,7 @@
     //用来作输助呼出键盘
     UITextField*    _hiddenTextField;
     BOOL            _isInputting;
-    
-    //气泡背景
-    UIImageView *   _bubbleView;
+
     
     //己旋转角度
     CGFloat         _rotateAngle;
@@ -41,11 +39,14 @@
     BOOL            _hasSetBubble;
 }
 @property(nonatomic,retain)CAShapeLayer * border;
+@property (nonatomic,assign) CGFloat fontSize;
+@property (nonatomic,copy) NSString *fontName;
 @end
 
 @implementation CustomTextView
 - (id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        _fontSize = 18;
         _styleIndex = 0;
         _hasSetBubble = NO;
         _textNormalizationFrame = CGRectMake(0, 0, 1, 1);
@@ -73,14 +74,12 @@
         UIBezierPath *path = [UIBezierPath bezierPathWithRect:borderRect];
         self.border.path = path.CGPath;
         
-        _bubbleView = [UIImageView new];
-        [_borderView addSubview:_bubbleView];
         
         _textLabel = [UILabel new];
         _textLabel.text = kDefaultText;
         _textLabel.textColor = UIColor.blackColor;
         _textLabel.shadowOffset = CGSizeMake(2, 2);
-        _textLabel.font = [UIFont systemFontOfSize:18];
+        _textLabel.font = [UIFont systemFontOfSize:self.fontSize];
         _textLabel.numberOfLines = 0;
         _textLabel.textAlignment = NSTextAlignmentCenter;
         UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
@@ -173,10 +172,9 @@
     self.border.path = path.CGPath;
     self.border.frame = _borderView.bounds;
     
-    _bubbleView.frame = CGRectMake(0, 0, _borderView.bounds.size.width, _borderView.bounds.size.height);
     
-    _textLabel.center = CGPointMake(_bubbleView.bounds.size.width * (_textNormalizationFrame.origin.x + _textNormalizationFrame.size.width / 2), _bubbleView.bounds.size.height * (_textNormalizationFrame.origin.y + _textNormalizationFrame.size.height / 2));
-    _textLabel.bounds = CGRectMake(0, 0, _bubbleView.bounds.size.width * _textNormalizationFrame.size.width, _bubbleView.bounds.size.height * _textNormalizationFrame.size.height);
+    _textLabel.center = CGPointMake(borderRect.size.width * (_textNormalizationFrame.origin.x + _textNormalizationFrame.size.width / 2), borderRect.size.height * (_textNormalizationFrame.origin.y + _textNormalizationFrame.size.height / 2));
+    _textLabel.bounds = CGRectMake(0, 0, borderRect.size.width * _textNormalizationFrame.size.width, borderRect.size.height * _textNormalizationFrame.size.height);
     
     
     _deleteBtn.center = CGPointMake(_borderView.x, _borderView.y);
@@ -210,6 +208,7 @@
     _borderView.layer.borderWidth = 0;
     [_borderView setNeedsDisplay];
     CGRect rect = _borderView.bounds;
+    rect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width+24, rect.size.height+24);
     UIView *rotatedViewBox = [[UIView alloc]initWithFrame:CGRectMake(0, 0, rect.size.width , rect.size.height)];
     CGAffineTransform t = CGAffineTransformMakeRotation(_rotateAngle);
     rotatedViewBox.transform = t;
@@ -233,20 +232,6 @@
     return rotatedImg;
 }
 
-//设置气泡
-- (void)setTextBubbleImage:(UIImage *)image textNormalizationFrame:(CGRect)frame
-{
-    _bubbleView.image = image;
-    if (image != nil) {
-        _textNormalizationFrame = frame;
-        [self calculateTextLabelFont];
-        _hasSetBubble = YES;
-    }else{
-        _hasSetBubble = NO;
-    }
-    self.transform = CGAffineTransformRotate(self.transform, -_rotateAngle);
-    _rotateAngle = 0;
-}
 
 //字幕图在视频预览view的frame
 - (CGRect)textFrameOnView:(UIView *)view
@@ -343,6 +328,7 @@
             //放大
             CGFloat delta = translation.x / 10;
             CGFloat newFontSize = MAX(10.0f, MIN(150.f, _textLabel.font.pointSize + delta));
+            self.fontSize = newFontSize;
             _textLabel.font = [UIFont systemFontOfSize:newFontSize];
             if (!_hasSetBubble) {
                 _textLabel.bounds = [self textRect];
@@ -448,6 +434,33 @@
     _deleteBtn.hidden = _styleBtn.hidden = _scaleRotateBtn.hidden = self.border.hidden = isHidden;
 }
 
+#pragma mark - UI event handle
+- (void)setNewTextToTextLabel:(NSString *)text{
+    _isInputting = NO;
+    
+    _textLabel.text = text;
+    
+    if (!_hasSetBubble) {
+        _textLabel.bounds = [self textRect];
+        self.bounds = CGRectMake(0, 0, _textLabel.bounds.size.width + 50, _textLabel.bounds.size.height + 40);
+        
+    }else{
+        [self calculateTextLabelFont];
+    }
+    
+}
+- (void)setTextAlignment:(NSTextAlignment)textAligment{
+    _textLabel.textAlignment = textAligment;
+}
+- (void)setTextColor:(UIColor *)color{
+    if (!color) return;
+    _textLabel.textColor = color;
+}
+- (void)setTextFont:(NSString *)systemFontName{
+    if (!systemFontName) return;
+    self.fontName = systemFontName;
+    _textLabel.font = [UIFont fontWithName:systemFontName size:self.fontSize];
+}
 
 
 @end
