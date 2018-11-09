@@ -25,6 +25,7 @@
 #import "MeituFrameVC.h"
 #import "ImageCutoutVC.h"
 #import "PhotoTextTwoController.h"
+#import "PicAjustController.h"
 
 #define BottomViewHeight 120
 #define CellMargin 5
@@ -249,11 +250,15 @@
             break;
         case 9://调节
         {
-            PhotoCustomRotateVC *rotateVC = [[PhotoCustomRotateVC alloc]init];
-            rotateVC.image = self.image;
-            rotateVC.asset = self.asset;
-            [self.navigationController pushViewController:rotateVC animated:YES];
             
+            PicAjustController *ajustVC = [[PicAjustController alloc]init];
+            
+            ajustVC.originImg = [self.image copy];
+            ajustVC.ImageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+                weakSelf.image = image;
+            };
+            [self presentViewController:ajustVC animated:YES completion:nil];
         }
             break;
         case 10://裁剪第二种
@@ -307,6 +312,15 @@
                 weakSelf.imageView.image = image;
             }];
             [self.navigationController pushViewController:text animated:YES];
+            
+        }
+            break;
+        case 15://旋转
+        {
+            PhotoCustomRotateVC *rotateVC = [[PhotoCustomRotateVC alloc]init];
+            rotateVC.image = self.image;
+            rotateVC.asset = self.asset;
+            [self.navigationController pushViewController:rotateVC animated:YES];
             
         }
             break;

@@ -264,6 +264,10 @@
 		E3CAD4F4210EFC7A001EA29C /* FrameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAD4F3210EFC7A001EA29C /* FrameCell.m */; };
 		E3D3395221105BE8005BEF2D /* ImageCutoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */; };
 		E3D3395321105BE8005BEF2D /* ImageCutoutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */; };
+		E3D5289521904791002E17D7 /* PicAjustController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D5289321904790002E17D7 /* PicAjustController.m */; };
+		E3D5289621904791002E17D7 /* PicAjustController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D5289421904791002E17D7 /* PicAjustController.xib */; };
+		E3D5289A21904C9B002E17D7 /* PicGPUAjustController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D5289821904C9B002E17D7 /* PicGPUAjustController.m */; };
+		E3D5289B21904C9B002E17D7 /* PicGPUAjustController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D5289921904C9B002E17D7 /* PicGPUAjustController.xib */; };
 		E3DBBB9C2109DF0E0074CCE9 /* DrawDashedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBBB9B2109DF0E0074CCE9 /* DrawDashedView.m */; };
 		E3DEBE182106CD0700CE1E8E /* PhotoPasterVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DEBE162106CD0700CE1E8E /* PhotoPasterVC2.m */; };
 		E3DEBE192106CD0700CE1E8E /* PhotoPasterVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3DEBE172106CD0700CE1E8E /* PhotoPasterVC2.xib */; };
@@ -753,6 +757,12 @@
 		E3D3394F21105BE8005BEF2D /* ImageCutoutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCutoutVC.h; sourceTree = "<group>"; };
 		E3D3395021105BE8005BEF2D /* ImageCutoutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCutoutVC.m; sourceTree = "<group>"; };
 		E3D3395121105BE8005BEF2D /* ImageCutoutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCutoutVC.xib; sourceTree = "<group>"; };
+		E3D5289221904790002E17D7 /* PicAjustController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicAjustController.h; sourceTree = "<group>"; };
+		E3D5289321904790002E17D7 /* PicAjustController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicAjustController.m; sourceTree = "<group>"; };
+		E3D5289421904791002E17D7 /* PicAjustController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicAjustController.xib; sourceTree = "<group>"; };
+		E3D5289721904C9A002E17D7 /* PicGPUAjustController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicGPUAjustController.h; sourceTree = "<group>"; };
+		E3D5289821904C9B002E17D7 /* PicGPUAjustController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicGPUAjustController.m; sourceTree = "<group>"; };
+		E3D5289921904C9B002E17D7 /* PicGPUAjustController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicGPUAjustController.xib; sourceTree = "<group>"; };
 		E3DBBB9A2109DF0E0074CCE9 /* DrawDashedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawDashedView.h; sourceTree = "<group>"; };
 		E3DBBB9B2109DF0E0074CCE9 /* DrawDashedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawDashedView.m; sourceTree = "<group>"; };
 		E3DEBE152106CD0700CE1E8E /* PhotoPasterVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPasterVC2.h; sourceTree = "<group>"; };
@@ -979,13 +989,6 @@
 				E310AC5C211030C300FBFB55 /* FrameImageView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E333DF8B210EE0E900261265 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E333DF8C210EE0F000261265 /* Controller */ = {
@@ -1496,8 +1499,8 @@
 		E39B9A1620AD283F0041253C /* PictureEdit-图片编辑 */ = {
 			isa = PBXGroup;
 			children = (
+				E3D5288B219046FD002E17D7 /* Ajust-调节 */,
 				E3C5ED2320F3314000287C68 /* EditHome-编辑首页 */,
-				E3C5EC4D20F3306F00287C68 /* Adjust */,
 				E3C5EC9D20F3307000287C68 /* Crop-裁剪 */,
 				E3C5EC6020F3306F00287C68 /* Filter-滤镜 */,
 				E3C5EC9C20F3307000287C68 /* Frame-边框 */,
@@ -1505,7 +1508,6 @@
 				E32F9C5C21095C36003A6143 /* Mark-标记 */,
 				E3C5ECC820F3307000287C68 /* RotateAndMirror-旋转镜像 */,
 				E3C5EC6D20F3306F00287C68 /* Text-文字 */,
-				E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */,
 				E3C5EC8320F3307000287C68 /* WarterMark-水印 */,
 				E3E5561921097324001B5662 /* DrawBoard-画板 */,
 				E310AC6F21105AA200FBFB55 /* Cutout-抠图 */,
@@ -1600,68 +1602,6 @@
 			path = ActionSheetPicker;
 			sourceTree = "<group>";
 		};
-		E3C5EC3920F3306F00287C68 /* Tuya-涂鸦 */ = {
-			isa = PBXGroup;
-			children = (
-				E3C5EC3A20F3306F00287C68 /* Controller */,
-				E3C5EC3B20F3306F00287C68 /* Model */,
-				E3C5EC3C20F3306F00287C68 /* View */,
-			);
-			path = "Tuya-涂鸦";
-			sourceTree = "<group>";
-		};
-		E3C5EC3A20F3306F00287C68 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E3C5EC3B20F3306F00287C68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E3C5EC3C20F3306F00287C68 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E3C5EC4D20F3306F00287C68 /* Adjust */ = {
-			isa = PBXGroup;
-			children = (
-				E3C5EC4E20F3306F00287C68 /* Controller */,
-				E3C5EC4F20F3306F00287C68 /* Model */,
-				E3C5EC5020F3306F00287C68 /* View */,
-			);
-			path = Adjust;
-			sourceTree = "<group>";
-		};
-		E3C5EC4E20F3306F00287C68 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E3C5EC4F20F3306F00287C68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E3C5EC5020F3306F00287C68 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		E3C5EC6020F3306F00287C68 /* Filter-滤镜 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1731,7 +1671,6 @@
 			isa = PBXGroup;
 			children = (
 				E3C5EC8420F3307000287C68 /* Controller */,
-				E3C5EC8B20F3307000287C68 /* Model */,
 				E3C5EC8C20F3307000287C68 /* View */,
 			);
 			path = "WarterMark-水印";
@@ -1748,13 +1687,6 @@
 				E3C5EC8820F3307000287C68 /* PhotoLocationController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E3C5EC8B20F3307000287C68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E3C5EC8C20F3307000287C68 /* View */ = {
@@ -1783,7 +1715,6 @@
 			isa = PBXGroup;
 			children = (
 				E333DF8C210EE0F000261265 /* Controller */,
-				E333DF8B210EE0E900261265 /* Model */,
 				E333DF8A210EE0D800261265 /* View */,
 			);
 			path = "Frame-边框";
@@ -1793,7 +1724,6 @@
 			isa = PBXGroup;
 			children = (
 				E3C5EC9E20F3307000287C68 /* Controller */,
-				E3C5ECA820F3307000287C68 /* Model */,
 				E3C5ECA920F3307000287C68 /* View */,
 			);
 			path = "Crop-裁剪";
@@ -1813,13 +1743,6 @@
 				E3C5ECA220F3307000287C68 /* PhotoCutController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E3C5ECA820F3307000287C68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E3C5ECA920F3307000287C68 /* View */ = {
@@ -2021,6 +1944,27 @@
 				E358BF962112B24B000FE5C3 /* MyImageHelper.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		E3D5288B219046FD002E17D7 /* Ajust-调节 */ = {
+			isa = PBXGroup;
+			children = (
+				E3D5288C21904707002E17D7 /* Controller */,
+			);
+			path = "Ajust-调节";
+			sourceTree = "<group>";
+		};
+		E3D5288C21904707002E17D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3D5289221904790002E17D7 /* PicAjustController.h */,
+				E3D5289321904790002E17D7 /* PicAjustController.m */,
+				E3D5289421904791002E17D7 /* PicAjustController.xib */,
+				E3D5289721904C9A002E17D7 /* PicGPUAjustController.h */,
+				E3D5289821904C9B002E17D7 /* PicGPUAjustController.m */,
+				E3D5289921904C9B002E17D7 /* PicGPUAjustController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E3DEBE1D2106F96E00CE1E8E /* ReplayKit-屏幕录像 */ = {
@@ -2236,6 +2180,7 @@
 			files = (
 				E3D3395321105BE8005BEF2D /* ImageCutoutVC.xib in Resources */,
 				E323BD1820AD2D6500F01C49 /* revoke@2x.png in Resources */,
+				E3D5289621904791002E17D7 /* PicAjustController.xib in Resources */,
 				E323BD1920AD2D6500F01C49 /* revoke@3x.png in Resources */,
 				E3114C5420D3A92E00D48461 /* BaseController.xib in Resources */,
 				E357D69D20AEBADE006F31C4 /* AlbumItemCell.xib in Resources */,
@@ -2290,6 +2235,7 @@
 				E3C5ED0520F3307100287C68 /* UndisplayLocCell.xib in Resources */,
 				E310AC5A21100D6000FBFB55 /* MeituFrameVC.xib in Resources */,
 				E323BD1E20AD2D6500F01C49 /* colorsSelected@3x.png in Resources */,
+				E3D5289B21904C9B002E17D7 /* PicGPUAjustController.xib in Resources */,
 				E35228552109741E00C3B6A2 /* DrawBordController.xib in Resources */,
 				E323BD1720AD2D6500F01C49 /* left@3x.png in Resources */,
 				E3C922C5212FD14800DC45A6 /* PhotoTextTwoController.xib in Resources */,
@@ -2365,6 +2311,7 @@
 				E357D69720AEBADE006F31C4 /* LocalAlbumController.m in Sources */,
 				E3E5561821096FEC001B5662 /* MarkPaintStep.m in Sources */,
 				E3B76419201592E700AD2508 /* NSObject+LHDB.m in Sources */,
+				E3D5289A21904C9B002E17D7 /* PicGPUAjustController.m in Sources */,
 				E3B76421201592E700AD2508 /* LHDBQueue.m in Sources */,
 				E3B76337200DD04300AD2508 /* UIImage+SubImage.m in Sources */,
 				E39B99DF20AA7CBB0041253C /* WGS84TOGCJ02.m in Sources */,
@@ -2498,6 +2445,7 @@
 				E34F64FF20DA050700F4E4FD /* PECropRectView.m in Sources */,
 				E3C922B5212FD10000DC45A6 /* CustomTextView.m in Sources */,
 				E38D5699205671BA003C4C4C /* UIViewController+VTMagic.m in Sources */,
+				E3D5289521904791002E17D7 /* PicAjustController.m in Sources */,
 				E3114C4E20D38A0A00D48461 /* UIImage+RoundedCorner.m in Sources */,
 				E358BF972112B24B000FE5C3 /* MyImageHelper.m in Sources */,
 				E3114C4D20D38A0A00D48461 /* UIImage+Alpha.m in Sources */,
