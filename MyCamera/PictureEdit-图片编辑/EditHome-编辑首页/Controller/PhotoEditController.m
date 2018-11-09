@@ -26,7 +26,7 @@
 #import "ImageCutoutVC.h"
 #import "PhotoTextTwoController.h"
 #import "PicAjustController.h"
-
+#import "PicGPUAjustController.h"
 #define BottomViewHeight 120
 #define CellMargin 5
 #define CollectionHeight 60
@@ -70,8 +70,8 @@
     }];
 
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"裁剪2",@"贴纸2",@"美图边框",@"抠图",@"文字", nil];
-    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"clip",@"sticker",@"border",@"border",@"text", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"编辑",@"文字",@"贴纸",@"边框",@"标记",@"涂鸦",@"滤镜",@"CI滤镜",@"水印",@"调节",@"调节",@"裁剪2",@"贴纸2",@"美图边框",@"抠图",@"文字", nil];
+    self.imageArr = [NSArray arrayWithObjects:@"edit",@"text",@"sticker",@"border",@"mark",@"draw",@"filter",@"filter2",@"watermark",@"adjust",@"adjust",@"clip",@"sticker",@"border",@"border",@"text", nil];
     
     UIButton *rightBarBtn = [[UIButton alloc]init];
     rightBarBtn.frame = CGRectMake(0, 0, 50, 30);
@@ -261,7 +261,20 @@
             [self presentViewController:ajustVC animated:YES completion:nil];
         }
             break;
-        case 10://裁剪第二种
+        case 10://调节2
+        {
+            
+            PicGPUAjustController *ajustVC = [[PicGPUAjustController alloc]init];
+            
+            ajustVC.originImg = [self.image copy];
+            ajustVC.ImageBlock = ^(UIImage *image) {
+                weakSelf.imageView.image = image;
+                weakSelf.image = image;
+            };
+            [self presentViewController:ajustVC animated:YES completion:nil];
+        }
+            break;
+        case 11://裁剪第二种
         {
             PhotoSecondCropController  *cropVC = [[PhotoSecondCropController alloc]init];
             cropVC.image = self.image;
@@ -272,7 +285,7 @@
             
         }
             break;
-        case 11://贴纸第二种
+        case 12://贴纸第二种
         {
             PhotoPasterVC2  *paster = [[PhotoPasterVC2 alloc]init];
             paster.image = self.image;
@@ -283,7 +296,7 @@
             
         }
             break;
-        case 12://画框2:仿美图
+        case 13://画框2:仿美图
         {
             MeituFrameVC *frameVC = [[MeituFrameVC alloc]init];
             frameVC.originImg = self.image;
@@ -293,7 +306,7 @@
             [self presentViewController:frameVC animated:YES completion:nil];
         }
             break;
-        case 13://
+        case 14://
         {
             ImageCutoutVC *cutoutVC = [[ImageCutoutVC alloc]init];
             cutoutVC.image = self.image;
@@ -303,7 +316,7 @@
             [self presentViewController:cutoutVC animated:YES completion:nil];
         }
             break;
-        case 14:
+        case 15:
         {
             PhotoTextTwoController *text = [[PhotoTextTwoController alloc] init];
             text.image = self.imageView.image;
@@ -315,7 +328,7 @@
             
         }
             break;
-        case 15://旋转
+        case 16://旋转
         {
             PhotoCustomRotateVC *rotateVC = [[PhotoCustomRotateVC alloc]init];
             rotateVC.image = self.image;

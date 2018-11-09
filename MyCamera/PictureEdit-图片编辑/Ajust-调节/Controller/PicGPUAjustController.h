@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PicGPUAjustController : UIViewController
+@property (strong,nonatomic) UIImage *originImg;
+@property (nonatomic,copy) void(^ImageBlock)(UIImage *image);
+
 
 @end
